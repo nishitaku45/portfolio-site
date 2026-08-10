@@ -86,21 +86,36 @@ export default function Pricing() {
         ))}
       </div>
 
-      <div className="mt-6 flex flex-col gap-4 border border-dashed border-gold/60 p-8 sm:flex-row sm:items-center sm:justify-between">
-        <div>
-          <span className="text-xs font-semibold uppercase tracking-[0.15em] text-gold-dark">
-            + オプション
-          </span>
-          <h3 className="mt-2 font-serif text-xl text-brand-900">
-            {pricing.option.name}
-          </h3>
-          <p className="mt-2 max-w-xl text-sm leading-loose text-brand-600">
-            {pricing.option.description}
-          </p>
-        </div>
-        <p className="shrink-0 font-serif text-2xl text-brand-900">
-          {pricing.option.price}
-        </p>
+      <div className="mt-6 flex flex-col gap-4">
+        {pricing.options.map((option) => (
+          <div
+            key={option.name}
+            className="flex flex-col gap-4 border border-dashed border-gold/60 p-8 sm:flex-row sm:items-center sm:justify-between"
+          >
+            <div>
+              <span className="text-xs font-semibold uppercase tracking-[0.15em] text-gold-dark">
+                + オプション
+              </span>
+              <h3 className="mt-2 font-serif text-xl text-brand-900">
+                {option.name}
+              </h3>
+              <p className="mt-2 max-w-xl text-sm leading-loose text-brand-600">
+                {option.description}
+              </p>
+              {option.sampleHref && (
+                <Link
+                  href={option.sampleHref}
+                  className="mt-2 inline-block text-xs font-semibold text-gold-dark underline underline-offset-4 hover:text-gold"
+                >
+                  制作例を見る →
+                </Link>
+              )}
+            </div>
+            <p className="shrink-0 font-serif text-2xl text-brand-900">
+              {option.price}
+            </p>
+          </div>
+        ))}
       </div>
     </section>
   );

@@ -1,0 +1,288 @@
+<!--
+  ==================================================================
+  「ページ追加」オプションの制作例（架空の美容クリニック・9ページ構成）
+  ==================================================================
+
+  これは料金セクションの「ページ追加」オプションの説明用に、
+  「基本プランに4ページ追加して9ページ構成にすると、実際にはこのくらいの
+  ボリューム感になります」という具体例として作った、完全に独立した
+  HTML/CSS/JSのサイト（9ページ）です。React／Next.jsは使っていません。
+  店名・住所・電話番号などはすべて「○○」「00-0000-0000」のような
+  仮の値（プレースホルダー）で、実在のクリニックではありません。
+
+  【ページ構成】
+    index.html                … このファイル（TOPページ）
+    menu.html                 … 施術メニュー一覧
+    menu-hyaluronic-acid.html … 施術詳細（ヒアルロン酸注射）
+    menu-thread-lift.html     … 施術詳細（糸リフト）
+    staff.html                … 医師・スタッフ紹介
+    faq.html                  … よくある質問
+    reviews.html               … お客様の声
+    access.html                … アクセス
+    reserve.html                … ご予約
+
+  全ページで style.css（見た目）と script.js（動き）を共通で読み込んで
+  います。改修したいときは以下を編集してください。
+    - 文章・画像・料金 … 各HTMLファイルの中の該当箇所
+    - 色・余白・レイアウト … style.css
+    - タブ切り替え・アコーディオンなどの動き … script.js
+
+  Next.js側の src/app/sample/pages-example/page.tsx から
+  <iframe> でこのindex.htmlを画面に埋め込んでいます
+  （Servicesセクション・ライトプランのサンプルと同じ仕組みです）。
+  ==================================================================
+-->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>○○美容クリニック（ページ追加オプションの制作例）</title>
+<meta name="description" content="○○美容クリニックの公式サイト。施術メニュー・医師紹介・よくある質問など9ページ構成のサンプルです。">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-en">BEAUTY CLINIC</span>
+      <span class="logo-ja">美容クリニック</span>
+    </a>
+    <nav class="nav" id="siteNav">
+      <a href="menu.html">施術メニュー</a>
+      <a href="staff.html">医師紹介</a>
+      <a href="faq.html">よくある質問</a>
+      <a href="access.html">アクセス</a>
+    </nav>
+    <div class="header-actions">
+      <a href="reserve.html" class="btn btn-primary btn-small nav-cta">ご予約（無料）</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="メニューを開く" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</header>
+
+<!-- ファーストビュー（ヒーロー） -->
+<section class="hero">
+  <div class="container">
+    <p class="hero-badge reveal">Beauty Clinic</p>
+    <div class="hero-image-placeholder reveal">[ 施術後の洗練されたイメージ写真 ]</div>
+    <h1 class="reveal">静かな贅沢を、肌に。</h1>
+    <p class="hero-lead reveal">医師が直接担当する、完全プライベートの美容医療クリニック。お一人おひとりの理想に寄り添い、最善の施術をご提案します。</p>
+    <div class="hero-actions reveal">
+      <a href="reserve.html" class="btn btn-primary btn-large">ご予約（初回カウンセリング無料）</a>
+      <a href="tel:0300000000" class="btn btn-outline">TEL 03-0000-0000</a>
+    </div>
+    <p class="hero-note reveal">月〜土 10:00 — 19:00</p>
+  </div>
+</section>
+
+<!-- 実績バー -->
+<section class="stats-bar">
+  <div class="container stats-grid">
+    <div class="stat-item reveal">
+      <p class="stat-number">10,000 名+</p>
+      <p class="stat-label">累計来院数</p>
+    </div>
+    <div class="stat-item reveal">
+      <p class="stat-number">50,000 件+</p>
+      <p class="stat-label">施術実績</p>
+    </div>
+    <div class="stat-item reveal">
+      <p class="stat-number">15 年</p>
+      <p class="stat-label">開院実績</p>
+    </div>
+    <div class="stat-item reveal">
+      <p class="stat-number">98.7%</p>
+      <p class="stat-label">カウンセリング満足度</p>
+    </div>
+  </div>
+</section>
+
+<!-- 選ばれる理由 -->
+<section class="section">
+  <div class="container">
+    <p class="section-eyebrow reveal">Why Choose Us</p>
+    <h2 class="section-title reveal">選ばれる理由</h2>
+    <p class="section-lead reveal">3つのお約束</p>
+    <div class="reasons-grid">
+      <div class="reason-card reveal">
+        <p class="reason-number">I</p>
+        <h3>医師による直接施術</h3>
+        <p>美容外科専門医が全施術を担当します。看護師への委託は一切なく、医師の技術と判断で安全な施術を提供いたします。</p>
+      </div>
+      <div class="reason-card reveal">
+        <p class="reason-number">II</p>
+        <h3>完全個室・プライバシー保護</h3>
+        <p>完全予約制・完全個室の空間で、周囲を気にすることなくご相談いただけます。プライバシーを最大限に配慮します。</p>
+      </div>
+      <div class="reason-card reveal">
+        <p class="reason-number">III</p>
+        <h3>丁寧なカウンセリング</h3>
+        <p>お悩みと理想を丁寧にお聞きし、お一人おひとりに最適な施術プランをご提案します。押し売りは一切ございません。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 施術メニュープレビュー -->
+<section class="section section-tight" style="background:var(--color-surface);">
+  <div class="container">
+    <p class="section-eyebrow reveal">Treatments</p>
+    <h2 class="section-title reveal">施術メニュー</h2>
+    <p class="section-lead reveal">お客様のお悩みに合わせた各種施術をご用意しております</p>
+    <div class="menu-grid">
+      <div class="menu-card reveal">
+        <div class="menu-card-image" aria-hidden="true"></div>
+        <span class="menu-card-tag">フェイス系</span>
+        <h3>ヒアルロン酸注射</h3>
+        <p>ボリューム補充・シワ改善に</p>
+        <div class="menu-card-footer">
+          <span class="menu-price">49,800 円〜</span>
+          <a href="menu-hyaluronic-acid.html" class="menu-detail-link">詳細 —</a>
+        </div>
+      </div>
+      <div class="menu-card reveal">
+        <div class="menu-card-image" aria-hidden="true"></div>
+        <span class="menu-card-tag">フェイス系</span>
+        <h3>ボトックス注射</h3>
+        <p>表情ジワを和らげ若々しい印象へ</p>
+        <div class="menu-card-footer">
+          <span class="menu-price">29,800 円〜</span>
+        </div>
+      </div>
+      <div class="menu-card reveal">
+        <div class="menu-card-image" aria-hidden="true"></div>
+        <span class="menu-card-tag">リフトアップ</span>
+        <h3>糸リフト</h3>
+        <p>切らないたるみ治療</p>
+        <div class="menu-card-footer">
+          <span class="menu-price">198,000 円〜</span>
+          <a href="menu-thread-lift.html" class="menu-detail-link">詳細 —</a>
+        </div>
+      </div>
+      <div class="menu-card reveal">
+        <div class="menu-card-image" aria-hidden="true"></div>
+        <span class="menu-card-tag">レーザー・光</span>
+        <h3>フォトフェイシャル</h3>
+        <p>シミ・くすみ・赤みを改善</p>
+        <div class="menu-card-footer">
+          <span class="menu-price">24,800 円〜</span>
+        </div>
+      </div>
+      <div class="menu-card reveal">
+        <div class="menu-card-image" aria-hidden="true"></div>
+        <span class="menu-card-tag">医療脱毛</span>
+        <h3>医療脱毛（全身）</h3>
+        <p>永久脱毛、全身・部位別プラン</p>
+        <div class="menu-card-footer">
+          <span class="menu-price">19,800 円〜</span>
+        </div>
+      </div>
+      <div class="menu-card reveal">
+        <div class="menu-card-image" aria-hidden="true"></div>
+        <span class="menu-card-tag">点滴・内服</span>
+        <h3>美容点滴（プラセンタ）</h3>
+        <p>美白・エイジングケア・疲労回復に</p>
+        <div class="menu-card-footer">
+          <span class="menu-price">9,800 円〜</span>
+        </div>
+      </div>
+    </div>
+    <div class="menu-more reveal">
+      <a href="menu.html" class="btn btn-outline">施術メニューをすべて見る</a>
+    </div>
+  </div>
+</section>
+
+<!-- 医師・スタッフ紹介プレビュー -->
+<section class="section">
+  <div class="container">
+    <p class="section-eyebrow reveal">Our Doctors</p>
+    <h2 class="section-title reveal">医師・スタッフ紹介</h2>
+    <div class="doctors-grid">
+      <div class="doctor-card reveal">
+        <div class="doctor-photo-placeholder">[ 写真 ]</div>
+        <h3>田中 美咲</h3>
+        <p class="doctor-role">院長 / 美容外科専門医</p>
+        <p class="doctor-bio">東京大学医学部卒業。美容外科専門医として15年以上の豊富な経験を持つ。</p>
+      </div>
+      <div class="doctor-card reveal">
+        <div class="doctor-photo-placeholder">[ 写真 ]</div>
+        <h3>佐藤 健一</h3>
+        <p class="doctor-role">副院長 / 皮膚科専門医</p>
+        <p class="doctor-bio">レーザー・注射系施術のスペシャリスト。慶應義塾大学医学部卒業。</p>
+      </div>
+      <div class="doctor-card reveal">
+        <div class="doctor-photo-placeholder">[ 写真 ]</div>
+        <h3>山田 あゆみ</h3>
+        <p class="doctor-role">美容皮膚科医</p>
+        <p class="doctor-bio">皮膚科専門医・美容皮膚科認定医。大阪大学医学部卒業。</p>
+      </div>
+    </div>
+    <div class="menu-more reveal">
+      <a href="staff.html" class="doctor-detail-link">スタッフ一覧を見る →</a>
+    </div>
+  </div>
+</section>
+
+<!-- お客様の声プレビュー -->
+<section class="section section-tight" style="background:var(--color-surface);">
+  <div class="container">
+    <p class="section-eyebrow reveal">Reviews</p>
+    <h2 class="section-title reveal">お客様の声</h2>
+    <div class="reviews-preview-grid">
+      <div class="review-card reveal">
+        <p class="review-stars">★★★★★</p>
+        <p class="review-body">カウンセリングから施術まで丁寧にご説明いただき不安なく受けることができました。仕上がりも自然で、通い続けています。</p>
+        <p class="review-meta">30 代・女性</p>
+      </div>
+      <div class="review-card reveal">
+        <p class="review-stars">★★★★★</p>
+        <p class="review-body">他院では断られた悩みも、こちらでは真剣に向き合っていただけました。先生の技術と誠実さに感銘を受けています。</p>
+        <p class="review-meta">40 代・女性</p>
+      </div>
+      <div class="review-card reveal">
+        <p class="review-stars">★★★★★</p>
+        <p class="review-body">初めての美容医療で緊張していましたが、スタッフの方がとても親切で安心できました。友人にも強くお勧めしています。</p>
+        <p class="review-meta">20 代・女性</p>
+      </div>
+    </div>
+    <div class="menu-more reveal">
+      <a href="reviews.html" class="doctor-detail-link">お客様の声をもっと見る →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band">
+  <div class="container">
+    <p class="reveal">まずは無料カウンセリングへ。ご不安なことはすべてお聞きします。</p>
+    <a href="reserve.html" class="btn btn-outline reveal" style="border-color:#fff;color:#fff;">無料カウンセリングを予約する</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <nav class="footer-nav">
+      <a href="index.html">美容クリニック</a>
+      <a href="menu.html">施術メニュー</a>
+      <a href="staff.html">医師紹介</a>
+      <a href="faq.html">よくある質問</a>
+      <a href="reviews.html">お客様の声</a>
+      <a href="access.html">アクセス</a>
+      <span>プライバシーポリシー</span>
+    </nav>
+    <p class="footer-info">
+      〒000-0000 東京都○○区○○ 0-0-0　TEL: 03-0000-0000　月〜土 10:00〜19:00（日祝休診）<br>
+      © 2026 ○○美容クリニック（架空のクリニックです）
+    </p>
+  </div>
+</footer>
+
+<a href="reserve.html" class="btn btn-primary floating-reserve">ご予約（無料）</a>
+
+<script src="script.js" defer></script>
+</body>
+</html>

@@ -2,11 +2,19 @@ import Link from "next/link";
 
 export default function SampleBanner({
   planName,
+  description,
   sticky = true,
 }: {
-  planName: string;
+  /** 「◯◯プランで制作した場合の見本です」という定型文で表示したい場合はこちら */
+  planName?: string;
+  /** プランに紐付かない例（オプションの制作例など）は、こちらに文言をそのまま渡す */
+  description?: string;
   sticky?: boolean;
 }) {
+  const message =
+    description ??
+    `${planName}プランで制作した場合の見本です。実在の企業ではありません。`;
+
   return (
     <div
       className={`${
@@ -15,9 +23,7 @@ export default function SampleBanner({
     >
       <span className="font-semibold text-gold">制作イメージサンプル</span>
       <span className="text-background/50">|</span>
-      <span>
-        {planName}プランで制作した場合の見本です。実在の企業ではありません。
-      </span>
+      <span>{message}</span>
       <Link href="/#pricing" className="underline underline-offset-2 hover:text-gold">
         ← ポートフォリオに戻る
       </Link>

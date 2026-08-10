@@ -1,0 +1,878 @@
+/* ==================================================================
+   「ページ追加」オプションの制作例（架空の美容クリニック・9ページ構成）
+   専用スタイルシート
+   ==================================================================
+
+   public/sample-light/style.css（ライトプランのサンプル）と同じ
+   ブランドカラーをベースに、ページ数が多いサイト向けの部品
+   （タブ切り替え・アコーディオン・料金表・パンくず 等）を追加しています。
+
+   おおまかな構成:
+     1. 色などの共通設定（:root の中）
+     2. ページ全体の初期化
+     3. ヘッダー・パンくず・フローティング予約ボタン（全ページ共通）
+     4. ボタン
+     5. TOPページ（ヒーロー・実績バー・選ばれる理由・メニュープレビュー等）
+     6. 施術メニュー一覧ページ（カテゴリタブ・カード一覧）
+     7. 施術詳細ページ（お悩みリスト・料金表・ビフォーアフター・施術の流れ）
+     8. 医師・スタッフ紹介ページ
+     9. よくある質問ページ（カテゴリタブ・アコーディオン）
+     10. お客様の声ページ（フィルターチップ・レビューカード）
+     11. アクセスページ（地図・診療時間表）
+     12. ご予約ページ（メリット一覧）
+     13. フッター
+     14. スクロール演出・レスポンシブ対応
+   ================================================================== */
+
+:root {
+  --color-bg: #fdfaf7;
+  --color-surface: #ffffff;
+  --color-primary: #c98a97;
+  --color-primary-dark: #b06d7b;
+  --color-accent: #d8b98c;
+  --color-text: #3a332f;
+  --color-text-light: #7a716b;
+  --color-border: rgba(0, 0, 0, 0.08);
+  --color-line: #06c755;
+  --font-base: "Hiragino Mincho ProN", "Yu Mincho", serif;
+  --font-sans: "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+}
+
+/* ------------------------------------------------------------------
+   1〜2. 初期化
+   ------------------------------------------------------------------ */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.8;
+}
+
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+img { max-width: 100%; display: block; }
+button { font: inherit; cursor: pointer; }
+
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ------------------------------------------------------------------
+   3. ヘッダー・パンくず・フローティング予約ボタン（全ページ共通のUI）
+   ------------------------------------------------------------------ */
+.site-header {
+  position: sticky;
+  top: 0;
+  background: rgba(253, 250, 247, 0.95);
+  backdrop-filter: blur(6px);
+  z-index: 100;
+  border-bottom: 1px solid var(--color-border);
+  transition: box-shadow 0.3s ease;
+}
+
+.site-header.is-scrolled { box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08); }
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 24px;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+  font-family: var(--font-base);
+  color: var(--color-primary-dark);
+  transition: opacity 0.2s;
+}
+
+.logo:hover { opacity: 0.75; }
+.logo-en { font-size: 0.7rem; letter-spacing: 0.15em; }
+.logo-ja { font-size: 1rem; letter-spacing: 0.05em; }
+
+.nav { display: flex; gap: 32px; }
+
+.nav a {
+  position: relative;
+  font-size: 0.9rem;
+  color: var(--color-text);
+  transition: color 0.2s;
+}
+
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 1px;
+  background: var(--color-primary-dark);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.25s ease;
+}
+
+.nav a:hover { color: var(--color-primary-dark); }
+.nav a:hover::after { transform: scaleX(1); transform-origin: left; }
+.nav a.is-current { color: var(--color-primary-dark); font-weight: bold; }
+
+.header-actions { display: flex; align-items: center; gap: 16px; }
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+}
+
+/* パンくずナビゲーション: 現在地を明示し、前のページへの戻り導線を確保する */
+.breadcrumb {
+  padding: 14px 0;
+  font-size: 0.78rem;
+  color: var(--color-text-light);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.breadcrumb a { color: var(--color-primary-dark); }
+.breadcrumb a:hover { text-decoration: underline; }
+
+/* フローティング予約ボタン: スクロール中も画面右下に常時表示 */
+.floating-reserve {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 90;
+  box-shadow: 0 10px 30px rgba(176, 109, 123, 0.4);
+}
+
+/* ------------------------------------------------------------------
+   4. ボタン
+   ------------------------------------------------------------------ */
+.btn {
+  display: inline-block;
+  padding: 14px 32px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+.btn:active { transform: translateY(0) scale(0.97); }
+
+.btn-primary { background: var(--color-primary); color: #fff; }
+.btn-primary:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(176, 109, 123, 0.3);
+}
+
+.btn-outline {
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary-dark);
+  background: transparent;
+}
+.btn-outline:hover { background: var(--color-primary); color: #fff; }
+
+.btn-large { padding: 18px 48px; font-size: 1rem; }
+.btn-small { padding: 8px 20px; font-size: 0.8rem; }
+
+.btn-line { background: var(--color-line); color: #fff; }
+.btn-line:hover { opacity: 0.9; transform: translateY(-2px); }
+
+/* ------------------------------------------------------------------
+   共通: セクション見出し
+   ------------------------------------------------------------------ */
+.section { padding: 88px 0; }
+.section-tight { padding: 56px 0; }
+
+.section-eyebrow {
+  text-align: center;
+  font-size: 0.78rem;
+  letter-spacing: 0.25em;
+  color: var(--color-primary-dark);
+  margin-bottom: 8px;
+}
+
+.section-title {
+  font-family: var(--font-base);
+  font-size: clamp(1.5rem, 1.2vw + 1.2rem, 1.8rem);
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.section-lead {
+  text-align: center;
+  color: var(--color-text-light);
+  max-width: 560px;
+  margin: 0 auto 48px;
+}
+
+/* ------------------------------------------------------------------
+   5. TOPページ
+   ------------------------------------------------------------------ */
+.hero {
+  position: relative;
+  padding: 90px 0 70px;
+  background: linear-gradient(160deg, #fdfaf7 0%, #f6e9e6 100%);
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero-image-placeholder {
+  margin: 0 auto 32px;
+  max-width: 640px;
+  height: 220px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--color-accent), var(--color-primary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+}
+
+.hero-badge {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 6px 16px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--color-primary-dark);
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+}
+
+.hero h1 {
+  font-family: var(--font-base);
+  font-size: clamp(1.9rem, 3vw + 1rem, 2.6rem);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.hero-lead {
+  color: var(--color-text-light);
+  max-width: 520px;
+  margin: 0 auto 32px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.hero-note { font-size: 0.8rem; color: var(--color-text-light); }
+
+/* 実績バー（累計来院数など、数字を横並びで見せる） */
+.stats-bar {
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 32px 0;
+}
+
+.stat-item { text-align: center; padding: 8px; }
+.stat-number {
+  font-family: var(--font-base);
+  font-size: 1.7rem;
+  color: var(--color-primary-dark);
+}
+.stat-label { font-size: 0.78rem; color: var(--color-text-light); margin-top: 4px; }
+
+/* 選ばれる理由（ローマ数字カード） */
+.reasons-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.reason-card { text-align: center; }
+.reason-number {
+  font-family: var(--font-base);
+  font-size: 1.6rem;
+  color: var(--color-accent);
+  margin-bottom: 12px;
+}
+.reason-card h3 { font-size: 1.05rem; margin-bottom: 10px; }
+.reason-card p { font-size: 0.85rem; color: var(--color-text-light); }
+
+/* 施術メニュープレビュー・一覧共通のカード */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.menu-card {
+  background: var(--color-surface);
+  border-radius: 16px;
+  padding: 22px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s;
+}
+
+.menu-card:hover { transform: translateY(-6px); }
+
+.menu-card-image {
+  height: 120px;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  background: linear-gradient(135deg, var(--color-accent), var(--color-primary));
+}
+
+.menu-card-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  color: var(--color-primary-dark);
+  background: rgba(201, 138, 151, 0.12);
+  border-radius: 999px;
+  padding: 3px 10px;
+  margin-bottom: 8px;
+}
+
+.menu-card-duration { font-size: 0.75rem; color: var(--color-text-light); margin-left: 6px; }
+.menu-card h3 { font-size: 1.05rem; margin-bottom: 8px; }
+.menu-card p { font-size: 0.85rem; color: var(--color-text-light); margin-bottom: 10px; }
+
+.menu-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menu-price { color: var(--color-primary-dark); font-weight: bold; }
+.menu-detail-link { font-size: 0.82rem; color: var(--color-primary-dark); }
+.menu-detail-link:hover { text-decoration: underline; }
+
+.menu-more { text-align: center; margin-top: 40px; }
+
+.menu-note {
+  margin-top: 32px;
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--color-text-light);
+}
+
+/* 医師紹介プレビュー・カード（TOP/医師紹介ページ共通） */
+.doctors-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.doctor-photo-placeholder {
+  height: 180px;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  background: linear-gradient(160deg, #efe3dd, #d8b98c55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-light);
+  font-size: 0.8rem;
+}
+
+.doctor-card { text-align: center; }
+.doctor-card h3 { font-size: 1.05rem; margin-bottom: 4px; }
+.doctor-role { font-size: 0.8rem; color: var(--color-primary-dark); margin-bottom: 10px; }
+.doctor-bio { font-size: 0.82rem; color: var(--color-text-light); }
+.doctor-detail-link { display: inline-block; margin-top: 10px; font-size: 0.8rem; color: var(--color-primary-dark); }
+
+/* お客様の声プレビュー（TOP用の簡易カード） */
+.reviews-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.review-card {
+  background: var(--color-surface);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.review-stars { color: var(--color-accent); letter-spacing: 2px; margin-bottom: 10px; }
+.review-body { font-size: 0.85rem; color: var(--color-text); margin-bottom: 10px; }
+.review-meta { font-size: 0.78rem; color: var(--color-text-light); }
+.review-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  color: var(--color-primary-dark);
+  background: rgba(201, 138, 151, 0.12);
+  border-radius: 999px;
+  padding: 3px 10px;
+  margin-bottom: 10px;
+}
+
+/* CTA（下部の予約誘導ブロック） */
+.cta-band {
+  background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary));
+  color: #fff;
+  text-align: center;
+  padding: 64px 0;
+}
+
+.cta-band p { margin-bottom: 20px; opacity: 0.95; }
+
+/* ------------------------------------------------------------------
+   6. 施術メニュー一覧ページ：カテゴリタブ
+   ------------------------------------------------------------------ */
+.category-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.category-tab {
+  padding: 8px 20px;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  font-size: 0.82rem;
+  color: var(--color-text-light);
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.category-tab:hover { border-color: var(--color-primary); }
+
+.category-tab.is-active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+}
+
+/* JSでカテゴリ絞り込みをする際、非該当カードに付与するクラス */
+.menu-card[hidden],
+.review-card[hidden] { display: none; }
+
+/* ------------------------------------------------------------------
+   7. 施術詳細ページ
+   ------------------------------------------------------------------ */
+.detail-header { padding: 48px 0 32px; }
+.detail-category {
+  display: inline-block;
+  font-size: 0.75rem;
+  color: var(--color-primary-dark);
+  background: rgba(201, 138, 151, 0.12);
+  border-radius: 999px;
+  padding: 4px 14px;
+  margin-bottom: 14px;
+}
+.detail-header h1 {
+  font-family: var(--font-base);
+  font-size: clamp(1.6rem, 2vw + 1rem, 2.1rem);
+  margin-bottom: 14px;
+}
+.detail-meta {
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+}
+
+.detail-block { margin-bottom: 56px; }
+.detail-block h2 {
+  font-family: var(--font-base);
+  font-size: 1.3rem;
+  margin-bottom: 18px;
+}
+
+.concern-list { display: flex; flex-direction: column; gap: 10px; }
+.concern-list li {
+  font-size: 0.9rem;
+  padding-left: 4px;
+}
+
+.price-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+.price-table th, .price-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--color-border);
+  text-align: left;
+}
+.price-table th { color: var(--color-text-light); font-weight: 600; font-size: 0.8rem; }
+.price-table td.price-monitor { color: var(--color-primary-dark); font-weight: bold; }
+
+.before-after-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.before-after-item {
+  aspect-ratio: 4 / 3;
+  border-radius: 12px;
+  background: #efe6e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-light);
+  font-size: 0.85rem;
+}
+
+.before-after-note { margin-top: 10px; font-size: 0.75rem; color: var(--color-text-light); }
+
+.flow-list { display: flex; flex-direction: column; gap: 16px; }
+.flow-list li {
+  display: flex;
+  gap: 14px;
+  align-items: baseline;
+  font-size: 0.9rem;
+}
+.flow-index {
+  font-family: var(--font-base);
+  color: var(--color-accent);
+  min-width: 28px;
+}
+
+.detail-cta { text-align: center; padding: 32px 0 8px; }
+
+/* ------------------------------------------------------------------
+   8. 医師・スタッフ紹介ページ
+   ------------------------------------------------------------------ */
+.doctor-message {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 32px;
+  align-items: center;
+  background: var(--color-surface);
+  border-radius: 16px;
+  padding: 32px;
+  margin-bottom: 56px;
+}
+
+.doctor-message-photo {
+  height: 220px;
+  border-radius: 12px;
+  background: linear-gradient(160deg, #efe3dd, #d8b98c55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-light);
+  font-size: 0.8rem;
+}
+
+.doctor-message-role {
+  font-size: 0.78rem;
+  color: var(--color-primary-dark);
+  margin-bottom: 8px;
+}
+
+.doctor-message blockquote {
+  font-family: var(--font-base);
+  font-size: 1.1rem;
+  line-height: 2;
+}
+
+.staff-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.staff-card { text-align: center; }
+.staff-photo {
+  height: 140px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  background: linear-gradient(160deg, #efe3dd, #d8b98c55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-light);
+  font-size: 0.75rem;
+}
+.staff-role-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  color: var(--color-primary-dark);
+  background: rgba(201, 138, 151, 0.12);
+  border-radius: 999px;
+  padding: 2px 10px;
+  margin-bottom: 8px;
+}
+.staff-card h3 { font-size: 0.95rem; margin-bottom: 4px; }
+.staff-card p { font-size: 0.78rem; color: var(--color-text-light); }
+
+/* ------------------------------------------------------------------
+   9. よくある質問ページ：アコーディオン
+   ------------------------------------------------------------------ */
+.faq-list { display: flex; flex-direction: column; gap: 12px; max-width: 760px; margin: 0 auto; }
+
+.faq-item {
+  background: var(--color-surface);
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+}
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 20px;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 0.92rem;
+  color: var(--color-text);
+}
+
+.faq-question-mark {
+  font-family: var(--font-base);
+  color: var(--color-primary-dark);
+  font-weight: bold;
+}
+
+.faq-question-text { flex: 1; }
+
+.faq-question-icon {
+  color: var(--color-text-light);
+  transition: transform 0.25s ease;
+}
+
+.faq-item.is-open .faq-question-icon { transform: rotate(180deg); }
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.faq-item.is-open .faq-answer { max-height: 320px; }
+
+.faq-answer-inner {
+  display: flex;
+  gap: 14px;
+  padding: 0 20px 20px 20px;
+  font-size: 0.86rem;
+  color: var(--color-text-light);
+}
+
+.faq-answer-mark { color: var(--color-accent); font-weight: bold; }
+
+/* ------------------------------------------------------------------
+   10. お客様の声ページ
+   ------------------------------------------------------------------ */
+.reviews-summary {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* ------------------------------------------------------------------
+   11. アクセスページ
+   ------------------------------------------------------------------ */
+.access-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 32px;
+  align-items: stretch;
+}
+
+.access-map {
+  background: #e5ddd3;
+  border-radius: 16px;
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--color-text-light);
+  font-size: 0.85rem;
+}
+
+.access-info {
+  background: var(--color-surface);
+  border-radius: 16px;
+  padding: 28px;
+}
+
+.access-info-row { margin-bottom: 18px; }
+.access-info-row:last-child { margin-bottom: 0; }
+.access-info-label { font-size: 0.78rem; color: var(--color-text-light); margin-bottom: 4px; }
+.access-info-value { font-size: 0.9rem; }
+
+.access-routes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+.access-route-badge {
+  font-size: 0.75rem;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: rgba(201, 138, 151, 0.12);
+  color: var(--color-primary-dark);
+}
+
+.hours-table { width: 100%; border-collapse: collapse; margin-top: 24px; font-size: 0.85rem; }
+.hours-table th, .hours-table td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid var(--color-border);
+}
+.hours-table th { color: var(--color-text-light); font-weight: 600; font-size: 0.78rem; }
+.hours-dot { color: var(--color-primary-dark); font-weight: bold; }
+
+/* ------------------------------------------------------------------
+   12. ご予約ページ
+   ------------------------------------------------------------------ */
+.reserve-hero {
+  text-align: center;
+  padding: 72px 0 40px;
+}
+
+.reserve-note {
+  margin-top: 16px;
+  font-size: 0.78rem;
+  color: var(--color-text-light);
+}
+
+.benefit-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin: 56px 0;
+}
+
+.benefit-card { text-align: center; }
+.benefit-icon {
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 14px;
+  border-radius: 50%;
+  background: rgba(201, 138, 151, 0.12);
+  color: var(--color-primary-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-base);
+  font-size: 1.1rem;
+}
+.benefit-card h3 { font-size: 0.9rem; margin-bottom: 6px; }
+.benefit-card p { font-size: 0.78rem; color: var(--color-text-light); }
+
+.reserve-alt {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.reserve-alt-card {
+  background: var(--color-surface);
+  border-radius: 16px;
+  padding: 28px;
+  text-align: center;
+}
+.reserve-alt-card h3 { font-size: 1rem; margin-bottom: 10px; }
+.reserve-alt-card p { font-size: 0.85rem; color: var(--color-text-light); }
+
+/* ------------------------------------------------------------------
+   13. フッター
+   ------------------------------------------------------------------ */
+.site-footer {
+  background: var(--color-text);
+  color: #fff;
+  padding: 40px 0 28px;
+}
+
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 20px;
+  font-size: 0.82rem;
+}
+
+.footer-nav a:hover { opacity: 0.75; }
+.footer-nav span { opacity: 0.6; }
+
+.footer-info {
+  text-align: center;
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+
+/* ------------------------------------------------------------------
+   14. スクロール演出・レスポンシブ
+   ------------------------------------------------------------------ */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.is-visible { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { transition: none; opacity: 1; transform: none; }
+  .site-header, .btn, .nav a::after, .logo, .nav, .faq-answer, .faq-question-icon { transition: none; }
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .menu-grid, .doctors-grid, .reviews-preview-grid, .reviews-grid { grid-template-columns: repeat(2, 1fr); }
+  .staff-grid, .stats-grid, .benefit-grid, .reviews-summary { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .nav-cta { display: none; }
+  .menu-toggle { display: block; }
+
+  .nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    background: var(--color-bg);
+    border-top: 1px solid var(--color-border);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .nav.nav-open { max-height: 360px; }
+
+  .nav a {
+    display: block;
+    padding: 16px 24px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  }
+  .nav a::after { display: none; }
+
+  .menu-grid, .doctors-grid, .reviews-preview-grid, .reviews-grid,
+  .staff-grid, .stats-grid, .benefit-grid, .reviews-summary,
+  .reasons-grid, .before-after-grid, .reserve-alt {
+    grid-template-columns: 1fr;
+  }
+
+  .access-grid { grid-template-columns: 1fr; }
+  .doctor-message { grid-template-columns: 1fr; }
+  .doctor-message-photo { height: 160px; }
+}

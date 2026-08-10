@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>よくある質問｜○○美容クリニック（ページ追加オプションの制作例）</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-en">BEAUTY CLINIC</span>
+      <span class="logo-ja">美容クリニック</span>
+    </a>
+    <nav class="nav" id="siteNav">
+      <a href="menu.html">施術メニュー</a>
+      <a href="staff.html">医師紹介</a>
+      <a href="faq.html" class="is-current">よくある質問</a>
+      <a href="access.html">アクセス</a>
+    </nav>
+    <div class="header-actions">
+      <a href="reserve.html" class="btn btn-primary btn-small nav-cta">ご予約（無料）</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="メニューを開く" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</header>
+
+<div class="breadcrumb">
+  <div class="container"><a href="index.html">TOP</a> — よくある質問</div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <p class="section-eyebrow reveal">FAQ</p>
+    <h1 class="section-title reveal">よくある質問</h1>
+    <p class="section-lead reveal">項目をクリックすると回答が開きます</p>
+
+    <div class="category-tabs" data-filter-group="faq">
+      <button type="button" class="category-tab is-active" data-filter="all">すべて</button>
+      <button type="button" class="category-tab" data-filter="カウンセリング">カウンセリング</button>
+      <button type="button" class="category-tab" data-filter="施術">施術</button>
+      <button type="button" class="category-tab" data-filter="料金・支払い">料金・支払い</button>
+      <button type="button" class="category-tab" data-filter="ダウンタイム">ダウンタイム</button>
+      <button type="button" class="category-tab" data-filter="アフターケア">アフターケア</button>
+    </div>
+
+    <div class="faq-list">
+      <div class="faq-item reveal" data-filter-target="faq" data-category="カウンセリング">
+        <button type="button" class="faq-question" aria-expanded="false">
+          <span class="faq-question-mark">Q</span>
+          <span class="faq-question-text">カウンセリングは無料ですか？</span>
+          <span class="faq-question-icon">▼</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <span class="faq-answer-mark">A</span>
+            <p>初回カウンセリングは完全無料です。施術を強制することは一切ありません。お気軽にご相談ください。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item reveal" data-filter-target="faq" data-category="施術">
+        <button type="button" class="faq-question" aria-expanded="false">
+          <span class="faq-question-mark">Q</span>
+          <span class="faq-question-text">施術中は痛みがありますか？</span>
+          <span class="faq-question-icon">▼</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <span class="faq-answer-mark">A</span>
+            <p>施術内容によって異なりますが、多くの施術でクリーム麻酔・局所麻酔をご用意しております。痛みに不安がある方はカウンセリング時にご相談ください。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item reveal" data-filter-target="faq" data-category="カウンセリング">
+        <button type="button" class="faq-question" aria-expanded="false">
+          <span class="faq-question-mark">Q</span>
+          <span class="faq-question-text">何歳から受けることができますか？</span>
+          <span class="faq-question-icon">▼</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <span class="faq-answer-mark">A</span>
+            <p>基本的に18歳以上の方を対象としております。未成年の方は保護者の同意が必要です。詳しくはカウンセリング時にご相談ください。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item reveal" data-filter-target="faq" data-category="ダウンタイム">
+        <button type="button" class="faq-question" aria-expanded="false">
+          <span class="faq-question-mark">Q</span>
+          <span class="faq-question-text">ダウンタイムはどのくらいかかりますか？</span>
+          <span class="faq-question-icon">▼</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <span class="faq-answer-mark">A</span>
+            <p>施術内容により異なります。注射系は当日〜翌日、糸リフトなどは2〜3日程度が目安です。事前のカウンセリングで具体的な目安をご案内します。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item reveal" data-filter-target="faq" data-category="料金・支払い">
+        <button type="button" class="faq-question" aria-expanded="false">
+          <span class="faq-question-mark">Q</span>
+          <span class="faq-question-text">お支払い方法について教えてください。</span>
+          <span class="faq-question-icon">▼</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <span class="faq-answer-mark">A</span>
+            <p>現金・クレジットカード（VISA / Mastercard / JCB 等）・各種医療ローンに対応しております。分割払いもご相談ください。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item reveal" data-filter-target="faq" data-category="アフターケア">
+        <button type="button" class="faq-question" aria-expanded="false">
+          <span class="faq-question-mark">Q</span>
+          <span class="faq-question-text">施術後に仕事はできますか？</span>
+          <span class="faq-question-icon">▼</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <span class="faq-answer-mark">A</span>
+            <p>施術内容によりますが、多くの施術は当日から普段通りお過ごしいただけます。腫れや内出血が出る場合もあるため、予定に応じてカウンセリング時にご相談ください。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item reveal" data-filter-target="faq" data-category="アフターケア">
+        <button type="button" class="faq-question" aria-expanded="false">
+          <span class="faq-question-mark">Q</span>
+          <span class="faq-question-text">アフターケアはありますか？</span>
+          <span class="faq-question-icon">▼</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <span class="faq-answer-mark">A</span>
+            <p>施術後のお肌の状態確認や、気になることがあればいつでもご連絡いただける体制を整えています。必要に応じて再診・フォローアップも行います。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <nav class="footer-nav">
+      <a href="index.html">美容クリニック</a>
+      <a href="menu.html">施術メニュー</a>
+      <a href="staff.html">医師紹介</a>
+      <a href="faq.html">よくある質問</a>
+      <a href="reviews.html">お客様の声</a>
+      <a href="access.html">アクセス</a>
+      <span>プライバシーポリシー</span>
+    </nav>
+    <p class="footer-info">
+      〒000-0000 東京都○○区○○ 0-0-0　TEL: 03-0000-0000　月〜土 10:00〜19:00（日祝休診）<br>
+      © 2026 ○○美容クリニック（架空のクリニックです）
+    </p>
+  </div>
+</footer>
+
+<a href="reserve.html" class="btn btn-primary floating-reserve">ご予約（無料）</a>
+
+<script src="script.js" defer></script>
+</body>
+</html>
