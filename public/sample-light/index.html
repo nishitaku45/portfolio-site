@@ -1,0 +1,178 @@
+<!--
+  ==================================================================
+  ライトプランのサンプルLP（架空の美容クリニック）
+  ==================================================================
+
+  これは「ライトプラン」で制作した場合の見本として使っている、
+  完全に独立したHTML/CSS/JSのページです（React／Next.jsは使っていません）。
+  店名・住所・電話番号などはすべて「○○」「00-0000-0000」のような
+  仮の値（プレースホルダー）で、実在のクリニックではありません。
+
+  【全体の仕組み】
+    1. このファイル(index.html)  … ページの骨組み（HTML）
+    2. style.css                 … 見た目（色・余白・文字サイズなど）
+    3. script.js                 … スクロール演出・言語切替などの動き
+
+  この3ファイルだけで完結しているので、Reactやビルドの知識がなくても
+  普通のHTML/CSS/JSの改修知識だけで直接編集できます。
+
+  【文章（見出し・料金・住所など）を書き換えたいとき】
+    → このファイルの中で "編集OK" 〜 "編集OKここまで" のコメントで
+       挟まれている日本語部分だけを書き換えてください。
+    → data-en="..." という属性がある要素は、右上のEN/JA切り替え
+       ボタンで表示される英訳なので、日本語と一緒に書き換えてください。
+    → < > で囲まれたタグそのもの（class="..." や href="..." を含む）
+       は消したり書き換えたりしないでください（見た目が崩れます）。
+    → 編集したら、必ずブラウザで見た目を確認してから公開してください。
+
+  【デザイン・レイアウトを変えたいとき】
+    → style.css を編集してください。
+
+  【動き（スクロールで表示される演出・言語切替など）を変えたいとき】
+    → script.js を編集してください。
+
+  このHTMLファイルは、Next.js側の src/app/sample/light/page.tsx から
+  <iframe> でそのまま画面に埋め込まれています
+  （Servicesセクションと同じ仕組みです）。
+  ==================================================================
+-->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>○○美容クリニック（ライトプランのサンプル）</title>
+<meta name="description" content="○○美容クリニックの公式サイト。フェイシャルケア・ボディケアなどの施術メニューとWEB予約、公式LINEのご案内。">
+<!-- このページはポートフォリオ内の「サンプル見本」で、実在のサイトでは
+     ないため、検索エンジンには登録されないようにしている -->
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!--
+  編集ルール:
+  「編集OK」〜「編集OKここまで」の間にある日本語テキストだけを書き換える。
+  data-en="..." がある要素は、英語表示切替に使われる英訳も一緒に書き換える。
+  <  >  で囲まれたタグ自体（class="..." や href="..." を含む）は絶対に消さない・変えない。
+  編集したら必ずブラウザで見た目を確認してから公開する。
+-->
+
+<header class="site-header" id="siteHeader">
+  <div class="container header-inner">
+    <div class="logo">○○美容クリニック</div>
+    <nav class="nav" id="siteNav">
+      <a href="#menu" data-en="Menu">メニュー</a>
+      <a href="#reserve" data-en="Reserve">ご予約</a>
+      <a href="#line" data-en="LINE">公式LINE</a>
+      <a href="#access" data-en="Access">アクセス</a>
+    </nav>
+    <div class="header-actions">
+      <button class="lang-toggle" id="langToggle" aria-label="Switch language">EN</button>
+      <a href="#reserve" class="btn btn-primary nav-cta" data-en="Reserve Now">ご予約はこちら</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="メニューを開く" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner container">
+    <!-- 編集OK: キャッチコピー（data-enも合わせて更新） -->
+    <p class="hero-eyebrow reveal">Beauty Clinic</p>
+    <h1 class="reveal" data-en="For your most beautiful self, inside and out.">お肌もこころも、<br>いちばん美しい自分へ。</h1>
+    <p class="hero-lead reveal" data-en="Our experienced specialists design a treatment plan tailored to you.">経験豊富な専門スタッフが、あなたに合った施術プランをご提案します。</p>
+    <!-- 編集OKここまで -->
+    <div class="hero-actions reveal">
+      <a href="#reserve" class="btn btn-primary" data-en="Book Online">WEBで予約する</a>
+      <a href="#line" class="btn btn-outline" data-en="Add on LINE">公式LINEを友だち追加</a>
+    </div>
+  </div>
+</section>
+
+<section class="menu" id="menu">
+  <div class="container">
+    <h2 class="section-title reveal" data-en="Menu">メニュー</h2>
+    <p class="section-lead reveal" data-en="A range of treatments tailored to your needs.">お客様のお悩みに合わせた各種施術をご用意しております。</p>
+    <div class="menu-grid">
+      <!-- 編集OK: メニュー1（施術名・説明・価格。data-enの英訳も合わせて更新） -->
+      <div class="menu-card reveal">
+        <!-- 実写真を入れる場合は <img loading="lazy" width height src alt> に差し替える（表示崩れ防止のためwidth/heightは必須） -->
+        <div class="menu-card-image" aria-hidden="true"></div>
+        <h3 data-en="Facial Care">フェイシャルケア</h3>
+        <p data-en="Treatments for skin texture and pore concerns.">肌質改善・毛穴ケアなど、お肌の悩みに寄り添った施術。</p>
+        <p class="menu-price">¥8,800〜</p>
+      </div>
+      <!-- 編集OKここまで -->
+
+      <!-- 編集OK: メニュー2（施術名・説明・価格。data-enの英訳も合わせて更新） -->
+      <div class="menu-card reveal">
+        <div class="menu-card-image" aria-hidden="true"></div>
+        <h3 data-en="Body Care">ボディケア</h3>
+        <p data-en="Dedicated equipment care for swelling and sagging concerns.">むくみ・たるみが気になる方へ、専用機器によるケア。</p>
+        <p class="menu-price">¥12,000〜</p>
+      </div>
+      <!-- 編集OKここまで -->
+
+      <!-- 編集OK: メニュー3（施術名・説明・価格。data-enの英訳も合わせて更新） -->
+      <div class="menu-card reveal">
+        <div class="menu-card-image" aria-hidden="true"></div>
+        <h3 data-en="Counseling">カウンセリング</h3>
+        <p data-en="Free counseling available, first-timers welcome.">初めての方も安心の無料カウンセリングを実施中。</p>
+        <p class="menu-price">無料</p>
+      </div>
+      <!-- 編集OKここまで -->
+
+      <!--
+        メニューを増やしたいときは、上の<div class="menu-card reveal">〜</div>ブロックを
+        まるごとコピーしてこの上に貼り付け、中の文字とdata-enだけ書き換える。
+      -->
+    </div>
+  </div>
+</section>
+
+<section class="reserve" id="reserve">
+  <div class="container reserve-inner">
+    <h2 class="section-title section-title-light reveal" data-en="Reservation">ご予約</h2>
+    <p class="section-lead section-lead-light reveal" data-en="Book online 24 hours a day. Feel free to reach us by phone or LINE with any questions.">24時間WEBからご予約いただけます。ご不明点はお電話・公式LINEでもお気軽にどうぞ。</p>
+    <a href="#" class="btn btn-primary btn-large reveal" id="reserveBtn" data-en="Open Booking System">予約システムを開く</a>
+    <p class="reserve-note reveal" data-en="An external booking system (STORES Reservation, Coubic, etc.) will be embedded or linked here.">※ここに外部予約システム（STORES予約・Coubic等）の埋め込み、または連携ボタンを設置します</p>
+  </div>
+</section>
+
+<section class="line" id="line">
+  <div class="container line-inner">
+    <div class="line-text reveal">
+      <h2 class="section-title" data-en="Official LINE Account">公式LINEはじめました</h2>
+      <p class="section-lead" data-en="Get campaign updates and reservation reminders. Add us as a friend now.">お得なキャンペーン情報やご予約リマインドを配信中。今すぐ友だち追加してください。</p>
+      <a href="#" class="btn btn-line" data-en="Add as Friend">友だち追加する</a>
+    </div>
+    <div class="line-qr reveal" aria-hidden="true">
+      <div class="qr-placeholder" data-en="QR Code">QRコード</div>
+    </div>
+  </div>
+</section>
+
+<section class="access" id="access">
+  <div class="container">
+    <h2 class="section-title reveal" data-en="Access">アクセス</h2>
+    <div class="access-grid">
+      <div class="access-map reveal" aria-hidden="true" data-en="Map (Google Maps embed planned)">地図（Googleマップ埋め込み予定）</div>
+      <!-- 編集OK: 住所・診療時間・電話番号（<strong>のdata-en英語表記は変えず、<br>の後ろの値だけ更新） -->
+      <div class="access-info reveal">
+        <p><strong data-en="Address">住所</strong><br>〒000-0000 東京都○○区○○ 0-0-0</p>
+        <p><strong data-en="Hours">診療時間</strong><br>10:00〜19:00（不定休）</p>
+        <p><strong data-en="Phone">電話番号</strong><br>00-0000-0000</p>
+      </div>
+      <!-- 編集OKここまで -->
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <p data-en="© 2026 XX Beauty Clinic">© 2026 ○○美容クリニック（架空のクリニックです）</p>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+</body>
+</html>
