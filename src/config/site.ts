@@ -143,7 +143,7 @@ export const siteConfig = {
         sampleHref: "/sample/light",
         pages: "1ページ（LP形式）",
         includes: [
-          "ヒーロー・強みの紹介・メニュー（商品）一覧・アクセス",
+          "トップの見出し・キャッチコピー、強みの紹介、メニュー（商品）一覧、アクセス",
           "公開前の修正 2回まで",
         ],
         featured: false,
