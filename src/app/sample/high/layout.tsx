@@ -10,9 +10,9 @@ export default function HighSampleLayout({ children }: { children: ReactNode }) 
           変わってもヘッダーと重ならないようにする。 */}
       <div className="sticky top-0 z-50">
         <SampleBanner planName="ハイ" sticky={false} />
-        <div className="border-b border-white/10 bg-[#111015]/95 backdrop-blur">
+        <header className="border-b border-white/10 bg-[#111015]/95 backdrop-blur">
           <HighHeader />
-        </div>
+        </header>
       </div>
       <PageTransition>{children}</PageTransition>
       <footer className="border-t border-white/10 px-8 py-8 text-center text-[10px] tracking-widest text-[#ece7dd]/60">

@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -13,38 +14,92 @@ const navLinks = [
 
 export default function StandardHeader() {
   const pathname = usePathname();
+  const [open, setOpen] = useState(false);
+  const [openedForPathname, setOpenedForPathname] = useState(pathname);
+
+  if (pathname !== openedForPathname) {
+    setOpenedForPathname(pathname);
+    setOpen(false);
+  }
 
   return (
-    <header className="flex items-center justify-between border-b border-[#e8d9d2] bg-[#faf8f4]/95 px-6 py-4 backdrop-blur sm:px-10">
-      <Link href="/sample/standard" className="flex items-center gap-3">
-        <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[linear-gradient(135deg,#d8b9ae,#9c5a56)] font-serif text-xs text-white">
-          S
-        </span>
-        <span className="font-serif text-sm tracking-[0.1em]">
-          Sunny Side Hair
-        </span>
-      </Link>
-      <nav className="hidden gap-8 text-[11px] tracking-[0.2em] text-[#6b5d54] md:flex">
-        {navLinks.map((link) => (
+    <header className="border-b border-[#e8d9d2] bg-[#faf8f4]/95 backdrop-blur">
+      <div className="flex items-center justify-between px-6 py-4 sm:px-10">
+        <Link href="/sample/standard" className="flex items-center gap-3">
+          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[linear-gradient(135deg,#d8b9ae,#9c5a56)] font-serif text-xs text-white">
+            S
+          </span>
+          <span className="font-serif text-sm tracking-[0.1em]">
+            Sunny Side Hair
+          </span>
+        </Link>
+        <nav className="hidden gap-8 text-[11px] tracking-[0.2em] text-[#6b5d54] md:flex">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={`border-b pb-0.5 transition hover:border-[#9c5a56] hover:text-[#9c5a56] ${
+                pathname === link.href
+                  ? "border-[#9c5a56] text-[#9c5a56]"
+                  : "border-transparent"
+              }`}
+            >
+              {link.label}
+            </Link>
+          ))}
+        </nav>
+        <div className="flex items-center gap-3">
           <Link
-            key={link.href}
-            href={link.href}
-            className={`border-b pb-0.5 transition hover:border-[#9c5a56] hover:text-[#9c5a56] ${
-              pathname === link.href
-                ? "border-[#9c5a56] text-[#9c5a56]"
-                : "border-transparent"
-            }`}
+            href="/sample/standard/access"
+            className="hidden rounded-sm border border-[#9c5a56] px-5 py-2 text-[11px] tracking-[0.15em] text-[#9c5a56] transition hover:bg-[#9c5a56] hover:text-white sm:inline-block"
           >
-            {link.label}
+            ご予約
           </Link>
-        ))}
-      </nav>
-      <Link
-        href="/sample/standard/access"
-        className="rounded-sm border border-[#9c5a56] px-5 py-2 text-[11px] tracking-[0.15em] text-[#9c5a56] transition hover:bg-[#9c5a56] hover:text-white"
-      >
-        ご予約
-      </Link>
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            aria-expanded={open}
+            aria-label={open ? "メニューを閉じる" : "メニューを開く"}
+            className="flex h-8 w-8 flex-col items-center justify-center gap-1.5 md:hidden"
+          >
+            <span
+              className={`h-px w-5 bg-[#3a332c] transition ${open ? "translate-y-[7px] rotate-45" : ""}`}
+            />
+            <span
+              className={`h-px w-5 bg-[#3a332c] transition ${open ? "opacity-0" : ""}`}
+            />
+            <span
+              className={`h-px w-5 bg-[#3a332c] transition ${open ? "-translate-y-[7px] -rotate-45" : ""}`}
+            />
+          </button>
+        </div>
+      </div>
+      {open && (
+        <nav className="border-t border-[#e8d9d2] px-6 py-4 md:hidden">
+          <ul className="flex flex-col gap-4 text-[11px] tracking-[0.2em] text-[#6b5d54]">
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className={`block transition hover:text-[#9c5a56] ${
+                    pathname === link.href ? "text-[#9c5a56]" : ""
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+            <li>
+              <Link
+                href="/sample/standard/access"
+                className="block text-[#9c5a56]"
+              >
+                ご予約
+              </Link>
+            </li>
+          </ul>
+        </nav>
+      )}
     </header>
   );
 }
