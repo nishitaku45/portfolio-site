@@ -13,6 +13,12 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
+  // basePath はサーバー設定のため、そのままではブラウザ側(クライアント)の
+  // コードから参照できない。Services セクションが埋め込む iframe の URL
+  // 組み立てに使えるよう、NEXT_PUBLIC_ 接頭辞を付けて同じ値を公開する。
+  env: {
+    NEXT_PUBLIC_BASE_PATH: basePath,
+  },
 };
 
 export default nextConfig;

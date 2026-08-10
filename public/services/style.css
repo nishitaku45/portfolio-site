@@ -1,0 +1,186 @@
+/* ==================================================================
+   Services セクション（「提供サービス」の一覧）専用スタイルシート
+   ==================================================================
+
+   このファイルは普通のCSSです。Tailwind CSSのような特殊な省略記法は
+   使っていないので、色や余白を変えたいときは下の該当する行の数値を
+   書き換えるだけでOKです。
+
+   おおまかな構成:
+     1. 色などの共通設定（:root の中）
+     2. ページ全体の初期化（余白リセットなど）
+     3. セクション全体（背景・余白）
+     4. 見出し部分（ラベル + タイトル）
+     5. サービスカードの一覧（グリッドレイアウト）
+     6. スマホ表示用の調整（画面が狭いとき）
+   ================================================================== */
+
+/* ------------------------------------------------------------------
+   1. 色・フォントの共通設定
+   ここの値を変えると、ページ全体の色味が一括で変わります。
+   （サイト本体 src/app/globals.css の配色に合わせています）
+   ------------------------------------------------------------------ */
+:root {
+  --services-color-background: #faf8f4; /* カードの背景色（クリーム色） */
+  --services-color-section-bg: #f4f0e6b3; /* セクション全体の背景（薄いベージュ、少し透ける） */
+  --services-color-text-heading: #14120e; /* 見出しの文字色（濃い墨色） */
+  --services-color-text-body: #3a352c; /* 説明文の文字色 */
+  --services-color-text-bullet: #24211b; /* 箇条書きの文字色 */
+  --services-color-gold: #b08d57; /* アクセントカラー（線・カード上部の縁取り） */
+  --services-color-gold-dark: #8a6c3f; /* ラベル文字の色（濃いゴールド） */
+
+  /* 見出し用の明朝体フォント。無ければ標準の明朝体にフォールバックします */
+  --services-font-serif: "YuMincho", "Yu Mincho", "Hiragino Mincho ProN", "HGS明朝E", serif;
+  /* 本文用のゴシック体フォント */
+  --services-font-sans: "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+}
+
+/* ------------------------------------------------------------------
+   2. ページ全体の初期化
+   ブラウザ標準の余白をリセットして、iframeの中にぴったり収まるように
+   しています。
+   ------------------------------------------------------------------ */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--services-font-sans);
+  color: var(--services-color-text-body);
+}
+
+/* ------------------------------------------------------------------
+   3. セクション全体（背景・上下の余白）
+   ------------------------------------------------------------------ */
+.services-section {
+  background-color: var(--services-color-section-bg);
+  /* 上下の余白。数値を大きくするとセクションの上下が広がります */
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+.services-container {
+  /* 中身の最大幅。広い画面でも文章が横に伸びすぎないようにしています */
+  max-width: 64rem;
+  margin: 0 auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* ------------------------------------------------------------------
+   4. 見出し部分（小さいラベル + 大見出し）
+   ------------------------------------------------------------------ */
+.services-eyebrow-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* ラベルの左側にある短い金色の線 */
+.services-eyebrow-line {
+  height: 1px;
+  width: 2.5rem;
+  background-color: var(--services-color-gold);
+}
+
+.services-eyebrow-text {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--services-color-gold-dark);
+}
+
+.services-heading {
+  margin: 1rem 0 0;
+  font-family: var(--services-font-serif);
+  font-size: 1.875rem; /* スマホなど狭い画面での文字サイズ */
+  color: var(--services-color-text-heading);
+}
+
+/* ------------------------------------------------------------------
+   5. サービスカードの一覧
+   ------------------------------------------------------------------ */
+.services-grid {
+  margin-top: 3rem;
+  display: grid;
+  /* スマホでは1列。768px以上になったら下のメディアクエリで2列にします */
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.services-loading {
+  color: var(--services-color-text-body);
+  font-size: 0.875rem;
+}
+
+/* 1つ1つのサービスカード */
+.service-card {
+  background-color: var(--services-color-background);
+  /* 上端だけ金色の太い線を引いて、カードの区切りを目立たせています */
+  border-top: 2px solid var(--services-color-gold);
+  padding: 2.5rem;
+}
+
+.service-card-title {
+  margin: 0;
+  font-family: var(--services-font-serif);
+  font-size: 1.5rem;
+  color: var(--services-color-text-heading);
+}
+
+.service-card-description {
+  margin: 1rem 0 0;
+  font-size: 0.875rem;
+  line-height: 2; /* 行間を広めにして読みやすくしています */
+  color: var(--services-color-text-body);
+}
+
+.service-card-bullets {
+  margin: 2rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.service-card-bullet {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  color: var(--services-color-text-bullet);
+}
+
+/* 箇条書きの先頭にある短い金色の横線（「・」の代わりのデザイン） */
+.service-card-bullet-mark {
+  margin-top: 0.6rem;
+  height: 1px;
+  width: 1rem;
+  flex-shrink: 0;
+  background-color: var(--services-color-gold);
+}
+
+/* ------------------------------------------------------------------
+   6. 画面が広いとき（タブレット・PC）の調整
+   768px はよく使われる「スマホとPCの境目」の目安です。
+   ------------------------------------------------------------------ */
+@media (min-width: 768px) {
+  .services-section {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+
+  .services-heading {
+    font-size: 2.25rem;
+  }
+
+  .services-grid {
+    /* サービスの数が2つのときにきれいに並ぶよう2列にしています。
+       サービスの項目数が変わっても崩れないので基本はこのままでOKです。 */
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

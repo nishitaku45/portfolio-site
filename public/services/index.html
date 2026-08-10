@@ -1,0 +1,74 @@
+<!--
+  ==================================================================
+  Services セクション（「提供サービス」の一覧）— 素のHTML/CSS/JS版
+  ==================================================================
+
+  このファイルは、トップページの「提供サービス」の部分だけを取り出した
+  完全に独立したHTMLファイルです。React／Next.js／Tailwind CSSなど、
+  難しいフレームワークの知識がなくても、普通のHTML・CSS・JavaScriptだけで
+  改修できるように作られています。
+
+  【全体の仕組み】
+    1. このファイル(index.html)  … ページの骨組み（HTML）
+    2. style.css                 … 見た目（色・余白・文字サイズなど）
+    3. script.js                 … サービス内容のデータを読み込んで
+                                     HTMLに反映する処理（JavaScript）
+    4. サービス名・説明文・箇条書きの「文章」は、Next.js側の
+       src/config/site.ts というファイルにまとまっています。
+       文章を直接書き換えたいだけなら、このファイルではなく
+       site.ts の services の部分を編集してください。
+       （site.ts を編集すると、次にサイトをビルドしたときに
+       このページにも自動的に反映されます）
+
+  【デザイン・レイアウトを変えたいとき】
+    → style.css を編集してください（色、余白、カードの見た目など）。
+
+  【HTMLの構造そのものを変えたいとき（項目を増やす・並び順を変えるなど）】
+    → 下の <div id="services-grid"> の中身は script.js が
+       自動的に組み立てています。手で書き換えても次の読み込みで
+       上書きされてしまうので、構造を変えたい場合は script.js の
+       コメントを参考に編集してください。
+
+  このHTMLファイルは、Next.js側の Services.tsx から <iframe> で
+  そのまま画面に埋め込まれています（トップページの他の部分とは
+  別の「独立した小さなWebページ」として動いています）。
+  ==================================================================
+-->
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>提供サービス</title>
+    <!-- このページ専用のスタイルシート（見た目はすべてここで管理） -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- セクション全体を囲む背景付きのブロック -->
+    <section class="services-section">
+      <div class="services-container">
+        <!-- 見出しの上にある小さなラベル（例: "Services"）+ 金色の線 -->
+        <div class="services-eyebrow-row">
+          <span class="services-eyebrow-line"></span>
+          <p class="services-eyebrow-text" id="services-eyebrow">
+            <!-- ここは script.js が data.title で書き換えます -->
+          </p>
+        </div>
+
+        <!-- 大見出し（例: "提供サービス"） -->
+        <h2 class="services-heading" id="services-heading">
+          <!-- ここは script.js が data.heading で書き換えます -->
+        </h2>
+
+        <!-- サービスのカード一覧。中身は script.js が自動生成します -->
+        <div class="services-grid" id="services-grid">
+          <!-- 読み込み中に一瞬だけ表示される文字。データが届いたら消えます -->
+          <p class="services-loading">読み込み中…</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- サービス内容のデータを読み込んでHTMLに反映するJavaScript -->
+    <script src="script.js"></script>
+  </body>
+</html>

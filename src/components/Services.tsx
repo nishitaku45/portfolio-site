@@ -1,40 +1,40 @@
-import { siteConfig } from "@/config/site";
-import SectionHeading from "@/components/SectionHeading";
+// ============================================================================
+// Services セクション（「提供サービス」の一覧）
+// ============================================================================
+//
+// このコンポーネント自体は、public/services/index.html を
+// <AutoHeightIframe> で画面に埋め込むだけの「薄いラッパー」です。
+//
+// 中身の見た目・文章・レイアウトを直接編集したい場合は、React/Next.jsの
+// 知識は不要です。以下のファイルだけを触ってください。
+//
+//   public/services/index.html … HTMLの骨組み
+//   public/services/style.css  … 見た目（色・余白など）
+//   public/services/script.js  … サービス内容のデータを反映する処理
+//   src/config/site.ts         … サービス名・説明文・箇条書きの「文章」
+//
+// このファイル(Services.tsx)を触る必要があるのは、iframeの埋め込み方
+// そのものを変えたいとき（例: 高さの初期値を変える）くらいです。
+// ============================================================================
+
+import AutoHeightIframe from "@/components/AutoHeightIframe";
+
+// GitHub Pagesのサブフォルダ配信(例: https://user.github.io/repo-name/)にも
+// 対応できるよう、next.config.ts で公開しているbasePathを使ってiframeの
+// URLを組み立てる。ローカル開発(localhost:3000)では空文字になるので
+// 気にしなくてOK。
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 export default function Services() {
-  const { services } = siteConfig;
-
   return (
-    <section id="services" className="bg-brand-50/70 py-24 md:py-28">
-      <div className="mx-auto max-w-5xl px-6">
-        <SectionHeading eyebrow={services.title} heading={services.heading} />
-        <div className="mt-12 grid gap-8 md:grid-cols-2">
-          {services.items.map((service) => (
-            <div
-              key={service.name}
-              className="border-t-2 border-gold bg-background p-10"
-            >
-              <h3 className="font-serif text-2xl text-brand-900">
-                {service.name}
-              </h3>
-              <p className="mt-4 text-sm leading-loose text-brand-600">
-                {service.description}
-              </p>
-              <ul className="mt-8 space-y-3">
-                {service.bullets.map((bullet) => (
-                  <li
-                    key={bullet}
-                    className="flex items-start gap-3 text-sm text-brand-700"
-                  >
-                    <span className="mt-2.5 h-px w-4 shrink-0 bg-gold" />
-                    {bullet}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </div>
+    // id="services" はヘッダーのナビゲーションから
+    // #services へスクロールするために使われている（iframeの中ではなく
+    // 必ずこの外側の要素に付けること）
+    <section id="services">
+      <AutoHeightIframe
+        src={`${basePath}/services/index.html`}
+        title="提供サービス"
+      />
     </section>
   );
 }
