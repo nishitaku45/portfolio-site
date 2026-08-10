@@ -318,6 +318,9 @@ button { font: inherit; cursor: pointer; }
 }
 
 .menu-card {
+  /* 詳細ページがあるカードは <a> タグそのものをカード化しているため、
+     リンクのデフォルト表示（inline）を上書きしてブロック要素にしている */
+  display: block;
   background: var(--color-surface);
   border-radius: 16px;
   padding: 22px;
@@ -875,4 +878,26 @@ button { font: inherit; cursor: pointer; }
   .access-grid { grid-template-columns: 1fr; }
   .doctor-message { grid-template-columns: 1fr; }
   .doctor-message-photo { height: 160px; }
+
+  /* フローティング予約ボタン: PC版の横長ボタンのままだと、スクロール中に
+     カード下部の「詳細 —」リンクなどを覆い隠してタップできなくなって
+     しまうため、スマホでは丸いアイコンボタンに縮小して重なる面積を
+     小さくしている。中身のテキストは非表示にして絵文字だけにする。 */
+  .floating-reserve {
+    right: 16px;
+    bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    padding: 0;
+    border-radius: 50%;
+    font-size: 0;
+  }
+
+  .floating-reserve::before {
+    content: "📅";
+    font-size: 22px;
+  }
 }
