@@ -9,7 +9,7 @@ export default function HighSampleLayout({ children }: { children: ReactNode }) 
       {/* バナー＋ヘッダーを1つのstickyコンテナにまとめ、折り返しで高さが
           変わってもヘッダーと重ならないようにする。 */}
       <div className="sticky top-0 z-50">
-        <SampleBanner planName="ハイ" sticky={false} />
+        <SampleBanner planName="プレミアム" sticky={false} />
         <header className="border-b border-white/10 bg-[#111015]/95 backdrop-blur">
           <HighHeader />
         </header>
