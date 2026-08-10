@@ -1,26 +1,64 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #faf8f4;
+  --foreground: #1c1a17;
+
+  /* ブランドカラー：温かみのあるクリーム × 濃い墨色 × ゴールドで高級感を演出。
+     グリーン（accent）は LINE を想起させるため LINE 導線のボタンのみに使う。 */
+  --color-brand-50: #f4f0e6;
+  --color-brand-100: #e6ddc7;
+  --color-brand-600: #3a352c;
+  --color-brand-700: #24211b;
+  --color-brand-900: #14120e;
+  --color-gold: #b08d57;
+  --color-gold-dark: #8a6c3f;
+  --color-accent: #06c755;
+  --color-accent-dark: #05a648;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-brand-50: var(--color-brand-50);
+  --color-brand-100: var(--color-brand-100);
+  --color-brand-600: var(--color-brand-600);
+  --color-brand-700: var(--color-brand-700);
+  --color-brand-900: var(--color-brand-900);
+  --color-gold: var(--color-gold);
+  --color-gold-dark: var(--color-gold-dark);
+  --color-accent: var(--color-accent);
+  --color-accent-dark: var(--color-accent-dark);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-serif: "YuMincho", "Yu Mincho", "Hiragino Mincho ProN", "HGS明朝E", serif;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+}
+
+/* サンプルHP（スタンダードプラン）の画面遷移：クリックした瞬間に中身は
+   切り替わり、ごく短いフェード＋わずかな沈み込みだけを添える控えめな演出。 */
+@keyframes sample-content-fade {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sample-content-fade {
+  animation: sample-content-fade 0.25s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sample-content-fade {
+    animation: none;
+  }
 }
