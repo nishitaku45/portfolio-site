@@ -1,0 +1,134 @@
+<!--
+  ==================================================================
+  スタンダードプランの制作例②（架空の焼肉店・5ページ構成）
+  ==================================================================
+  完全に独立したHTML/CSS/JSのサイトです（React／Next.jsは使っていま
+  せん）。店名・住所・電話番号などはすべて仮の値で、実在の店舗では
+  ありません。
+
+  【ページ構成】
+    index.html  … このファイル（ホーム）
+    menu.html   … メニュー
+    staff.html  … スタッフ紹介
+    voice.html  … お客様の声
+    access.html … アクセス
+
+  5ファイルすべてで style.css（見た目）と script.js（動き）を共通で
+  読み込んでいます。文章はHTMLを直接編集、デザインはstyle.css、
+  動きはscript.jsを編集してください。
+  ==================================================================
+-->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>炭火焼肉 ○○（スタンダードプランの制作例）</title>
+<meta name="description" content="炭火焼肉○○の公式サイト。厳選した黒毛和牛のメニューとご予約のご案内。">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-en">YAKINIKU</span>
+      <span class="logo-ja">炭火焼肉 ○○</span>
+    </a>
+    <nav class="nav" id="siteNav">
+      <a href="menu.html">メニュー</a>
+      <a href="staff.html">スタッフ紹介</a>
+      <a href="voice.html">お客様の声</a>
+      <a href="access.html">アクセス</a>
+    </nav>
+    <div class="header-actions">
+      <a href="access.html" class="btn btn-primary btn-small">ご予約</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="メニューを開く" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-image reveal">[ 炭火で焼く上質な和牛のイメージ写真 ]</div>
+    <p class="hero-eyebrow reveal">Charcoal Grilled Yakiniku</p>
+    <h1 class="reveal">炭火の香りと、<br>厳選した一頭買い。</h1>
+    <p class="hero-lead reveal">目利きにこだわった黒毛和牛を、炭火で香ばしく。落ち着いた個室でゆっくりお楽しみいただけます。</p>
+    <div class="hero-actions reveal">
+      <a href="access.html" class="btn btn-primary">ご予約はこちら</a>
+      <a href="menu.html" class="btn btn-outline">メニューを見る</a>
+    </div>
+  </div>
+</section>
+
+<section class="stats-bar">
+  <div class="container stats-grid">
+    <div class="stat-item reveal"><p class="stat-number">2014</p><p class="stat-label">創業</p></div>
+    <div class="stat-item reveal"><p class="stat-number">一頭買い</p><p class="stat-label">仕入れへのこだわり</p></div>
+    <div class="stat-item reveal"><p class="stat-number">92%</p><p class="stat-label">リピート率</p></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <p class="section-eyebrow reveal">Why Choose Us</p>
+    <h2 class="section-title reveal">選ばれる理由</h2>
+    <div class="reasons-grid">
+      <div class="reason-card reveal">
+        <div class="reason-mark">牛</div>
+        <h3>一頭買いの黒毛和牛</h3>
+        <p>提携農家から一頭単位で仕入れ、部位ごとの旨みを引き出します。</p>
+      </div>
+      <div class="reason-card reveal">
+        <div class="reason-mark">炭</div>
+        <h3>本格炭火焼き</h3>
+        <p>備長炭でじっくり焼き上げ、香ばしさと旨みを最大限に引き出します。</p>
+      </div>
+      <div class="reason-card reveal">
+        <div class="reason-mark">室</div>
+        <h3>落ち着いた個室</h3>
+        <p>接待やご家族での食事にも使いやすい、半個室・個室をご用意しています。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-tight" style="background:var(--color-surface);">
+  <div class="container">
+    <p class="section-eyebrow reveal">Menu</p>
+    <h2 class="section-title reveal">メニュー</h2>
+    <p class="section-lead reveal">部位ごとの旨みが際立つ看板メニューをご紹介します</p>
+    <div class="menu-grid">
+      <div class="menu-card reveal"><span class="menu-card-name">特選カルビ<span class="menu-card-note">一番人気</span></span><span class="menu-card-price">2,980円</span></div>
+      <div class="menu-card reveal"><span class="menu-card-name">上ロース<span class="menu-card-note">きめ細かな霜降り</span></span><span class="menu-card-price">3,280円</span></div>
+      <div class="menu-card reveal"><span class="menu-card-name">厚切りタン塩<span class="menu-card-note">レモン添え</span></span><span class="menu-card-price">1,980円</span></div>
+      <div class="menu-card reveal"><span class="menu-card-name">名物ハラミ<span class="menu-card-note">秘伝のタレ</span></span><span class="menu-card-price">2,280円</span></div>
+    </div>
+    <div class="menu-more reveal"><a href="menu.html" class="btn btn-outline">メニューをすべて見る</a></div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container">
+    <p class="reveal">個室のご予約はお早めに。ご不明点はお気軽にお問い合わせください。</p>
+    <a href="access.html" class="btn btn-outline reveal" style="border-color:#fff;color:#fff;">ご予約・アクセスはこちら</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <nav class="footer-nav">
+      <a href="index.html">ホーム</a>
+      <a href="menu.html">メニュー</a>
+      <a href="staff.html">スタッフ紹介</a>
+      <a href="voice.html">お客様の声</a>
+      <a href="access.html">アクセス</a>
+    </nav>
+    <p class="footer-info">〒000-0000 東京都○○区○○ 0-0-0　TEL: 00-0000-0000　17:00〜23:00（月曜定休）<br>© 2026 炭火焼肉 ○○（架空の店舗です）</p>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+</body>
+</html>

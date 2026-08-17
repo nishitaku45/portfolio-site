@@ -1,0 +1,118 @@
+<!--
+  ==================================================================
+  スタンダードプランの制作例③（架空の和食居酒屋・5ページ構成）
+  ==================================================================
+  完全に独立したHTML/CSS/JSのサイトです。店名・住所・電話番号などは
+  すべて仮の値で、実在の店舗ではありません。
+
+  ページ構成: index.html(ホーム) / menu.html / staff.html / voice.html
+  / access.html。焼肉店のサンプルと同じ仕組み・同じscript.jsです。
+  ==================================================================
+-->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>旬彩 ○○（スタンダードプランの制作例）</title>
+<meta name="description" content="旬彩○○の公式サイト。日替わりの旬な食材と日本酒のメニューとご予約のご案内。">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+  <div class="container header-inner">
+    <a href="index.html" class="logo"><span class="logo-en">IZAKAYA</span><span class="logo-ja">旬彩 ○○</span></a>
+    <nav class="nav" id="siteNav">
+      <a href="menu.html">メニュー</a>
+      <a href="staff.html">スタッフ紹介</a>
+      <a href="voice.html">お客様の声</a>
+      <a href="access.html">アクセス</a>
+    </nav>
+    <div class="header-actions">
+      <a href="access.html" class="btn btn-primary btn-small">ご予約</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="メニューを開く" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-image reveal">[ 旬の食材と日本酒のイメージ写真 ]</div>
+    <p class="hero-eyebrow reveal">Seasonal Japanese Dining</p>
+    <h1 class="reveal">今日の旬を、<br>板前の手で。</h1>
+    <p class="hero-lead reveal">市場で仕入れた旬の食材を、板前が一品ずつ丁寧に。厳選した日本酒とともにお楽しみいただけます。</p>
+    <div class="hero-actions reveal">
+      <a href="access.html" class="btn btn-primary">ご予約はこちら</a>
+      <a href="menu.html" class="btn btn-outline">メニューを見る</a>
+    </div>
+  </div>
+</section>
+
+<section class="stats-bar">
+  <div class="container stats-grid">
+    <div class="stat-item reveal"><p class="stat-number">2011</p><p class="stat-label">創業</p></div>
+    <div class="stat-item reveal"><p class="stat-number">日本酒 30種+</p><p class="stat-label">取り扱い銘柄</p></div>
+    <div class="stat-item reveal"><p class="stat-number">88%</p><p class="stat-label">リピート率</p></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <p class="section-eyebrow reveal">Why Choose Us</p>
+    <h2 class="section-title reveal">選ばれる理由</h2>
+    <div class="reasons-grid">
+      <div class="reason-card reveal">
+        <div class="reason-mark">旬</div>
+        <h3>毎朝仕入れる旬の食材</h3>
+        <p>市場での目利きにこだわり、その日一番の食材をご用意します。</p>
+      </div>
+      <div class="reason-card reveal">
+        <div class="reason-mark">酒</div>
+        <h3>全国から厳選した日本酒</h3>
+        <p>料理に合わせた日本酒選びを、スタッフが丁寧にご案内します。</p>
+      </div>
+      <div class="reason-card reveal">
+        <div class="reason-mark">席</div>
+        <h3>掘りごたつの個室席</h3>
+        <p>少人数から宴会まで、用途に合わせたお席をご用意しています。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-tight" style="background:var(--color-surface);">
+  <div class="container">
+    <p class="section-eyebrow reveal">Menu</p>
+    <h2 class="section-title reveal">メニュー</h2>
+    <p class="section-lead reveal">仕入れによって内容が変わる、日替わりの一品もご用意しています</p>
+    <div class="menu-grid">
+      <div class="menu-card reveal"><span class="menu-card-name">本日の刺身盛り合わせ<span class="menu-card-note">仕入れにより内容が変わります</span></span><span class="menu-card-price">1,980円</span></div>
+      <div class="menu-card reveal"><span class="menu-card-name">炙り〆鯖<span class="menu-card-note">名物の一品</span></span><span class="menu-card-price">880円</span></div>
+      <div class="menu-card reveal"><span class="menu-card-name">出汁巻き玉子</span><span class="menu-card-price">680円</span></div>
+      <div class="menu-card reveal"><span class="menu-card-name">季節野菜の天ぷら盛り</span><span class="menu-card-price">1,280円</span></div>
+    </div>
+    <div class="menu-more reveal"><a href="menu.html" class="btn btn-outline">メニューをすべて見る</a></div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container">
+    <p class="reveal">宴会・貸切のご相談も承っております。お気軽にお問い合わせください。</p>
+    <a href="access.html" class="btn btn-outline reveal" style="border-color:#fff;color:#fff;">ご予約・アクセスはこちら</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <nav class="footer-nav">
+      <a href="index.html">ホーム</a><a href="menu.html">メニュー</a><a href="staff.html">スタッフ紹介</a><a href="voice.html">お客様の声</a><a href="access.html">アクセス</a>
+    </nav>
+    <p class="footer-info">〒000-0000 東京都○○区○○ 0-0-0　TEL: 00-0000-0000　17:00〜24:00（日曜定休）<br>© 2026 旬彩 ○○（架空の店舗です）</p>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+</body>
+</html>
