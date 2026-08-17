@@ -8,6 +8,11 @@
   店名・住所・電話番号などはすべて「○○」「00-0000-0000」のような
   仮の値（プレースホルダー）で、実在のクリニックではありません。
 
+  「超ミニマル・ハイエンド」なテイストに全振りしたデザインです。黒・
+  生成り・ゴールドの3色だけに絞り、巨大なタイポグラフィと贅沢な余白
+  で見せています。制作例②（ネイルサロン・Y2Kポップ）、制作例③
+  （カフェ・手作りZINE）とは対極の世界観です。
+
   【全体の仕組み】
     1. このファイル(index.html)  … ページの骨組み（HTML）
     2. style.css                 … 見た目（色・余白・文字サイズなど）
@@ -95,35 +100,41 @@
     <div class="menu-grid">
       <!-- 編集OK: メニュー1（施術名・説明・価格。data-enの英訳も合わせて更新） -->
       <div class="menu-card reveal">
-        <!-- 実写真を入れる場合は <img loading="lazy" width height src alt> に差し替える（表示崩れ防止のためwidth/heightは必須） -->
-        <div class="menu-card-image" aria-hidden="true"></div>
-        <h3 data-en="Facial Care">フェイシャルケア</h3>
-        <p data-en="Treatments for skin texture and pore concerns.">肌質改善・毛穴ケアなど、お肌の悩みに寄り添った施術。</p>
+        <span class="menu-card-index">01</span>
+        <div>
+          <h3 data-en="Facial Care">フェイシャルケア</h3>
+          <p data-en="Treatments for skin texture and pore concerns.">肌質改善・毛穴ケアなど、お肌の悩みに寄り添った施術。</p>
+        </div>
         <p class="menu-price">¥8,800〜</p>
       </div>
       <!-- 編集OKここまで -->
 
       <!-- 編集OK: メニュー2（施術名・説明・価格。data-enの英訳も合わせて更新） -->
       <div class="menu-card reveal">
-        <div class="menu-card-image" aria-hidden="true"></div>
-        <h3 data-en="Body Care">ボディケア</h3>
-        <p data-en="Dedicated equipment care for swelling and sagging concerns.">むくみ・たるみが気になる方へ、専用機器によるケア。</p>
+        <span class="menu-card-index">02</span>
+        <div>
+          <h3 data-en="Body Care">ボディケア</h3>
+          <p data-en="Dedicated equipment care for swelling and sagging concerns.">むくみ・たるみが気になる方へ、専用機器によるケア。</p>
+        </div>
         <p class="menu-price">¥12,000〜</p>
       </div>
       <!-- 編集OKここまで -->
 
       <!-- 編集OK: メニュー3（施術名・説明・価格。data-enの英訳も合わせて更新） -->
       <div class="menu-card reveal">
-        <div class="menu-card-image" aria-hidden="true"></div>
-        <h3 data-en="Counseling">カウンセリング</h3>
-        <p data-en="Free counseling available, first-timers welcome.">初めての方も安心の無料カウンセリングを実施中。</p>
+        <span class="menu-card-index">03</span>
+        <div>
+          <h3 data-en="Counseling">カウンセリング</h3>
+          <p data-en="Free counseling available, first-timers welcome.">初めての方も安心の無料カウンセリングを実施中。</p>
+        </div>
         <p class="menu-price">無料</p>
       </div>
       <!-- 編集OKここまで -->
 
       <!--
         メニューを増やしたいときは、上の<div class="menu-card reveal">〜</div>ブロックを
-        まるごとコピーしてこの上に貼り付け、中の文字とdata-enだけ書き換える。
+        まるごとコピーしてこの上に貼り付け、中の文字とdata-enだけ書き換える
+        （番号<span class="menu-card-index">も忘れず更新）。
       -->
     </div>
   </div>

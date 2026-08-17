@@ -6,12 +6,12 @@
   いません）。店名・住所・電話番号などはすべて仮の値で、実在の店舗
   ではありません。
 
-  制作例①（美容クリニック）・制作例②（ネイルサロン）とはあえて
-  違うデザインにしています。
-  ・雑誌の表紙のような左寄せの大見出し
-  ・メニューはカードではなく、黒板風の手書き見立てリスト
-  ・「こだわり」は写真ストリップ風の横並び
-  「ライトプランでも店ごとに個性を出せる」ことの見本です。
+  「手作りZINE・インディー」テイストに全振りしたデザインです。
+  タイプライター体×手書き風フォント、マスキングテープ風の付箋、
+  スタンプ風のラベル、レシート風のメニューなど、制作例①（美容
+  クリニック）・制作例②（ネイルサロン）とは別物の世界観にしています。
+  フォントはGoogle Fontsの「Special Elite」「Kalam」を読み込んで
+  います（通信できない環境では自動的に代替フォントで表示されます）。
 
   文章を書き換えたいときは、このファイルの日本語部分を直接編集して
   ください。デザインを変えたいときは style.css、動きを変えたいときは
@@ -31,47 +31,47 @@
 <body>
 
 <header class="site-header">
-  <div class="container-wide header-inner">
+  <div class="container header-inner">
     <span class="logo">喫茶○○</span>
     <nav class="nav">
-      <a href="#menu">メニュー</a>
-      <a href="#access">アクセス</a>
+      <a href="#menu">MENU</a>
+      <a href="#access">ACCESS</a>
     </nav>
   </div>
 </header>
 
 <section class="hero">
   <div class="container">
-    <p class="hero-kicker reveal">Coffee &amp; Light Meals</p>
+    <span class="hero-sticky-note reveal">本日も焙煎中 ◎</span>
     <h1 class="reveal">一杯のコーヒーと、<br>ゆっくりできる時間を。</h1>
     <p class="hero-lead reveal">自家焙煎の豆と丁寧な一杯にこだわる、住宅街にひっそり佇む小さな喫茶店です。8:00-18:00・月曜定休。</p>
     <div class="hero-actions reveal">
       <a href="#menu" class="btn btn-primary">メニューを見る</a>
       <a href="#access" class="btn btn-outline">アクセス</a>
     </div>
-  </div>
-  <div class="hero-photo-band reveal">
-    <span>自家焙煎の豆</span>
-    <span>ハンドドリップ</span>
-    <span>自家製シフォン</span>
+    <div class="hero-scrapbook reveal">
+      <div class="snapshot"><div class="snapshot-photo"></div><p class="snapshot-caption">豆と焙煎機</p></div>
+      <div class="snapshot"><div class="snapshot-photo"></div><p class="snapshot-caption">一杯ずつ抽出</p></div>
+      <div class="snapshot"><div class="snapshot-photo"></div><p class="snapshot-caption">店内の様子</p></div>
+    </div>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
-    <p class="section-kicker reveal">Our Commitment</p>
+    <span class="section-kicker reveal">大切にしていること</span>
     <h2 class="section-title reveal">こだわり</h2>
     <div class="commitment-strip">
       <div class="commitment-row reveal">
-        <span class="mark">壱</span>
+        <span class="stamp">自家<br>焙煎</span>
         <div><h3>自家焙煎の豆</h3><p>産地にこだわった豆を店内で少量ずつ焙煎しています。</p></div>
       </div>
       <div class="commitment-row reveal">
-        <span class="mark">弐</span>
+        <span class="stamp">一杯<br>ずつ</span>
         <div><h3>一杯ずつハンドドリップ</h3><p>ご注文をいただいてから、一杯ずつ丁寧に淹れています。</p></div>
       </div>
       <div class="commitment-row reveal">
-        <span class="mark">参</span>
+        <span class="stamp">静か<br>な席</span>
         <div><h3>落ち着ける店内</h3><p>読書や作業にも使いやすい、静かな空間づくりを心がけています。</p></div>
       </div>
     </div>
@@ -80,30 +80,16 @@
 
 <section class="section" id="menu">
   <div class="container">
-    <p class="section-kicker reveal">Menu</p>
+    <span class="section-kicker reveal">本日のメニュー</span>
     <h2 class="section-title reveal">メニュー</h2>
-    <div class="menu-chalk reveal">
-      <p class="menu-chalk-title">本日のお品書き</p>
-      <div class="menu-chalk-line">
-        <span class="menu-chalk-name">本日のハンドドリップ<span class="menu-chalk-note">豆は日替わり</span></span>
-        <span class="menu-chalk-dots"></span>
-        <span class="menu-chalk-price">550円</span>
-      </div>
-      <div class="menu-chalk-line">
-        <span class="menu-chalk-name">カフェラテ<span class="menu-chalk-note">ホット／アイス</span></span>
-        <span class="menu-chalk-dots"></span>
-        <span class="menu-chalk-price">600円</span>
-      </div>
-      <div class="menu-chalk-line">
-        <span class="menu-chalk-name">自家製シフォンケーキ<span class="menu-chalk-note">季節のフルーツ添え</span></span>
-        <span class="menu-chalk-dots"></span>
-        <span class="menu-chalk-price">480円</span>
-      </div>
-      <div class="menu-chalk-line">
-        <span class="menu-chalk-name">厚切りトーストセット<span class="menu-chalk-note">ドリンク付き</span></span>
-        <span class="menu-chalk-dots"></span>
-        <span class="menu-chalk-price">780円</span>
-      </div>
+    <div class="receipt reveal">
+      <p class="receipt-title">喫茶○○</p>
+      <p class="receipt-sub">- - - - - - - - - - - - - - - - - - - -</p>
+      <div class="receipt-line"><span>本日のハンドドリップ<span class="receipt-note">豆は日替わり</span></span><span>550円</span></div>
+      <div class="receipt-line"><span>カフェラテ<span class="receipt-note">ホット／アイス</span></span><span>600円</span></div>
+      <div class="receipt-line"><span>自家製シフォンケーキ<span class="receipt-note">季節のフルーツ添え</span></span><span>480円</span></div>
+      <div class="receipt-line"><span>厚切りトーストセット<span class="receipt-note">ドリンク付き</span></span><span>780円</span></div>
+      <div class="receipt-total"><span>THANK YOU</span><span>また来てね</span></div>
     </div>
     <p class="menu-note reveal">※ 価格はすべて税込表示です。仕入れ状況により内容が変わる場合があります。</p>
   </div>
@@ -111,7 +97,7 @@
 
 <section class="section" id="access">
   <div class="container">
-    <p class="section-kicker reveal">Access</p>
+    <span class="section-kicker reveal">道案内</span>
     <h2 class="section-title reveal">アクセス</h2>
     <div class="access-block reveal">
       <p><strong>住所</strong>〒000-0000 東京都○○区○○ 0-0-0</p>

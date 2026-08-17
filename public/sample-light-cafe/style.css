@@ -1,130 +1,158 @@
 /* ==================================================================
    ライトプランの制作例③（架空の個人カフェ）専用スタイルシート
    ==================================================================
-   制作例①（美容クリニック・中央揃えの明朝体）、制作例②（ネイル
-   サロン・左右分割の太いゴシック体）とは、また違うデザイン言語に
-   しています。
-   ・ヒーローは左寄せの雑誌の表紙のような大きな見出し
-   ・メニューはカードではなく、黒板風の手書き見立てリスト
-   ・「こだわり」は写真ストリップ風に横並びで見せる
+   「手作りZINE・インディー」テイストに全振りしたデザインです。
+   タイプライター体×手書き風フォント、マスキングテープ風の装飾、
+   傾いた写真、コーヒーの染みのようなあしらいなど、量産テンプレ感
+   のない「一点物のZINE」を意識しています。制作例①②とは配色も
+   フォントも構成も別物にしてあります。
    ================================================================== */
 
+@import url("https://fonts.googleapis.com/css2?family=Special+Elite&family=Kalam:wght@400;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap");
+
 :root {
-  --color-bg: #f6efe4;
-  --color-paper: #fffaf1;
-  --color-ink: #332419;
-  --color-primary: #7c5a3a;
-  --color-accent: #6f7d54;
-  --color-chalk-bg: #2f3a2c;
-  --color-chalk-text: #f3ead9;
-  --color-text-light: #7d6f5d;
+  --color-bg: #efe6d8;
+  --color-paper: #f7f0e4;
+  --color-ink: #241d16;
+  --color-rust: #b5511f;
+  --color-olive: #57603f;
+  --color-tape: #e4c26a;
+  --color-text-light: #6b6153;
   --color-line: #06c755;
-  --font-serif: "Hiragino Mincho ProN", "Yu Mincho", serif;
-  --font-sans: "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+  --font-type: "Special Elite", "Courier New", monospace;
+  --font-hand: "Kalam", "Hiragino Kaku Gothic ProN", sans-serif;
+  --font-sans: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", sans-serif;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: var(--font-sans); color: var(--color-ink); background: var(--color-bg); line-height: 1.85; }
+body {
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background-color: var(--color-bg);
+  background-image:
+    radial-gradient(rgba(36, 29, 22, 0.05) 1px, transparent 1px);
+  background-size: 3px 3px;
+  line-height: 1.85;
+}
 a { text-decoration: none; color: inherit; }
 img { max-width: 100%; display: block; }
 
-.container { max-width: 760px; margin: 0 auto; padding: 0 28px; }
-.container-wide { max-width: 980px; margin: 0 auto; padding: 0 28px; }
+.container { max-width: 720px; margin: 0 auto; padding: 0 28px; }
 
 /* ------------------------------------------------------------------
-   ヘッダー：飾らないテキストロゴ＋細い下線ナビ
+   ヘッダー：タイプライター体のロゴ
    ------------------------------------------------------------------ */
-.site-header { padding: 22px 0; border-bottom: 1px solid rgba(51, 36, 25, 0.15); }
+.site-header { padding: 20px 0; border-bottom: 3px double var(--color-ink); }
 .header-inner { display: flex; align-items: baseline; justify-content: space-between; }
-.logo { font-family: var(--font-serif); font-size: 1.3rem; letter-spacing: 0.08em; }
-.nav { display: flex; gap: 26px; }
-.nav a { font-size: 0.8rem; letter-spacing: 0.03em; border-bottom: 1px solid transparent; }
-.nav a:hover { border-color: var(--color-primary); }
+.logo { font-family: var(--font-type); font-size: 1.05rem; letter-spacing: 0.02em; }
+.nav { display: flex; gap: 24px; font-family: var(--font-type); }
+.nav a { font-size: 0.78rem; }
+.nav a:hover { color: var(--color-rust); }
 
 /* ------------------------------------------------------------------
-   ヒーロー：雑誌の表紙のような左寄せ大見出し
+   ヒーロー：マスキングテープ留めの手書きメモ風
    ------------------------------------------------------------------ */
-.hero { padding: 64px 0 0; }
-.hero-kicker { font-family: var(--font-serif); font-style: italic; font-size: 1rem; color: var(--color-primary); margin-bottom: 18px; }
+.hero { padding: 64px 0 0; position: relative; }
+.hero-sticky-note {
+  position: relative;
+  display: inline-block;
+  background: var(--color-tape);
+  padding: 4px 16px;
+  font-family: var(--font-hand);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--color-ink);
+  transform: rotate(-3deg);
+  margin-bottom: 22px;
+}
 .hero h1 {
-  font-family: var(--font-serif);
-  font-size: clamp(2.4rem, 5vw + 1rem, 4rem);
-  line-height: 1.35;
-  letter-spacing: 0.02em;
-  margin-bottom: 28px;
+  font-family: var(--font-type);
+  font-size: clamp(2rem, 4.2vw + 1rem, 3.1rem);
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  margin-bottom: 24px;
 }
-.hero-lead { max-width: 480px; color: var(--color-text-light); font-size: 0.95rem; margin-bottom: 32px; }
-.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 48px; }
+.hero-lead { max-width: 460px; color: var(--color-text-light); font-size: 0.94rem; margin-bottom: 30px; }
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 52px; }
 
-.hero-photo-band {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  height: 220px;
+.hero-scrapbook { display: flex; gap: 18px; flex-wrap: wrap; padding-bottom: 8px; }
+.snapshot { background: #fff; padding: 10px 10px 30px; box-shadow: 0 10px 22px rgba(36, 29, 22, 0.16); width: 150px; position: relative; }
+.snapshot:nth-child(1) { transform: rotate(-5deg); }
+.snapshot:nth-child(2) { transform: rotate(3deg) translateY(10px); }
+.snapshot:nth-child(3) { transform: rotate(-2deg); }
+.snapshot-photo { height: 110px; }
+.snapshot:nth-child(1) .snapshot-photo { background: linear-gradient(155deg, var(--color-rust), #7c4520); }
+.snapshot:nth-child(2) .snapshot-photo { background: linear-gradient(155deg, var(--color-olive), #3c4429); }
+.snapshot:nth-child(3) .snapshot-photo { background: linear-gradient(155deg, var(--color-tape), #b5511f); }
+.snapshot-caption { font-family: var(--font-hand); font-size: 0.82rem; text-align: center; margin-top: 8px; }
+.snapshot::before {
+  content: "";
+  position: absolute; top: -10px; left: 50%; transform: translateX(-50%) rotate(-4deg);
+  width: 46px; height: 18px; background: rgba(228, 194, 106, 0.75);
 }
-.hero-photo-band span { display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.85); font-size: 0.72rem; letter-spacing: 0.1em; }
-.hero-photo-band span:nth-child(1) { background: linear-gradient(160deg, #a98159, #7c5a3a); }
-.hero-photo-band span:nth-child(2) { background: linear-gradient(160deg, #8c9770, #6f7d54); }
-.hero-photo-band span:nth-child(3) { background: linear-gradient(160deg, #c9a877, #a9824f); }
 
 /* ボタン */
-.btn { display: inline-block; padding: 13px 28px; font-size: 0.85rem; letter-spacing: 0.03em; border-radius: 2px; transition: transform 0.2s, background 0.2s; }
+.btn { display: inline-block; padding: 13px 26px; font-family: var(--font-type); font-size: 0.82rem; border: 2px solid var(--color-ink); }
 .btn:active { transform: scale(0.97); }
 .btn-primary { background: var(--color-ink); color: var(--color-paper); }
-.btn-primary:hover { background: var(--color-primary); }
-.btn-outline { border: 1px solid var(--color-ink); }
+.btn-primary:hover { background: var(--color-rust); border-color: var(--color-rust); }
+.btn-outline { background: transparent; }
 .btn-outline:hover { background: var(--color-ink); color: var(--color-paper); }
-.btn-line { background: var(--color-line); color: #fff; border-radius: 2px; }
+.btn-line { background: var(--color-line); color: #fff; border-color: var(--color-line); }
 .btn-line:hover { opacity: 0.9; }
 
 /* ------------------------------------------------------------------
    共通セクション見出し
    ------------------------------------------------------------------ */
-.section { padding: 72px 0; }
-.section-kicker { font-family: var(--font-serif); font-style: italic; color: var(--color-primary); font-size: 0.95rem; margin-bottom: 6px; }
-.section-title { font-family: var(--font-serif); font-size: 1.7rem; margin-bottom: 36px; }
+.section { padding: 68px 0; }
+.section-kicker { font-family: var(--font-hand); color: var(--color-rust); font-size: 1.05rem; margin-bottom: 4px; transform: rotate(-1deg); display: inline-block; }
+.section-title { font-family: var(--font-type); font-size: 1.4rem; margin-bottom: 34px; }
 
-/* こだわり：写真ストリップ風の横並び */
-.commitment-strip { display: flex; flex-direction: column; gap: 0; border-top: 1px solid rgba(51, 36, 25, 0.15); }
-.commitment-row { display: grid; grid-template-columns: 90px 1fr; gap: 24px; padding: 22px 0; border-bottom: 1px solid rgba(51, 36, 25, 0.15); align-items: baseline; }
-.commitment-row span.mark { font-family: var(--font-serif); font-size: 1.4rem; color: var(--color-primary); }
-.commitment-row h3 { font-size: 0.98rem; margin-bottom: 4px; }
+/* こだわり：スタンプ風の丸ラベル */
+.commitment-strip { display: flex; flex-direction: column; gap: 0; }
+.commitment-row { display: grid; grid-template-columns: 64px 1fr; gap: 20px; padding: 18px 0; border-bottom: 1px dashed rgba(36, 29, 22, 0.3); align-items: flex-start; }
+.stamp {
+  width: 52px; height: 52px; border-radius: 50%; border: 2px solid var(--color-rust); color: var(--color-rust);
+  display: flex; align-items: center; justify-content: center; font-family: var(--font-type); font-size: 0.7rem;
+  transform: rotate(-8deg); text-align: center;
+}
+.commitment-row h3 { font-size: 0.98rem; margin-bottom: 4px; font-weight: 700; }
 .commitment-row p { font-size: 0.84rem; color: var(--color-text-light); }
 
 /* ------------------------------------------------------------------
-   メニュー：黒板風の手書き見立てリスト
+   メニュー：レシート風
    ------------------------------------------------------------------ */
-.menu-chalk { background: var(--color-chalk-bg); color: var(--color-chalk-text); border-radius: 6px; padding: 40px 36px; }
-.menu-chalk-title { font-family: var(--font-serif); font-style: italic; text-align: center; font-size: 1.3rem; margin-bottom: 28px; }
-.menu-chalk-line { display: flex; align-items: baseline; gap: 8px; padding: 12px 0; border-bottom: 1px dashed rgba(243, 234, 217, 0.3); }
-.menu-chalk-line:last-of-type { border-bottom: none; }
-.menu-chalk-name { font-size: 0.98rem; white-space: nowrap; }
-.menu-chalk-dots { flex: 1; border-bottom: 1px dotted rgba(243, 234, 217, 0.45); transform: translateY(-4px); }
-.menu-chalk-price { font-size: 0.98rem; white-space: nowrap; }
-.menu-chalk-note { display: block; font-size: 0.72rem; opacity: 0.65; margin-top: 2px; }
-.menu-note { margin-top: 24px; text-align: center; font-size: 0.78rem; color: var(--color-text-light); }
+.receipt { background: var(--color-paper); border: 1px solid rgba(36, 29, 22, 0.25); box-shadow: 0 8px 20px rgba(36, 29, 22, 0.1); padding: 32px 30px; font-family: var(--font-type); max-width: 440px; margin: 0 auto; }
+.receipt-title { text-align: center; font-size: 0.95rem; margin-bottom: 6px; }
+.receipt-sub { text-align: center; font-size: 0.68rem; color: var(--color-text-light); margin-bottom: 20px; }
+.receipt-line { display: flex; justify-content: space-between; gap: 10px; font-size: 0.82rem; padding: 8px 0; border-bottom: 1px dotted rgba(36, 29, 22, 0.35); }
+.receipt-line span:last-child { white-space: nowrap; }
+.receipt-note { display: block; font-size: 0.65rem; color: var(--color-text-light); }
+.receipt-total { display: flex; justify-content: space-between; font-size: 0.8rem; padding-top: 14px; margin-top: 4px; border-top: 2px solid var(--color-ink); }
+.menu-note { margin-top: 24px; text-align: center; font-size: 0.76rem; color: var(--color-text-light); }
 
 /* アクセス */
-.access-block { background: var(--color-paper); border: 1px solid rgba(51, 36, 25, 0.15); padding: 32px; }
-.access-block p { margin-bottom: 14px; font-size: 0.9rem; }
+.access-block { background: var(--color-paper); border: 1px dashed rgba(36, 29, 22, 0.35); padding: 30px; font-family: var(--font-type); font-size: 0.85rem; }
+.access-block p { margin-bottom: 14px; }
 .access-block p:last-child { margin-bottom: 0; }
-.access-block strong { display: inline-block; min-width: 96px; font-family: var(--font-serif); font-size: 0.85rem; color: var(--color-primary); }
+.access-block strong { display: inline-block; min-width: 100px; color: var(--color-rust); }
 
 /* LINE誘導 */
-.line-band { background: var(--color-accent); color: #fff; text-align: center; padding: 52px 0; }
-.line-band p { margin-bottom: 18px; opacity: 0.95; font-size: 0.92rem; }
+.line-band { background: var(--color-olive); color: var(--color-paper); text-align: center; padding: 50px 0; }
+.line-band p { margin-bottom: 18px; font-family: var(--font-hand); font-size: 1.15rem; }
 
-.site-footer { text-align: center; padding: 30px 0; font-size: 0.78rem; color: var(--color-text-light); }
+.site-footer { text-align: center; padding: 28px 0; font-family: var(--font-type); font-size: 0.72rem; color: var(--color-text-light); }
 
 /* 演出 */
-.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.55s ease, transform 0.55s ease; }
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.55s ease, transform 0.55s ease; }
 .reveal.is-visible { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) { .reveal { transition: none; opacity: 1; transform: none; } }
 
 /* レスポンシブ */
 @media (max-width: 640px) {
   .nav { display: none; }
-  .hero-photo-band { grid-template-columns: 1fr; height: auto; }
-  .hero-photo-band span { height: 90px; }
-  .menu-chalk { padding: 28px 22px; }
-  .commitment-row { grid-template-columns: 48px 1fr; }
+  .hero-scrapbook { justify-content: center; }
+  .snapshot { width: 120px; }
+  .snapshot-photo { height: 90px; }
+  .receipt { padding: 26px 20px; }
 }
