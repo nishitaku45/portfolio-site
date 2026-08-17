@@ -6,6 +6,10 @@
   せん）。店名・住所・電話番号などはすべて仮の値で、実在の店舗では
   ありません。
 
+  居酒屋（制作例③）とは配色だけでなく「ページの組み方」自体を変えて
+  います（斜めカットのヒーロー、ジグザグの理由説明、非対称のメニュー
+  ボードなど）。詳しくはstyle.css冒頭のコメントを参照してください。
+
   【ページ構成】
     index.html  … このファイル（ホーム）
     menu.html   … メニュー
@@ -49,9 +53,9 @@
   </div>
 </header>
 
-<section class="hero">
+<!-- ヒーロー：斜めカットの赤バナーに文字を直接乗せる（独立した画像ボックスは置かない） -->
+<section class="hero-banner">
   <div class="container">
-    <div class="hero-image reveal">[ 炭火で焼く上質な和牛のイメージ写真 ]</div>
     <p class="hero-eyebrow reveal">Charcoal Grilled Yakiniku</p>
     <h1 class="reveal">炭火の香りと、<br>厳選した一頭買い。</h1>
     <p class="hero-lead reveal">目利きにこだわった黒毛和牛を、炭火で香ばしく。落ち着いた個室でゆっくりお楽しみいただけます。</p>
@@ -62,48 +66,75 @@
   </div>
 </section>
 
-<section class="stats-bar">
-  <div class="container stats-grid">
-    <div class="stat-item reveal"><p class="stat-number">2014</p><p class="stat-label">創業</p></div>
-    <div class="stat-item reveal"><p class="stat-number">一頭買い</p><p class="stat-label">仕入れへのこだわり</p></div>
-    <div class="stat-item reveal"><p class="stat-number">92%</p><p class="stat-label">リピート率</p></div>
-  </div>
-</section>
+<!-- 統計はヒーローに重ねたバッジとして表示（別セクションのバーにしない） -->
+<div class="container hero-badges reveal">
+  <div class="hero-badge"><p class="hero-badge-number">2014</p><p class="hero-badge-label">創業</p></div>
+  <div class="hero-badge"><p class="hero-badge-number">一頭買い</p><p class="hero-badge-label">仕入れへのこだわり</p></div>
+  <div class="hero-badge"><p class="hero-badge-number">92%</p><p class="hero-badge-label">リピート率</p></div>
+</div>
 
+<!-- 選ばれる理由：ジグザグに左右交互配置（3カードの均等グリッドにしない） -->
 <section class="section">
   <div class="container">
     <p class="section-eyebrow reveal">Why Choose Us</p>
     <h2 class="section-title reveal">選ばれる理由</h2>
-    <div class="reasons-grid">
-      <div class="reason-card reveal">
-        <div class="reason-mark">牛</div>
-        <h3>一頭買いの黒毛和牛</h3>
-        <p>提携農家から一頭単位で仕入れ、部位ごとの旨みを引き出します。</p>
+    <div class="reasons-zigzag">
+      <div class="reason-row reveal">
+        <div class="reason-visual">牛</div>
+        <div class="reason-text">
+          <span class="reason-index">01</span>
+          <h3>一頭買いの黒毛和牛</h3>
+          <p>提携農家から一頭単位で仕入れ、部位ごとの旨みを引き出します。</p>
+        </div>
       </div>
-      <div class="reason-card reveal">
-        <div class="reason-mark">炭</div>
-        <h3>本格炭火焼き</h3>
-        <p>備長炭でじっくり焼き上げ、香ばしさと旨みを最大限に引き出します。</p>
+      <div class="reason-row reveal">
+        <div class="reason-visual">炭</div>
+        <div class="reason-text">
+          <span class="reason-index">02</span>
+          <h3>本格炭火焼き</h3>
+          <p>備長炭でじっくり焼き上げ、香ばしさと旨みを最大限に引き出します。</p>
+        </div>
       </div>
-      <div class="reason-card reveal">
-        <div class="reason-mark">室</div>
-        <h3>落ち着いた個室</h3>
-        <p>接待やご家族での食事にも使いやすい、半個室・個室をご用意しています。</p>
+      <div class="reason-row reveal">
+        <div class="reason-visual">室</div>
+        <div class="reason-text">
+          <span class="reason-index">03</span>
+          <h3>落ち着いた個室</h3>
+          <p>接待やご家族での食事にも使いやすい、半個室・個室をご用意しています。</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- メニュー：大小非対称のプライスボード（均一グリッドにしない） -->
 <section class="section section-tight" style="background:var(--color-surface);">
   <div class="container">
     <p class="section-eyebrow reveal">Menu</p>
     <h2 class="section-title reveal">メニュー</h2>
     <p class="section-lead reveal">部位ごとの旨みが際立つ看板メニューをご紹介します</p>
-    <div class="menu-grid">
-      <div class="menu-card reveal"><span class="menu-card-name">特選カルビ<span class="menu-card-note">一番人気</span></span><span class="menu-card-price">2,980円</span></div>
-      <div class="menu-card reveal"><span class="menu-card-name">上ロース<span class="menu-card-note">きめ細かな霜降り</span></span><span class="menu-card-price">3,280円</span></div>
-      <div class="menu-card reveal"><span class="menu-card-name">厚切りタン塩<span class="menu-card-note">レモン添え</span></span><span class="menu-card-price">1,980円</span></div>
-      <div class="menu-card reveal"><span class="menu-card-name">名物ハラミ<span class="menu-card-note">秘伝のタレ</span></span><span class="menu-card-price">2,280円</span></div>
+    <div class="menu-board">
+      <div class="menu-tile is-featured reveal">
+        <span class="menu-tile-ribbon">一番人気</span>
+        <span class="menu-tile-name">特選カルビ</span>
+        <span class="menu-tile-note">厚切り・炭火焼き</span>
+        <span class="menu-tile-price">2,980円</span>
+      </div>
+      <div class="menu-tile reveal">
+        <span class="menu-tile-name">上ロース</span>
+        <span class="menu-tile-note">きめ細かな霜降り</span>
+        <span class="menu-tile-price">3,280円</span>
+      </div>
+      <div class="menu-tile reveal">
+        <span class="menu-tile-name">厚切りタン塩</span>
+        <span class="menu-tile-note">レモン添え</span>
+        <span class="menu-tile-price">1,980円</span>
+      </div>
+      <div class="menu-tile reveal">
+        <span class="menu-tile-name">名物ハラミ</span>
+        <span class="menu-tile-note">秘伝のタレ</span>
+        <span class="menu-tile-price">2,280円</span>
+      </div>
     </div>
     <div class="menu-more reveal"><a href="menu.html" class="btn btn-outline">メニューをすべて見る</a></div>
   </div>
