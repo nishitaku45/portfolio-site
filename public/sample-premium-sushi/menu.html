@@ -26,11 +26,11 @@
 
 <div class="breadcrumb"><div class="container"><a href="index.html">ホーム</a> — コース一覧</div></div>
 
-<section class="section">
+<section class="section" style="background:var(--color-primary-dark);">
   <div class="container">
-    <p class="section-eyebrow reveal">Course</p>
-    <h1 class="section-title reveal">コース一覧</h1>
-    <p class="section-lead reveal">仕入れ状況により内容が変わる場合があります。</p>
+    <p class="section-eyebrow reveal" style="color:rgba(255,255,255,0.6);">Course</p>
+    <h1 class="section-title reveal" style="color:#fff;">コース一覧</h1>
+    <p class="section-lead reveal" style="color:rgba(255,255,255,0.7);">仕入れ状況により内容が変わる場合があります。</p>
 
     <div class="category-tabs" data-filter-group="menu">
       <button type="button" class="category-tab is-active" data-filter="all">すべて</button>
@@ -39,44 +39,29 @@
       <button type="button" class="category-tab" data-filter="ランチ">ランチ</button>
     </div>
 
-    <div class="menu-grid">
-      <a href="detail-omakase.html" class="menu-card reveal" data-filter-target="menu" data-category="おまかせ">
-        <div class="menu-card-image" aria-hidden="true"></div>
-        <span class="menu-card-tag">おまかせ</span>
-        <h3>おまかせ握りコース</h3>
-        <p>その日いちばんのネタを職人におまかせ</p>
-        <div class="menu-card-footer"><span class="menu-price">22,000円〜</span><span class="menu-detail-link">詳細 —</span></div>
+    <div class="menu-board-panel">
+      <a href="detail-omakase.html" class="menu-board-row reveal" data-filter-target="menu" data-category="おまかせ">
+        <div><span class="menu-card-tag">おまかせ</span><p class="menu-board-row-name">おまかせ握りコース</p><p class="menu-board-row-note">その日いちばんのネタを職人におまかせ</p></div>
+        <div><span class="menu-price">22,000円〜</span><span class="menu-detail-link">詳細 —</span></div>
       </a>
-      <a href="detail-kaiseki.html" class="menu-card reveal" data-filter-target="menu" data-category="会席">
-        <div class="menu-card-image" aria-hidden="true"></div>
-        <span class="menu-card-tag">会席</span>
-        <h3>季節の会席コース</h3>
-        <p>旬の食材を活かした全8品の会席料理</p>
-        <div class="menu-card-footer"><span class="menu-price">18,000円〜</span><span class="menu-detail-link">詳細 —</span></div>
+      <a href="detail-kaiseki.html" class="menu-board-row reveal" data-filter-target="menu" data-category="会席">
+        <div><span class="menu-card-tag">会席</span><p class="menu-board-row-name">季節の会席コース</p><p class="menu-board-row-note">旬の食材を活かした全8品の会席料理</p></div>
+        <div><span class="menu-price">18,000円〜</span><span class="menu-detail-link">詳細 —</span></div>
       </a>
-      <div class="menu-card reveal" data-filter-target="menu" data-category="ランチ">
-        <div class="menu-card-image" aria-hidden="true"></div>
-        <span class="menu-card-tag">ランチ</span>
-        <h3>ランチ握りコース</h3>
-        <p>気軽に楽しめる昼限定のコース</p>
-        <div class="menu-card-footer"><span class="menu-price">6,500円〜</span></div>
+      <div class="menu-board-row reveal" data-filter-target="menu" data-category="ランチ">
+        <div><span class="menu-card-tag">ランチ</span><p class="menu-board-row-name">ランチ握りコース</p><p class="menu-board-row-note">気軽に楽しめる昼限定のコース</p></div>
+        <div><span class="menu-price">6,500円〜</span></div>
       </div>
-      <div class="menu-card reveal" data-filter-target="menu" data-category="おまかせ">
-        <div class="menu-card-image" aria-hidden="true"></div>
-        <span class="menu-card-tag">おまかせ</span>
-        <h3>特上おまかせコース</h3>
-        <p>希少なネタも織り交ぜた上位コース</p>
-        <div class="menu-card-footer"><span class="menu-price">33,000円〜</span></div>
+      <div class="menu-board-row reveal" data-filter-target="menu" data-category="おまかせ">
+        <div><span class="menu-card-tag">おまかせ</span><p class="menu-board-row-name">特上おまかせコース</p><p class="menu-board-row-note">希少なネタも織り交ぜた上位コース</p></div>
+        <div><span class="menu-price">33,000円〜</span></div>
       </div>
-      <div class="menu-card reveal" data-filter-target="menu" data-category="会席">
-        <div class="menu-card-image" aria-hidden="true"></div>
-        <span class="menu-card-tag">会席</span>
-        <h3>祝い膳コース</h3>
-        <p>記念日・お祝い事に。鯛の姿盛り付き</p>
-        <div class="menu-card-footer"><span class="menu-price">25,000円〜</span></div>
+      <div class="menu-board-row reveal" data-filter-target="menu" data-category="会席">
+        <div><span class="menu-card-tag">会席</span><p class="menu-board-row-name">祝い膳コース</p><p class="menu-board-row-note">記念日・お祝い事に。鯛の姿盛り付き</p></div>
+        <div><span class="menu-price">25,000円〜</span></div>
       </div>
     </div>
-    <p class="menu-note reveal">※ 価格はすべて税込・お一人様表示です。</p>
+    <p class="menu-note reveal" style="color:rgba(255,255,255,0.6);">※ 価格はすべて税込・お一人様表示です。</p>
   </div>
 </section>
 
