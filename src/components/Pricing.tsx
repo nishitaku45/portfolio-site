@@ -130,6 +130,11 @@ export default function Pricing() {
                   制作例を見る →
                 </Link>
               )}
+              {option.monitorPrice && (
+                <p className="mt-2 text-xs font-semibold text-gold-dark">
+                  モニター価格 {option.monitorPrice}（先着3名様）
+                </p>
+              )}
             </div>
             <p className="shrink-0 font-serif text-2xl text-brand-900">
               {option.price}
