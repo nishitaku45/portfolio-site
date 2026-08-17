@@ -31,6 +31,7 @@ ul { list-style: none; }
 img { max-width: 100%; display: block; }
 button { font: inherit; cursor: pointer; }
 .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+::selection { background: var(--color-accent); color: #fff; }
 
 /* 画像プレースホルダー共通の縁取り（写真らしい額装の質感を出す） */
 .master-profile-photo, .staff-meishi-photo {
@@ -44,8 +45,10 @@ button { font: inherit; cursor: pointer; }
 .logo-en { font-size: 0.7rem; letter-spacing: 0.15em; }
 .logo-ja { font-size: 1rem; letter-spacing: 0.05em; }
 .nav { display: flex; gap: 30px; }
-.nav a { position: relative; font-size: 0.88rem; letter-spacing: 0.05em; transition: color 0.2s; }
-.nav a:hover, .nav a.is-current { color: var(--color-primary-dark); font-weight: bold; }
+.nav a { position: relative; padding-bottom: 4px; font-size: 0.88rem; letter-spacing: 0.05em; transition: color 0.25s; }
+.nav a::after { content: ""; position: absolute; left: 0; right: 100%; bottom: 0; height: 1px; background: var(--color-accent); transition: right 0.25s ease; }
+.nav a:hover, .nav a.is-current { color: var(--color-primary-dark); }
+.nav a:hover::after, .nav a.is-current::after { right: 0; }
 .header-actions { display: flex; align-items: center; gap: 14px; }
 .menu-toggle { display: none; background: none; border: none; font-size: 1.4rem; }
 .breadcrumb { padding: 13px 0; font-size: 0.76rem; color: var(--color-text-light); border-bottom: 1px solid var(--color-border); }
@@ -74,7 +77,8 @@ button { font: inherit; cursor: pointer; }
 .hero-noren { position: relative; overflow: hidden; padding: 104px 0; background: radial-gradient(120% 90% at 15% 0%, rgba(255, 255, 255, 0.06), transparent 55%), linear-gradient(160deg, var(--color-primary-dark), var(--color-primary)); color: #fff; }
 .hero-noren-vertical { position: absolute; top: 0; right: 64px; height: 100%; display: flex; align-items: center; writing-mode: vertical-rl; font-family: var(--font-base); font-size: 1.5rem; letter-spacing: 0.5em; color: rgba(255, 255, 255, 0.14); pointer-events: none; }
 .hero-noren-inner { position: relative; max-width: 620px; }
-.hero-noren-eyebrow { font-size: 0.78rem; letter-spacing: 0.25em; color: rgba(255, 255, 255, 0.7); margin-bottom: 22px; }
+.hero-noren-eyebrow { position: relative; font-size: 0.78rem; letter-spacing: 0.25em; color: rgba(255, 255, 255, 0.7); margin-bottom: 22px; padding-bottom: 16px; }
+.hero-noren-eyebrow::after { content: ""; position: absolute; left: 0; bottom: 0; width: 34px; height: 1px; background: rgba(255, 255, 255, 0.4); }
 .hero-noren h1 { font-family: var(--font-base); font-size: clamp(2rem, 3vw + 1rem, 2.9rem); line-height: 1.6; margin-bottom: 22px; }
 .hero-noren-lead { color: rgba(255, 255, 255, 0.78); margin-bottom: 30px; }
 .hero-noren-actions { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 34px; }
@@ -93,7 +97,7 @@ button { font: inherit; cursor: pointer; }
 
 /* コース一覧（カテゴリタブ） */
 .category-tabs { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 40px; }
-.category-tab { padding: 8px 20px; border-radius: 999px; border: 1px solid var(--color-border); background: var(--color-surface); font-size: 0.8rem; color: var(--color-text-light); transition: background 0.2s, color 0.2s, border-color 0.2s; }
+.category-tab { padding: 9px 22px; border-radius: 999px; border: 1px solid var(--color-border); background: var(--color-surface); font-size: 0.78rem; letter-spacing: 0.04em; color: var(--color-text-light); transition: background 0.2s, color 0.2s, border-color 0.2s; }
 .category-tab:hover { border-color: var(--color-primary); }
 .category-tab.is-active { background: var(--color-primary); border-color: var(--color-primary); color: #fff; }
 
@@ -124,15 +128,16 @@ a.menu-board-row:hover { background: rgba(255, 255, 255, 0.04); }
 .concern-list { display: flex; flex-direction: column; gap: 10px; }
 .concern-list li { font-size: 0.9rem; }
 .price-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
-.price-table th, .price-table td { padding: 14px 16px; border-bottom: 1px solid var(--color-border); text-align: left; }
-.price-table th { color: var(--color-text-light); font-weight: 600; font-size: 0.8rem; }
-.price-table td.price-monitor { color: var(--color-primary-dark); font-weight: bold; }
+.price-table th, .price-table td { padding: 15px 16px; border-bottom: 1px solid var(--color-border); text-align: left; }
+.price-table thead th { border-top: 1px solid var(--color-ink); border-bottom: 2px solid var(--color-ink); color: var(--color-text-light); font-weight: 600; font-size: 0.76rem; letter-spacing: 0.08em; }
+.price-table td.price-monitor { color: var(--color-primary-dark); font-weight: bold; font-family: var(--font-base); }
 .before-after-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.before-after-item { aspect-ratio: 4 / 3; border-radius: 10px; background: #e4e6e2; display: flex; align-items: center; justify-content: center; color: var(--color-text-light); font-size: 0.85rem; }
+.before-after-item { aspect-ratio: 4 / 3; border-radius: 4px; background: #e4e6e2; display: flex; align-items: center; justify-content: center; color: var(--color-text-light); font-size: 0.85rem; }
 .before-after-note { margin-top: 10px; font-size: 0.75rem; color: var(--color-text-light); }
-.flow-list { display: flex; flex-direction: column; gap: 16px; }
-.flow-list li { display: flex; gap: 14px; align-items: baseline; font-size: 0.9rem; }
-.flow-index { font-family: var(--font-base); color: var(--color-accent); min-width: 28px; }
+.flow-list { position: relative; display: flex; flex-direction: column; gap: 20px; }
+.flow-list::before { content: ""; position: absolute; top: 6px; bottom: 6px; left: 13px; width: 1px; background: var(--color-border); }
+.flow-list li { position: relative; display: flex; gap: 14px; align-items: baseline; font-size: 0.9rem; }
+.flow-index { position: relative; z-index: 1; background: var(--color-bg); font-family: var(--font-base); color: var(--color-accent); min-width: 28px; }
 .detail-cta { text-align: center; padding: 32px 0 8px; }
 
 /* 大将紹介（写真の脇に大将の名前を縦書きで大きく添える） */
@@ -160,17 +165,18 @@ a.menu-board-row:hover { background: rgba(255, 255, 255, 0.04); }
 .benefit-seal h3 { font-size: 0.9rem; margin-bottom: 6px; }
 .benefit-seal p { font-size: 0.78rem; color: var(--color-text-light); }
 .reserve-alt { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-.reserve-alt-card { background: var(--color-surface); border-radius: 14px; padding: 28px; text-align: center; }
+.reserve-alt-card { background: var(--color-surface); border-radius: 6px; padding: 28px; text-align: center; }
 .reserve-alt-card h3 { font-size: 1rem; margin-bottom: 10px; }
 .reserve-alt-card p { font-size: 0.85rem; color: var(--color-text-light); }
 
 .cta-band { background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary)); color: #fff; text-align: center; padding: 60px 0; }
 .cta-band p { margin-bottom: 18px; opacity: 0.95; }
 
-.site-footer { background: var(--color-ink); color: #fff; padding: 40px 0 28px; }
-.footer-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 22px; margin-bottom: 18px; font-size: 0.8rem; }
+.site-footer { position: relative; background: var(--color-ink); color: #fff; padding: 46px 0 30px; }
+.site-footer::before { content: ""; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 40px; height: 1px; background: var(--color-accent); }
+.footer-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; margin-bottom: 18px; font-size: 0.78rem; letter-spacing: 0.04em; }
 .footer-nav span { opacity: 0.6; }
-.footer-info { text-align: center; font-size: 0.74rem; opacity: 0.7; }
+.footer-info { text-align: center; font-size: 0.74rem; letter-spacing: 0.02em; opacity: 0.7; }
 
 .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.65s ease, transform 0.65s ease; }
 .reveal.is-visible { opacity: 1; transform: none; }
@@ -188,6 +194,7 @@ a.menu-board-row:hover { background: rgba(255, 255, 255, 0.04); }
   .nav { position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; gap: 0; background: var(--color-bg); border-top: 1px solid var(--color-border); box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08); max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
   .nav.nav-open { max-height: 320px; }
   .nav a { display: block; padding: 16px 24px; border-bottom: 1px solid rgba(0, 0, 0, 0.04); }
+  .nav a::after { display: none; }
   .before-after-grid, .reserve-alt, .benefit-seals { grid-template-columns: 1fr; }
 
   .hero-noren { padding: 64px 0; }
