@@ -3,6 +3,11 @@
    専用スタイルシート
    ================================================================== */
 
+/* 高級感を出すため、欧文はMarcellus・和文はKaisei Tokuminを指定。
+   同じfont-familyの並びに両方書いておくと、英字はMarcellus、
+   漢字・かなはKaisei Tokuminで自動的に描き分けられる。 */
+@import url('https://fonts.googleapis.com/css2?family=Marcellus&family=Kaisei+Tokumin:wght@400;500;700&display=swap');
+
 :root {
   --color-bg: #faf8f6;
   --color-surface: #ffffff;
@@ -14,18 +19,24 @@
   --color-text-light: #7d7367;
   --color-border: rgba(0, 0, 0, 0.08);
   --color-line: #06c755;
-  --font-base: "Hiragino Mincho ProN", "Yu Mincho", serif;
+  --font-base: 'Marcellus', 'Kaisei Tokumin', "Hiragino Mincho ProN", "Yu Mincho", serif;
   --font-sans: "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: var(--font-sans); color: var(--color-text); background: var(--color-bg); line-height: 1.8; opacity: 0; }
+body { font-family: var(--font-sans); color: var(--color-text); background: var(--color-bg) radial-gradient(rgba(28, 26, 23, 0.035) 1px, transparent 0) 0 0/16px 16px; line-height: 1.85; letter-spacing: 0.01em; opacity: 0; }
 body.is-loaded { opacity: 1; transition: opacity 0.35s ease; }
 a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
 img { max-width: 100%; display: block; }
 button { font: inherit; cursor: pointer; }
 .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+/* 画像プレースホルダー共通の縁取り（写真らしい額装の質感を出す） */
+.hero-editorial-image, .lookbook-feature-image, .menu-editorial-image,
+.doctor-spotlight-photo, .staff-row-photo, .doctor-teaser-photo {
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.16);
+}
 
 /* ヘッダー・パンくず・フローティング予約 */
 .site-header { position: sticky; top: 0; background: rgba(250, 248, 246, 0.95); backdrop-filter: blur(6px); z-index: 100; border-bottom: 1px solid var(--color-border); transition: box-shadow 0.3s ease; }
@@ -35,7 +46,7 @@ button { font: inherit; cursor: pointer; }
 .logo-en { font-size: 0.7rem; letter-spacing: 0.15em; }
 .logo-ja { font-size: 1rem; letter-spacing: 0.05em; }
 .nav { display: flex; gap: 30px; }
-.nav a { position: relative; font-size: 0.88rem; transition: color 0.2s; }
+.nav a { position: relative; font-size: 0.88rem; letter-spacing: 0.05em; transition: color 0.2s; }
 .nav a:hover, .nav a.is-current { color: var(--color-primary-dark); font-weight: bold; }
 .header-actions { display: flex; align-items: center; gap: 14px; }
 .menu-toggle { display: none; background: none; border: none; font-size: 1.4rem; }
@@ -44,10 +55,10 @@ button { font: inherit; cursor: pointer; }
 .floating-reserve { position: fixed; right: 20px; bottom: 20px; z-index: 90; box-shadow: 0 10px 30px rgba(111, 74, 52, 0.35); }
 
 /* ボタン */
-.btn { display: inline-block; padding: 14px 32px; border-radius: 4px; font-size: 0.88rem; letter-spacing: 0.05em; transition: transform 0.2s, box-shadow 0.2s, background 0.2s; }
+.btn { display: inline-block; padding: 15px 34px; border-radius: 2px; font-size: 0.86rem; font-weight: 600; letter-spacing: 0.08em; transition: transform 0.25s, box-shadow 0.25s, background 0.25s; }
 .btn:active { transform: scale(0.97); }
 .btn-primary { background: var(--color-primary); color: #fff; }
-.btn-primary:hover { background: var(--color-primary-dark); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(111, 74, 52, 0.3); }
+.btn-primary:hover { background: var(--color-primary-dark); transform: translateY(-2px); box-shadow: 0 16px 34px rgba(111, 74, 52, 0.28); }
 .btn-outline { border: 1px solid var(--color-primary); color: var(--color-primary-dark); background: transparent; }
 .btn-outline:hover { background: var(--color-primary); color: #fff; }
 .btn-small { padding: 8px 20px; font-size: 0.78rem; }
@@ -55,18 +66,19 @@ button { font: inherit; cursor: pointer; }
 .btn-line { background: var(--color-line); color: #fff; }
 .btn-line:hover { opacity: 0.9; }
 
-.section { padding: 88px 0; }
-.section-tight { padding: 56px 0; }
-.section-eyebrow { text-align: center; font-size: 0.76rem; letter-spacing: 0.25em; color: var(--color-primary-dark); margin-bottom: 8px; }
-.section-title { font-family: var(--font-base); font-size: clamp(1.5rem, 1.2vw + 1.2rem, 1.8rem); text-align: center; margin-bottom: 12px; }
+.section { padding: 100px 0; }
+.section-tight { padding: 64px 0; }
+.section-eyebrow { position: relative; text-align: center; font-size: 0.76rem; letter-spacing: 0.32em; color: var(--color-primary-dark); margin-bottom: 24px; padding-bottom: 18px; }
+.section-eyebrow::after { content: ""; position: absolute; left: 50%; bottom: 0; transform: translateX(-50%); width: 34px; height: 1px; background: var(--color-accent); }
+.section-title { font-family: var(--font-base); font-size: clamp(1.7rem, 1.4vw + 1.3rem, 2.1rem); text-align: center; margin-bottom: 12px; }
 .section-lead { text-align: center; color: var(--color-text-light); max-width: 540px; margin: 0 auto 44px; }
 
 /* ヒーロー（非対称エディトリアル：画像+スポットライト円 と コピーを左右非対称に配置） */
-.hero-editorial { padding: 56px 0 88px; overflow: hidden; }
+.hero-editorial { padding: 64px 0 96px; overflow: hidden; }
 .hero-editorial-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 56px; align-items: center; }
 .hero-editorial-visual { position: relative; }
-.hero-editorial-image { height: 420px; border-radius: 4px; background: linear-gradient(150deg, var(--color-ink), var(--color-primary) 60%, var(--color-accent)); display: flex; align-items: center; justify-content: center; color: rgba(255, 255, 255, 0.6); font-size: 0.85rem; text-align: center; padding: 24px; }
-.hero-editorial-spotlight { position: absolute; right: -24px; bottom: -32px; width: 148px; height: 148px; border-radius: 50%; background: var(--color-surface); box-shadow: 0 18px 44px rgba(28, 26, 23, 0.18); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+.hero-editorial-image { height: 420px; border-radius: 4px; background: radial-gradient(120% 100% at 20% 15%, rgba(255, 255, 255, 0.18), transparent 55%), linear-gradient(150deg, var(--color-ink), var(--color-primary) 60%, var(--color-accent)); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.16), 0 30px 70px rgba(28, 26, 23, 0.22); display: flex; align-items: center; justify-content: center; color: rgba(255, 255, 255, 0.65); font-size: 0.82rem; letter-spacing: 0.04em; text-align: center; padding: 24px; }
+.hero-editorial-spotlight { position: absolute; right: -24px; bottom: -32px; width: 148px; height: 148px; border-radius: 50%; background: var(--color-surface); box-shadow: 0 22px 50px rgba(28, 26, 23, 0.16); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
 .spotlight-number { font-family: var(--font-base); font-size: 1.9rem; color: var(--color-primary-dark); line-height: 1.1; }
 .spotlight-label { font-size: 0.64rem; letter-spacing: 0.06em; color: var(--color-text-light); margin-top: 4px; padding: 0 12px; }
 .hero-editorial-copy { padding-top: 24px; }
@@ -111,8 +123,9 @@ button { font: inherit; cursor: pointer; }
 
 /* 施術メニュー（ホーム用ルックブック：大きな一押し施術＋横型リスト） */
 .lookbook-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 40px; align-items: start; }
-.lookbook-feature { display: block; background: var(--color-surface); border-radius: 4px; overflow: hidden; box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06); }
-.lookbook-feature-image { height: 260px; background: linear-gradient(150deg, var(--color-accent), var(--color-primary)); }
+.lookbook-feature { display: block; background: var(--color-surface); border-radius: 4px; overflow: hidden; box-shadow: 0 24px 64px rgba(28, 26, 23, 0.10); transition: box-shadow 0.3s ease, transform 0.3s ease; }
+.lookbook-feature:hover { transform: translateY(-4px); box-shadow: 0 30px 76px rgba(28, 26, 23, 0.14); }
+.lookbook-feature-image { height: 260px; background: radial-gradient(120% 100% at 80% 10%, rgba(255, 255, 255, 0.22), transparent 55%), linear-gradient(150deg, var(--color-accent), var(--color-primary)); }
 .lookbook-feature-body { padding: 30px; }
 .lookbook-feature-body h3 { font-family: var(--font-base); font-size: 1.35rem; margin: 10px 0 12px; }
 .lookbook-feature-body p { color: var(--color-text-light); font-size: 0.9rem; margin-bottom: 18px; }
