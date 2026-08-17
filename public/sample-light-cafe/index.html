@@ -6,6 +6,13 @@
   いません）。店名・住所・電話番号などはすべて仮の値で、実在の店舗
   ではありません。
 
+  制作例①（美容クリニック）・制作例②（ネイルサロン）とはあえて
+  違うデザインにしています。
+  ・雑誌の表紙のような左寄せの大見出し
+  ・メニューはカードではなく、黒板風の手書き見立てリスト
+  ・「こだわり」は写真ストリップ風の横並び
+  「ライトプランでも店ごとに個性を出せる」ことの見本です。
+
   文章を書き換えたいときは、このファイルの日本語部分を直接編集して
   ください。デザインを変えたいときは style.css、動きを変えたいときは
   script.js を編集してください。
@@ -24,77 +31,78 @@
 <body>
 
 <header class="site-header">
-  <div class="container header-inner">
+  <div class="container-wide header-inner">
     <span class="logo">喫茶○○</span>
     <nav class="nav">
       <a href="#menu">メニュー</a>
       <a href="#access">アクセス</a>
     </nav>
-    <a href="#access" class="btn btn-primary" style="padding:8px 20px;font-size:0.8rem;">アクセス</a>
   </div>
 </header>
 
 <section class="hero">
   <div class="container">
-    <p class="hero-eyebrow reveal">Coffee &amp; Light Meals</p>
+    <p class="hero-kicker reveal">Coffee &amp; Light Meals</p>
     <h1 class="reveal">一杯のコーヒーと、<br>ゆっくりできる時間を。</h1>
-    <p class="hero-lead reveal">自家焙煎の豆と丁寧な一杯にこだわる、住宅街にひっそり佇む小さな喫茶店です。</p>
+    <p class="hero-lead reveal">自家焙煎の豆と丁寧な一杯にこだわる、住宅街にひっそり佇む小さな喫茶店です。8:00-18:00・月曜定休。</p>
     <div class="hero-actions reveal">
       <a href="#menu" class="btn btn-primary">メニューを見る</a>
       <a href="#access" class="btn btn-outline">アクセス</a>
     </div>
-    <div class="hero-tags reveal">
-      <span class="hero-tag">自家焙煎</span>
-      <span class="hero-tag">8:00-18:00</span>
-      <span class="hero-tag">月曜定休</span>
-    </div>
+  </div>
+  <div class="hero-photo-band reveal">
+    <span>自家焙煎の豆</span>
+    <span>ハンドドリップ</span>
+    <span>自家製シフォン</span>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
-    <p class="section-title reveal">こだわり</p>
-    <p class="section-lead reveal">Our Commitment</p>
-    <div class="reasons-grid">
-      <div class="reason-card reveal">
-        <div class="reason-mark">豆</div>
-        <h3>自家焙煎の豆</h3>
-        <p>産地にこだわった豆を店内で少量ずつ焙煎しています。</p>
+    <p class="section-kicker reveal">Our Commitment</p>
+    <h2 class="section-title reveal">こだわり</h2>
+    <div class="commitment-strip">
+      <div class="commitment-row reveal">
+        <span class="mark">壱</span>
+        <div><h3>自家焙煎の豆</h3><p>産地にこだわった豆を店内で少量ずつ焙煎しています。</p></div>
       </div>
-      <div class="reason-card reveal">
-        <div class="reason-mark">杯</div>
-        <h3>一杯ずつハンドドリップ</h3>
-        <p>ご注文をいただいてから、一杯ずつ丁寧に淹れています。</p>
+      <div class="commitment-row reveal">
+        <span class="mark">弐</span>
+        <div><h3>一杯ずつハンドドリップ</h3><p>ご注文をいただいてから、一杯ずつ丁寧に淹れています。</p></div>
       </div>
-      <div class="reason-card reveal">
-        <div class="reason-mark">席</div>
-        <h3>落ち着ける店内</h3>
-        <p>読書や作業にも使いやすい、静かな空間づくりを心がけています。</p>
+      <div class="commitment-row reveal">
+        <span class="mark">参</span>
+        <div><h3>落ち着ける店内</h3><p>読書や作業にも使いやすい、静かな空間づくりを心がけています。</p></div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section menu" id="menu">
+<section class="section" id="menu">
   <div class="container">
-    <p class="section-title reveal">メニュー</p>
-    <p class="section-lead reveal">Menu</p>
-    <div class="menu-grid">
-      <div class="menu-item reveal">
-        <span class="menu-item-name">本日のハンドドリップ<span class="menu-item-note">豆は日替わりでご案内</span></span>
-        <span class="menu-item-price">550円</span>
+    <p class="section-kicker reveal">Menu</p>
+    <h2 class="section-title reveal">メニュー</h2>
+    <div class="menu-chalk reveal">
+      <p class="menu-chalk-title">本日のお品書き</p>
+      <div class="menu-chalk-line">
+        <span class="menu-chalk-name">本日のハンドドリップ<span class="menu-chalk-note">豆は日替わり</span></span>
+        <span class="menu-chalk-dots"></span>
+        <span class="menu-chalk-price">550円</span>
       </div>
-      <div class="menu-item reveal">
-        <span class="menu-item-name">カフェラテ<span class="menu-item-note">ホット／アイス</span></span>
-        <span class="menu-item-price">600円</span>
+      <div class="menu-chalk-line">
+        <span class="menu-chalk-name">カフェラテ<span class="menu-chalk-note">ホット／アイス</span></span>
+        <span class="menu-chalk-dots"></span>
+        <span class="menu-chalk-price">600円</span>
       </div>
-      <div class="menu-item reveal">
-        <span class="menu-item-name">自家製シフォンケーキ<span class="menu-item-note">季節のフルーツ添え</span></span>
-        <span class="menu-item-price">480円</span>
+      <div class="menu-chalk-line">
+        <span class="menu-chalk-name">自家製シフォンケーキ<span class="menu-chalk-note">季節のフルーツ添え</span></span>
+        <span class="menu-chalk-dots"></span>
+        <span class="menu-chalk-price">480円</span>
       </div>
-      <div class="menu-item reveal">
-        <span class="menu-item-name">厚切りトーストセット<span class="menu-item-note">ドリンク付き</span></span>
-        <span class="menu-item-price">780円</span>
+      <div class="menu-chalk-line">
+        <span class="menu-chalk-name">厚切りトーストセット<span class="menu-chalk-note">ドリンク付き</span></span>
+        <span class="menu-chalk-dots"></span>
+        <span class="menu-chalk-price">780円</span>
       </div>
     </div>
     <p class="menu-note reveal">※ 価格はすべて税込表示です。仕入れ状況により内容が変わる場合があります。</p>
@@ -103,16 +111,13 @@
 
 <section class="section" id="access">
   <div class="container">
-    <p class="section-title reveal">アクセス</p>
-    <p class="section-lead reveal">Access</p>
-    <div class="access-grid">
-      <div class="access-map reveal">地図（Googleマップ埋め込み予定）</div>
-      <div class="access-info reveal">
-        <p><strong>住所</strong>〒000-0000 東京都○○区○○ 0-0-0</p>
-        <p><strong>営業時間</strong>8:00〜18:00</p>
-        <p><strong>定休日</strong>月曜日</p>
-        <p><strong>電話番号</strong>00-0000-0000</p>
-      </div>
+    <p class="section-kicker reveal">Access</p>
+    <h2 class="section-title reveal">アクセス</h2>
+    <div class="access-block reveal">
+      <p><strong>住所</strong>〒000-0000 東京都○○区○○ 0-0-0</p>
+      <p><strong>営業時間</strong>8:00〜18:00</p>
+      <p><strong>定休日</strong>月曜日</p>
+      <p><strong>電話番号</strong>00-0000-0000</p>
     </div>
   </div>
 </section>

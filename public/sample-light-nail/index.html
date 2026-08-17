@@ -6,6 +6,12 @@
   いません）。店名・住所・電話番号などはすべて仮の値で、実在の店舗
   ではありません。
 
+  制作例①（美容クリニック）とはあえて違うデザインにしています。
+  ・中央揃えの明朝体ヒーロー → 左右分割の太いゴシック体ヒーロー
+  ・リスト表示のメニュー → 横スクロールのギャラリーカード
+  ・丸アイコンの「選ばれる理由」 → 大きなナンバリング＋横罫線
+  「ライトプランでも店ごとに個性を出せる」ことの見本です。
+
   文章を書き換えたいときは、このファイルの日本語部分を直接編集して
   ください。デザインを変えたいときは style.css、動きを変えたいときは
   script.js を編集してください。
@@ -30,66 +36,78 @@
       <a href="#menu">メニュー</a>
       <a href="#access">アクセス</a>
     </nav>
-    <a href="#access" class="btn btn-primary" style="padding:8px 20px;font-size:0.8rem;">ご予約</a>
+    <a href="#access" class="header-cta">ご予約</a>
   </div>
 </header>
 
-<section class="hero">
-  <div class="container">
-    <p class="hero-eyebrow reveal">Private Nail Salon</p>
-    <h1 class="reveal">指先から、<br>丁寧な毎日を。</h1>
+<section class="hero-split">
+  <div class="hero-text">
+    <p class="hero-eyebrow reveal">PRIVATE NAIL SALON</p>
+    <h1 class="reveal">指先が変わると、<br><em>気分</em>が変わる。</h1>
     <p class="hero-lead reveal">お一人おひとりの爪の状態に合わせたケアと、長持ちするジェルネイルをご提案する完全予約制のプライベートサロンです。</p>
     <div class="hero-actions reveal">
       <a href="#menu" class="btn btn-primary">メニューを見る</a>
       <a href="#access" class="btn btn-outline">ご予約はこちら</a>
     </div>
   </div>
+  <div class="hero-visual reveal">
+    <span class="hero-visual-label">完全予約制<br>プライベート空間</span>
+  </div>
 </section>
 
 <section class="section">
   <div class="container">
-    <p class="section-title reveal">選ばれる理由</p>
-    <p class="section-lead reveal">Why Choose Us</p>
-    <div class="reasons-grid">
-      <div class="reason-card reveal">
-        <div class="reason-mark">爪</div>
-        <h3>爪にやさしい施術</h3>
-        <p>丁寧なオフとケアで、地爪への負担を最小限に抑えます。</p>
+    <div class="section-head reveal">
+      <h2 class="section-title">選ばれる理由</h2>
+      <span class="section-label">WHY CHOOSE US</span>
+    </div>
+    <div class="reasons-list">
+      <div class="reason-row reveal">
+        <span class="reason-num">01</span>
+        <div><h3>爪にやさしい施術</h3><p>丁寧なオフとケアで、地爪への負担を最小限に抑えます。</p></div>
       </div>
-      <div class="reason-card reveal">
-        <div class="reason-mark">個</div>
-        <h3>完全個室・貸切空間</h3>
-        <p>予約制の個室で、周りを気にせずリラックスしていただけます。</p>
+      <div class="reason-row reveal">
+        <span class="reason-num">02</span>
+        <div><h3>完全個室・貸切空間</h3><p>予約制の個室で、周りを気にせずリラックスしていただけます。</p></div>
       </div>
-      <div class="reason-card reveal">
-        <div class="reason-mark">柄</div>
-        <h3>豊富なデザイン相談</h3>
-        <p>トレンドから定番まで、なりたいイメージを一緒に形にします。</p>
+      <div class="reason-row reveal">
+        <span class="reason-num">03</span>
+        <div><h3>豊富なデザイン相談</h3><p>トレンドから定番まで、なりたいイメージを一緒に形にします。</p></div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section menu" id="menu">
+<section class="section" id="menu">
   <div class="container">
-    <p class="section-title reveal">メニュー</p>
-    <p class="section-lead reveal">Menu</p>
-    <div class="menu-grid">
-      <div class="menu-item reveal">
-        <span class="menu-item-name">ジェルネイル（ハンド）<span class="menu-item-note">オフ込み・単色</span></span>
-        <span class="menu-item-price">6,500円〜</span>
+    <div class="section-head reveal">
+      <h2 class="section-title">メニュー</h2>
+      <span class="section-label">MENU — 横にスクロールできます</span>
+    </div>
+    <div class="menu-scroll">
+      <div class="menu-card reveal">
+        <div class="menu-card-photo" aria-hidden="true"></div>
+        <span class="menu-card-name">ジェルネイル（ハンド）</span>
+        <span class="menu-card-note">オフ込み・単色</span>
+        <span class="menu-card-price">6,500円〜</span>
       </div>
-      <div class="menu-item reveal">
-        <span class="menu-item-name">アートジェル（ハンド）<span class="menu-item-note">デザイン相談可</span></span>
-        <span class="menu-item-price">8,000円〜</span>
+      <div class="menu-card reveal">
+        <div class="menu-card-photo" aria-hidden="true"></div>
+        <span class="menu-card-name">アートジェル（ハンド）</span>
+        <span class="menu-card-note">デザイン相談可</span>
+        <span class="menu-card-price">8,000円〜</span>
       </div>
-      <div class="menu-item reveal">
-        <span class="menu-item-name">フットジェル<span class="menu-item-note">オフ込み・単色</span></span>
-        <span class="menu-item-price">7,500円〜</span>
+      <div class="menu-card reveal">
+        <div class="menu-card-photo" aria-hidden="true"></div>
+        <span class="menu-card-name">フットジェル</span>
+        <span class="menu-card-note">オフ込み・単色</span>
+        <span class="menu-card-price">7,500円〜</span>
       </div>
-      <div class="menu-item reveal">
-        <span class="menu-item-name">ハンドケア（単品）<span class="menu-item-note">爪・甘皮ケアのみ</span></span>
-        <span class="menu-item-price">3,000円〜</span>
+      <div class="menu-card reveal">
+        <div class="menu-card-photo" aria-hidden="true"></div>
+        <span class="menu-card-name">ハンドケア（単品）</span>
+        <span class="menu-card-note">爪・甘皮ケアのみ</span>
+        <span class="menu-card-price">3,000円〜</span>
       </div>
     </div>
     <p class="menu-note reveal">※ 価格はすべて税込表示です。デザインにより追加料金が発生する場合があります。</p>
@@ -98,15 +116,17 @@
 
 <section class="section" id="access">
   <div class="container">
-    <p class="section-title reveal">アクセス</p>
-    <p class="section-lead reveal">Access</p>
-    <div class="access-grid">
-      <div class="access-map reveal">地図（Googleマップ埋め込み予定）</div>
-      <div class="access-info reveal">
-        <p><strong>住所</strong>〒000-0000 東京都○○区○○ 0-0-0 ○○ビル 2F</p>
-        <p><strong>営業時間</strong>10:00〜19:00（最終受付 17:30）</p>
-        <p><strong>定休日</strong>火曜日</p>
-        <p><strong>電話番号</strong>00-0000-0000</p>
+    <div class="section-head reveal">
+      <h2 class="section-title">アクセス</h2>
+      <span class="section-label">ACCESS</span>
+    </div>
+    <div class="access-split reveal">
+      <div class="access-map">地図（Googleマップ埋め込み予定）</div>
+      <div class="access-info">
+        <div class="access-info-row"><strong>住所</strong><span>〒000-0000 東京都○○区○○ 0-0-0 ○○ビル 2F</span></div>
+        <div class="access-info-row"><strong>営業時間</strong><span>10:00〜19:00（最終受付 17:30）</span></div>
+        <div class="access-info-row"><strong>定休日</strong><span>火曜日</span></div>
+        <div class="access-info-row"><strong>電話番号</strong><span>00-0000-0000</span></div>
       </div>
     </div>
   </div>
