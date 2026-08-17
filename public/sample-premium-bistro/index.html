@@ -1,0 +1,136 @@
+<!--
+  ==================================================================
+  プレミアムプランの制作例③（架空のフレンチ/イタリアンレストラン・
+  6ページ構成）
+  ==================================================================
+  完全に独立したHTML/CSS/JSのサイトです。店名・住所・電話番号などは
+  すべて仮の値で、実在の店舗ではありません。
+
+  ページ構成: index.html(ホーム) / menu.html(コース一覧) /
+  detail-dinner.html・detail-anniversary.html(コース詳細×2) /
+  staff.html / reserve.html。
+  ==================================================================
+-->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bistro ○○（プレミアムプランの制作例）</title>
+<meta name="description" content="Bistro ○○の公式サイト。旬の食材を使ったディナーコース・記念日コースのご案内とご予約。">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+  <div class="container header-inner">
+    <a href="index.html" class="logo"><span class="logo-en">FRENCH &amp; ITALIAN</span><span class="logo-ja">Bistro ○○</span></a>
+    <nav class="nav" id="siteNav">
+      <a href="menu.html">コース一覧</a>
+      <a href="staff.html">シェフ紹介</a>
+      <a href="reserve.html">ご予約</a>
+    </nav>
+    <div class="header-actions">
+      <a href="reserve.html" class="btn btn-primary btn-small">ご予約</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="メニューを開く" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <p class="hero-badge reveal">French &amp; Italian Bistro</p>
+    <div class="hero-image reveal">[ シェフが仕上げる一皿のイメージ写真 ]</div>
+    <h1 class="reveal">季節の恵みを、<br>一皿の物語に。</h1>
+    <p class="hero-lead reveal">契約農家から届く旬の野菜と厳選した肉・魚介を、フレンチとイタリアンの技法で。特別な夜をご用意します。</p>
+    <div class="hero-actions reveal">
+      <a href="reserve.html" class="btn btn-primary btn-large">ご予約はこちら</a>
+      <a href="menu.html" class="btn btn-outline">コースを見る</a>
+    </div>
+  </div>
+</section>
+
+<section class="stats-bar">
+  <div class="container stats-grid">
+    <div class="stat-item reveal"><p class="stat-number">2016</p><p class="stat-label">オープン</p></div>
+    <div class="stat-item reveal"><p class="stat-number">全12席</p><p class="stat-label">完全予約制</p></div>
+    <div class="stat-item reveal"><p class="stat-number">ワイン 60種+</p><p class="stat-label">取り扱い銘柄</p></div>
+    <div class="stat-item reveal"><p class="stat-number">4.9</p><p class="stat-label">口コミ評価</p></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <p class="section-eyebrow reveal">Why Choose Us</p>
+    <h2 class="section-title reveal">選ばれる理由</h2>
+    <div class="reasons-grid">
+      <div class="reason-card reveal">
+        <p class="reason-number">I</p>
+        <h3>契約農家から届く旬の野菜</h3>
+        <p>信頼できる契約農家から直接仕入れる、朝採れの野菜を使用します。</p>
+      </div>
+      <div class="reason-card reveal">
+        <p class="reason-number">II</p>
+        <h3>フレンチ×イタリアンの技法</h3>
+        <p>2つの技法を掛け合わせた、当店ならではの一皿をお楽しみいただけます。</p>
+      </div>
+      <div class="reason-card reveal">
+        <p class="reason-number">III</p>
+        <h3>ソムリエ厳選のペアリング</h3>
+        <p>お料理に合わせたワインペアリングを、ソムリエがご提案します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-tight" style="background:var(--color-surface);">
+  <div class="container">
+    <p class="section-eyebrow reveal">Course</p>
+    <h2 class="section-title reveal">コース</h2>
+    <div class="menu-grid">
+      <a href="detail-dinner.html" class="menu-card reveal">
+        <div class="menu-card-image" aria-hidden="true"></div>
+        <span class="menu-card-tag">ディナー</span>
+        <h3>シェフおまかせディナーコース</h3>
+        <p>旬の食材を活かした全7品のコース</p>
+        <div class="menu-card-footer"><span class="menu-price">14,000円〜</span><span class="menu-detail-link">詳細 —</span></div>
+      </a>
+      <a href="detail-anniversary.html" class="menu-card reveal">
+        <div class="menu-card-image" aria-hidden="true"></div>
+        <span class="menu-card-tag">記念日</span>
+        <h3>記念日コース</h3>
+        <p>特別な日を彩るスペシャリテ付きコース</p>
+        <div class="menu-card-footer"><span class="menu-price">18,000円〜</span><span class="menu-detail-link">詳細 —</span></div>
+      </a>
+      <div class="menu-card reveal">
+        <div class="menu-card-image" aria-hidden="true"></div>
+        <span class="menu-card-tag">ランチ</span>
+        <h3>ランチコース</h3>
+        <p>気軽に楽しめる平日限定のコース</p>
+        <div class="menu-card-footer"><span class="menu-price">4,200円〜</span></div>
+      </div>
+    </div>
+    <div class="menu-more reveal"><a href="menu.html" class="btn btn-outline">コースをすべて見る</a></div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container">
+    <p class="reveal">全12席の完全予約制のため、お早めのご予約をおすすめします。</p>
+    <a href="reserve.html" class="btn btn-outline reveal" style="border-color:#fff;color:#fff;">ご予約はこちら</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <nav class="footer-nav"><a href="index.html">ホーム</a><a href="menu.html">コース一覧</a><a href="staff.html">シェフ紹介</a><a href="reserve.html">ご予約</a><span>プライバシーポリシー</span></nav>
+    <p class="footer-info">〒000-0000 東京都○○区○○ 0-0-0　TEL: 03-0000-0000　18:00〜23:00（月曜定休）<br>© 2026 Bistro ○○（架空の店舗です）</p>
+  </div>
+</footer>
+
+<a href="reserve.html" class="btn btn-primary floating-reserve">ご予約</a>
+
+<script src="script.js" defer></script>
+</body>
+</html>

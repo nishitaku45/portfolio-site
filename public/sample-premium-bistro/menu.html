@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>コース一覧｜Bistro ○○（プレミアムプランの制作例）</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+  <div class="container header-inner">
+    <a href="index.html" class="logo"><span class="logo-en">FRENCH &amp; ITALIAN</span><span class="logo-ja">Bistro ○○</span></a>
+    <nav class="nav" id="siteNav">
+      <a href="menu.html" class="is-current">コース一覧</a>
+      <a href="staff.html">シェフ紹介</a>
+      <a href="reserve.html">ご予約</a>
+    </nav>
+    <div class="header-actions">
+      <a href="reserve.html" class="btn btn-primary btn-small">ご予約</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="メニューを開く" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</header>
+
+<div class="breadcrumb"><div class="container"><a href="index.html">ホーム</a> — コース一覧</div></div>
+
+<section class="section">
+  <div class="container">
+    <p class="section-eyebrow reveal">Course</p>
+    <h1 class="section-title reveal">コース一覧</h1>
+    <p class="section-lead reveal">季節により内容が変わる場合があります。</p>
+
+    <div class="category-tabs" data-filter-group="menu">
+      <button type="button" class="category-tab is-active" data-filter="all">すべて</button>
+      <button type="button" class="category-tab" data-filter="ディナー">ディナー</button>
+      <button type="button" class="category-tab" data-filter="記念日">記念日</button>
+      <button type="button" class="category-tab" data-filter="ランチ">ランチ</button>
+    </div>
+
+    <div class="menu-grid">
+      <a href="detail-dinner.html" class="menu-card reveal" data-filter-target="menu" data-category="ディナー">
+        <div class="menu-card-image" aria-hidden="true"></div>
+        <span class="menu-card-tag">ディナー</span>
+        <h3>シェフおまかせディナーコース</h3>
+        <p>旬の食材を活かした全7品のコース</p>
+        <div class="menu-card-footer"><span class="menu-price">14,000円〜</span><span class="menu-detail-link">詳細 —</span></div>
+      </a>
+      <a href="detail-anniversary.html" class="menu-card reveal" data-filter-target="menu" data-category="記念日">
+        <div class="menu-card-image" aria-hidden="true"></div>
+        <span class="menu-card-tag">記念日</span>
+        <h3>記念日コース</h3>
+        <p>特別な日を彩るスペシャリテ付きコース</p>
+        <div class="menu-card-footer"><span class="menu-price">18,000円〜</span><span class="menu-detail-link">詳細 —</span></div>
+      </a>
+      <div class="menu-card reveal" data-filter-target="menu" data-category="ランチ">
+        <div class="menu-card-image" aria-hidden="true"></div>
+        <span class="menu-card-tag">ランチ</span>
+        <h3>ランチコース</h3>
+        <p>気軽に楽しめる平日限定のコース</p>
+        <div class="menu-card-footer"><span class="menu-price">4,200円〜</span></div>
+      </div>
+      <div class="menu-card reveal" data-filter-target="menu" data-category="ディナー">
+        <div class="menu-card-image" aria-hidden="true"></div>
+        <span class="menu-card-tag">ディナー</span>
+        <h3>グランメゾンコース</h3>
+        <p>全9品、厳選食材を贅沢に使用した上位コース</p>
+        <div class="menu-card-footer"><span class="menu-price">22,000円〜</span></div>
+      </div>
+      <div class="menu-card reveal" data-filter-target="menu" data-category="ランチ">
+        <div class="menu-card-image" aria-hidden="true"></div>
+        <span class="menu-card-tag">ランチ</span>
+        <h3>週末ブランチコース</h3>
+        <p>土日限定、ドリンク付きの贅沢なブランチ</p>
+        <div class="menu-card-footer"><span class="menu-price">5,800円〜</span></div>
+      </div>
+    </div>
+    <p class="menu-note reveal">※ 価格はすべて税込・お一人様表示です。</p>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <nav class="footer-nav"><a href="index.html">ホーム</a><a href="menu.html">コース一覧</a><a href="staff.html">シェフ紹介</a><a href="reserve.html">ご予約</a><span>プライバシーポリシー</span></nav>
+    <p class="footer-info">〒000-0000 東京都○○区○○ 0-0-0　TEL: 03-0000-0000　18:00〜23:00（月曜定休）<br>© 2026 Bistro ○○（架空の店舗です）</p>
+  </div>
+</footer>
+
+<a href="reserve.html" class="btn btn-primary floating-reserve">ご予約</a>
+
+<script src="script.js" defer></script>
+</body>
+</html>

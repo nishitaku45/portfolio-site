@@ -1,0 +1,135 @@
+<!--
+  ==================================================================
+  プレミアムプランの制作例②（架空の割烹・寿司店・6ページ構成）
+  ==================================================================
+  完全に独立したHTML/CSS/JSのサイトです。店名・住所・電話番号などは
+  すべて仮の値で、実在の店舗ではありません。
+
+  ページ構成: index.html(ホーム) / menu.html(コース一覧) /
+  detail-omakase.html・detail-kaiseki.html(コース詳細×2) / staff.html /
+  reserve.html。6ファイルすべてでstyle.css・script.jsを共通利用。
+  ==================================================================
+-->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>鮨 ○○（プレミアムプランの制作例）</title>
+<meta name="description" content="鮨○○の公式サイト。おまかせ握りコース・季節の会席コースのご案内とご予約。">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+  <div class="container header-inner">
+    <a href="index.html" class="logo"><span class="logo-en">SUSHI KAPPO</span><span class="logo-ja">鮨 ○○</span></a>
+    <nav class="nav" id="siteNav">
+      <a href="menu.html">コース一覧</a>
+      <a href="staff.html">大将紹介</a>
+      <a href="reserve.html">ご予約</a>
+    </nav>
+    <div class="header-actions">
+      <a href="reserve.html" class="btn btn-primary btn-small">ご予約</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="メニューを開く" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <p class="hero-badge reveal">Edomae Sushi &amp; Kappo</p>
+    <div class="hero-image reveal">[ 目の前で握る職人技のイメージ写真 ]</div>
+    <h1 class="reveal">その日いちばんの魚を、<br>目の前で。</h1>
+    <p class="hero-lead reveal">築地の目利きが選ぶ旬の魚介を、カウンター越しに一貫ずつ。特別な一夜をご用意します。</p>
+    <div class="hero-actions reveal">
+      <a href="reserve.html" class="btn btn-primary btn-large">ご予約はこちら</a>
+      <a href="menu.html" class="btn btn-outline">コースを見る</a>
+    </div>
+  </div>
+</section>
+
+<section class="stats-bar">
+  <div class="container stats-grid">
+    <div class="stat-item reveal"><p class="stat-number">2009</p><p class="stat-label">創業</p></div>
+    <div class="stat-item reveal"><p class="stat-number">カウンター8席</p><p class="stat-label">完全予約制</p></div>
+    <div class="stat-item reveal"><p class="stat-number">日本酒 20種+</p><p class="stat-label">取り扱い銘柄</p></div>
+    <div class="stat-item reveal"><p class="stat-number">95%</p><p class="stat-label">リピート率</p></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <p class="section-eyebrow reveal">Why Choose Us</p>
+    <h2 class="section-title reveal">選ばれる理由</h2>
+    <div class="reasons-grid">
+      <div class="reason-card reveal">
+        <p class="reason-number">I</p>
+        <h3>毎朝市場で目利きした魚介</h3>
+        <p>その日一番の状態のネタだけを仕入れ、最良のタイミングでお出しします。</p>
+      </div>
+      <div class="reason-card reveal">
+        <p class="reason-number">II</p>
+        <h3>目の前で握る職人技</h3>
+        <p>カウンター越しに、一貫ずつ丁寧に握る様子をお楽しみいただけます。</p>
+      </div>
+      <div class="reason-card reveal">
+        <p class="reason-number">III</p>
+        <h3>完全予約制・少人数制</h3>
+        <p>カウンター8席のみのご案内で、落ち着いた特別な時間を演出します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-tight" style="background:var(--color-surface);">
+  <div class="container">
+    <p class="section-eyebrow reveal">Course</p>
+    <h2 class="section-title reveal">コース</h2>
+    <div class="menu-grid">
+      <a href="detail-omakase.html" class="menu-card reveal">
+        <div class="menu-card-image" aria-hidden="true"></div>
+        <span class="menu-card-tag">おまかせ</span>
+        <h3>おまかせ握りコース</h3>
+        <p>その日いちばんのネタを職人におまかせ</p>
+        <div class="menu-card-footer"><span class="menu-price">22,000円〜</span><span class="menu-detail-link">詳細 —</span></div>
+      </a>
+      <a href="detail-kaiseki.html" class="menu-card reveal">
+        <div class="menu-card-image" aria-hidden="true"></div>
+        <span class="menu-card-tag">会席</span>
+        <h3>季節の会席コース</h3>
+        <p>旬の食材を活かした全8品の会席料理</p>
+        <div class="menu-card-footer"><span class="menu-price">18,000円〜</span><span class="menu-detail-link">詳細 —</span></div>
+      </a>
+      <div class="menu-card reveal">
+        <div class="menu-card-image" aria-hidden="true"></div>
+        <span class="menu-card-tag">ランチ</span>
+        <h3>ランチ握りコース</h3>
+        <p>気軽に楽しめる昼限定のコース</p>
+        <div class="menu-card-footer"><span class="menu-price">6,500円〜</span></div>
+      </div>
+    </div>
+    <div class="menu-more reveal"><a href="menu.html" class="btn btn-outline">コースをすべて見る</a></div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container">
+    <p class="reveal">完全予約制のため、お早めのご予約をおすすめします。</p>
+    <a href="reserve.html" class="btn btn-outline reveal" style="border-color:#fff;color:#fff;">ご予約はこちら</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <nav class="footer-nav"><a href="index.html">ホーム</a><a href="menu.html">コース一覧</a><a href="staff.html">大将紹介</a><a href="reserve.html">ご予約</a><span>プライバシーポリシー</span></nav>
+    <p class="footer-info">〒000-0000 東京都○○区○○ 0-0-0　TEL: 03-0000-0000　18:00〜23:00（日曜定休）<br>© 2026 鮨 ○○（架空の店舗です）</p>
+  </div>
+</footer>
+
+<a href="reserve.html" class="btn btn-primary floating-reserve">ご予約</a>
+
+<script src="script.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!--
+  ==================================================================
+  プレミアムプランの制作例①（架空の医療美容クリニック・6ページ構成）
+  ==================================================================
+  完全に独立したHTML/CSS/JSのサイトです。院名・住所・電話番号などは
+  すべて仮の値で、実在のクリニックではありません。
+
+  ページ構成: index.html(ホーム) / menu.html(施術メニュー) /
+  detail-hifu.html・detail-laser.html(施術詳細×2) / staff.html /
+  reserve.html。6ファイルすべてでstyle.css・script.jsを共通利用。
+  ==================================================================
+-->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>○○美容皮膚科クリニック（プレミアムプランの制作例）</title>
+<meta name="description" content="○○美容皮膚科クリニックの公式サイト。医療ハイフ・シミ取りレーザーなどの施術メニューとご予約のご案内。">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+  <div class="container header-inner">
+    <a href="index.html" class="logo"><span class="logo-en">BEAUTY DERMATOLOGY</span><span class="logo-ja">○○美容皮膚科クリニック</span></a>
+    <nav class="nav" id="siteNav">
+      <a href="menu.html">施術メニュー</a>
+      <a href="staff.html">医師紹介</a>
+      <a href="reserve.html">ご予約</a>
+    </nav>
+    <div class="header-actions">
+      <a href="reserve.html" class="btn btn-primary btn-small">ご予約（無料）</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="メニューを開く" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <p class="hero-badge reveal">Medical Beauty Dermatology</p>
+    <div class="hero-image reveal">[ 施術後の洗練されたイメージ写真 ]</div>
+    <h1 class="reveal">確かな技術で、<br>理想の肌へ。</h1>
+    <p class="hero-lead reveal">皮膚科専門医が一人ひとりの肌質を見極め、医療根拠に基づいた施術をご提案する美容皮膚科クリニックです。</p>
+    <div class="hero-actions reveal">
+      <a href="reserve.html" class="btn btn-primary btn-large">無料カウンセリングを予約</a>
+      <a href="menu.html" class="btn btn-outline">施術メニューを見る</a>
+    </div>
+  </div>
+</section>
+
+<section class="stats-bar">
+  <div class="container stats-grid">
+    <div class="stat-item reveal"><p class="stat-number">2013</p><p class="stat-label">開院</p></div>
+    <div class="stat-item reveal"><p class="stat-number">8,000 名+</p><p class="stat-label">累計来院数</p></div>
+    <div class="stat-item reveal"><p class="stat-number">99%</p><p class="stat-label">満足度</p></div>
+    <div class="stat-item reveal"><p class="stat-number">初回無料</p><p class="stat-label">カウンセリング</p></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <p class="section-eyebrow reveal">Why Choose Us</p>
+    <h2 class="section-title reveal">選ばれる理由</h2>
+    <div class="reasons-grid">
+      <div class="reason-card reveal">
+        <p class="reason-number">I</p>
+        <h3>皮膚科専門医による診療</h3>
+        <p>すべての施術を皮膚科専門医が担当し、医学的根拠に基づいたご提案をします。</p>
+      </div>
+      <div class="reason-card reveal">
+        <p class="reason-number">II</p>
+        <h3>最新医療機器の導入</h3>
+        <p>効果とダウンタイムのバランスを考えた最新機器を各種取り揃えています。</p>
+      </div>
+      <div class="reason-card reveal">
+        <p class="reason-number">III</p>
+        <h3>丁寧なカウンセリング</h3>
+        <p>お悩みを詳しくお伺いし、無理な施術のご提案は一切いたしません。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-tight" style="background:var(--color-surface);">
+  <div class="container">
+    <p class="section-eyebrow reveal">Treatments</p>
+    <h2 class="section-title reveal">施術メニュー</h2>
+    <div class="menu-grid">
+      <a href="detail-hifu.html" class="menu-card reveal">
+        <div class="menu-card-image" aria-hidden="true"></div>
+        <span class="menu-card-tag">たるみ・引き締め</span>
+        <h3>医療ハイフ</h3>
+        <p>切らないリフトアップ治療</p>
+        <div class="menu-card-footer"><span class="menu-price">48,000円〜</span><span class="menu-detail-link">詳細 —</span></div>
+      </a>
+      <a href="detail-laser.html" class="menu-card reveal">
+        <div class="menu-card-image" aria-hidden="true"></div>
+        <span class="menu-card-tag">シミ・くすみ</span>
+        <h3>シミ取りレーザー</h3>
+        <p>気になるシミにピンポイント照射</p>
+        <div class="menu-card-footer"><span class="menu-price">16,500円〜</span><span class="menu-detail-link">詳細 —</span></div>
+      </a>
+      <div class="menu-card reveal">
+        <div class="menu-card-image" aria-hidden="true"></div>
+        <span class="menu-card-tag">毛穴・肌質</span>
+        <h3>ポテンツァ</h3>
+        <p>肌質改善・毛穴治療の最新機器</p>
+        <div class="menu-card-footer"><span class="menu-price">33,000円〜</span></div>
+      </div>
+    </div>
+    <div class="menu-more reveal"><a href="menu.html" class="btn btn-outline">施術メニューをすべて見る</a></div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container">
+    <p class="reveal">まずは無料カウンセリングへ。お悩みをじっくりお伺いします。</p>
+    <a href="reserve.html" class="btn btn-outline reveal" style="border-color:#fff;color:#fff;">無料カウンセリングを予約する</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <nav class="footer-nav">
+      <a href="index.html">ホーム</a><a href="menu.html">施術メニュー</a><a href="staff.html">医師紹介</a><a href="reserve.html">ご予約</a><span>プライバシーポリシー</span>
+    </nav>
+    <p class="footer-info">〒000-0000 東京都○○区○○ 0-0-0　TEL: 03-0000-0000　10:00〜19:00（水曜休診）<br>© 2026 ○○美容皮膚科クリニック（架空のクリニックです）</p>
+  </div>
+</footer>
+
+<a href="reserve.html" class="btn btn-primary floating-reserve">ご予約（無料）</a>
+
+<script src="script.js" defer></script>
+</body>
+</html>
