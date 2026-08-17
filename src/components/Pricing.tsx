@@ -48,6 +48,15 @@ export default function Pricing() {
                 サンプルを見る →
               </span>
             </Link>
+            {plan.monitorPrice && (
+              <p
+                className={`mt-3 text-xs font-semibold ${
+                  plan.featured ? "text-gold" : "text-gold-dark"
+                }`}
+              >
+                モニター価格 {plan.monitorPrice}（先着3名様）
+              </p>
+            )}
             <p
               className={`mt-4 text-sm leading-loose ${
                 plan.featured ? "text-background/70" : "text-brand-600"
@@ -85,6 +94,17 @@ export default function Pricing() {
           </div>
         ))}
       </div>
+
+      {pricing.monitorNote && (
+        <div className="mt-6 border border-dashed border-gold/60 bg-background p-8">
+          <span className="text-xs font-semibold uppercase tracking-[0.15em] text-gold-dark">
+            モニター価格について
+          </span>
+          <p className="mt-2 max-w-2xl text-sm leading-loose text-brand-600">
+            {pricing.monitorNote}
+          </p>
+        </div>
+      )}
 
       <div className="mt-6 flex flex-col gap-4">
         {pricing.options.map((option) => (
