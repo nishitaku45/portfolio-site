@@ -47,7 +47,7 @@ export default function VoiceCarousel() {
                 : "pointer-events-none translate-y-3 opacity-0"
             }`}
           >
-            <p className="font-serif text-2xl leading-[1.9] text-[#f2e8e2] sm:text-3xl">
+            <p className="font-[family-name:var(--font-editorial-jp)] text-2xl leading-[1.9] text-[#f6ede0] sm:text-3xl">
               {voice.lines.map((line, lineIndex) => (
                 <span key={line}>
                   {lineIndex > 0 && <br />}
@@ -55,7 +55,7 @@ export default function VoiceCarousel() {
                 </span>
               ))}
             </p>
-            <p className="mt-6 text-[11px] tracking-[0.25em] text-[#e8d5ce]/60">
+            <p className="mt-6 text-[11px] tracking-[0.25em] text-[#ecdfc9]/60">
               {voice.meta}
             </p>
           </div>
@@ -70,7 +70,7 @@ export default function VoiceCarousel() {
             aria-label={`${i + 1}件目の声を表示`}
             aria-current={i === index}
             className={`h-1.5 rounded-full transition-all ${
-              i === index ? "w-6 bg-gold" : "w-1.5 bg-[#e8d5ce]/25"
+              i === index ? "w-6 bg-gold" : "w-1.5 bg-[#ecdfc9]/25"
             }`}
           />
         ))}

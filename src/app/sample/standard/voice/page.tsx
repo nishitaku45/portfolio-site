@@ -10,10 +10,10 @@ export const metadata: Metadata = {
 // 並べる型（他サイトで多用しがちなパターン）はここでは採らない。
 export default function StandardVoicePage() {
   return (
-    <section className="relative overflow-hidden bg-[#241713] px-6 py-24 text-center sm:py-28">
+    <section className="relative overflow-hidden bg-[#170d0a] px-6 py-24 text-center sm:py-28">
       <span
         aria-hidden
-        className="pointer-events-none absolute left-1/2 top-10 -translate-x-1/2 font-serif text-[12rem] leading-none text-white/[0.04]"
+        className="pointer-events-none absolute left-1/2 top-10 -translate-x-1/2 font-[family-name:var(--font-editorial)] text-[12rem] leading-none text-white/[0.04]"
       >
         &ldquo;
       </span>

@@ -41,7 +41,7 @@ export default function StandardStaffPage() {
   return (
     <>
       <section className="px-6 py-20 sm:py-24">
-        <p className="text-center text-[11px] tracking-[0.3em] text-[#9c5a56]">
+        <p className="text-center text-[11px] tracking-[0.3em] text-[#6b1220]">
           STAFF
         </p>
         <div className="mx-auto mt-14 max-w-3xl space-y-20">
@@ -57,11 +57,11 @@ export default function StandardStaffPage() {
                 }`}
               />
               <div>
-                <p className="font-serif text-2xl">{member.name}</p>
-                <p className="mt-1 text-xs tracking-wide text-[#6b5d54]">
+                <p className="font-[family-name:var(--font-editorial-jp)] text-2xl">{member.name}</p>
+                <p className="mt-1 text-xs tracking-wide text-[#7d6a5c]">
                   {member.role}
                 </p>
-                <p className="mt-5 border-l border-gold/50 pl-4 text-sm leading-loose text-[#6b5d54]">
+                <p className="mt-5 border-l border-gold/50 pl-4 text-sm leading-loose text-[#7d6a5c]">
                   {member.quoteLines.map((line, i) => (
                     <span key={line}>
                       {i > 0 && <br />}
@@ -75,8 +75,8 @@ export default function StandardStaffPage() {
         </div>
       </section>
 
-      <section className="border-t border-[#e8d9d2]">
-        <p className="pt-16 text-center text-[11px] tracking-[0.3em] text-[#9c5a56]">
+      <section className="border-t border-[#e5d4c3]">
+        <p className="pt-16 text-center text-[11px] tracking-[0.3em] text-[#6b1220]">
           SIGNATURE LOOK
         </p>
         <div className="mt-8 grid sm:grid-cols-2">
@@ -86,7 +86,7 @@ export default function StandardStaffPage() {
               style={{ backgroundImage: grain }}
               className="flex aspect-[16/10] items-end p-8"
             >
-              <span className="font-serif text-xl text-white drop-shadow">
+              <span className="font-[family-name:var(--font-editorial)] text-xl text-white drop-shadow">
                 {look.label}
               </span>
             </div>

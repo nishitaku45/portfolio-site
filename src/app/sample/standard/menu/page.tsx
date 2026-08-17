@@ -36,8 +36,8 @@ const menu = [
 // 情報ページとしての格を出す（eyebrow・カード・アイコンの型は使わない）。
 export default function StandardMenuPage() {
   return (
-    <section className="bg-[#241713] px-6 py-24 text-[#ece3dc] sm:py-28">
-      <p className="text-center font-serif text-3xl tracking-[0.05em] text-[#e8d5ce] sm:text-4xl">
+    <section className="bg-[#170d0a] px-6 py-24 text-[#f0e6d4] sm:py-28">
+      <p className="text-center font-[family-name:var(--font-editorial)] text-3xl tracking-[0.05em] text-[#ecdfc9] sm:text-4xl">
         Menu
       </p>
       <span className="mx-auto mt-6 block h-px w-16 bg-gold" />
@@ -61,9 +61,9 @@ export default function StandardMenuPage() {
                   </span>
                   <span
                     aria-hidden
-                    className="mb-1 flex-1 border-b border-dotted border-[#ece3dc]/25"
+                    className="mb-1 flex-1 border-b border-dotted border-[#f0e6d4]/25"
                   />
-                  <span className="font-serif tabular-nums text-[#e8d5ce]">
+                  <span className="font-[family-name:var(--font-editorial)] tabular-nums text-[#ecdfc9]">
                     ¥{item.price}
                   </span>
                 </li>
@@ -73,7 +73,7 @@ export default function StandardMenuPage() {
         ))}
       </div>
 
-      <p className="mx-auto mt-16 max-w-sm text-center text-[11px] leading-loose text-[#ece3dc]/75">
+      <p className="mx-auto mt-16 max-w-sm text-center text-[11px] leading-loose text-[#f0e6d4]/75">
         表示価格は税込です。髪の長さ・状態により、
         <br />
         別途料金を頂戴する場合がございます。
@@ -82,7 +82,7 @@ export default function StandardMenuPage() {
       <div className="mt-10 text-center">
         <Link
           href="/sample/standard/access"
-          className="inline-block border border-gold px-8 py-3 text-xs tracking-[0.2em] text-gold transition hover:bg-gold hover:text-[#241713]"
+          className="inline-block border border-gold px-8 py-3 text-xs tracking-[0.2em] text-gold transition hover:bg-gold hover:text-[#170d0a]"
         >
           ご予約はこちら
         </Link>

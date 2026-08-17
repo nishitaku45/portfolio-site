@@ -23,24 +23,24 @@ export default function StandardHeader() {
   }
 
   return (
-    <header className="border-b border-[#e8d9d2] bg-[#faf8f4]/95 backdrop-blur">
+    <header className="border-b border-[#e5d4c3] bg-[#f9f3ea]/95 backdrop-blur">
       <div className="flex items-center justify-between px-6 py-4 sm:px-10">
         <Link href="/sample/standard" className="flex items-center gap-3">
-          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[linear-gradient(135deg,#d8b9ae,#9c5a56)] font-serif text-xs text-white">
+          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[linear-gradient(135deg,#d9a86a,#6b1220)] font-[family-name:var(--font-editorial)] text-xs text-white">
             S
           </span>
-          <span className="font-serif text-sm tracking-[0.1em]">
+          <span className="font-[family-name:var(--font-editorial)] text-sm tracking-[0.1em]">
             Sunny Side Hair
           </span>
         </Link>
-        <nav className="hidden gap-8 text-[11px] tracking-[0.2em] text-[#6b5d54] md:flex">
+        <nav className="hidden gap-8 text-[11px] tracking-[0.2em] text-[#7d6a5c] md:flex">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className={`border-b pb-0.5 transition hover:border-[#9c5a56] hover:text-[#9c5a56] ${
+              className={`border-b pb-0.5 transition hover:border-[#6b1220] hover:text-[#6b1220] ${
                 pathname === link.href
-                  ? "border-[#9c5a56] text-[#9c5a56]"
+                  ? "border-[#6b1220] text-[#6b1220]"
                   : "border-transparent"
               }`}
             >
@@ -51,7 +51,7 @@ export default function StandardHeader() {
         <div className="flex items-center gap-3">
           <Link
             href="/sample/standard/access"
-            className="hidden rounded-sm border border-[#9c5a56] px-5 py-2 text-[11px] tracking-[0.15em] text-[#9c5a56] transition hover:bg-[#9c5a56] hover:text-white sm:inline-block"
+            className="hidden rounded-sm border border-[#6b1220] px-5 py-2 text-[11px] tracking-[0.15em] text-[#6b1220] transition hover:bg-[#6b1220] hover:text-white sm:inline-block"
           >
             ご予約
           </Link>
@@ -63,26 +63,26 @@ export default function StandardHeader() {
             className="flex h-8 w-8 flex-col items-center justify-center gap-1.5 md:hidden"
           >
             <span
-              className={`h-px w-5 bg-[#3a332c] transition ${open ? "translate-y-[7px] rotate-45" : ""}`}
+              className={`h-px w-5 bg-[#201512] transition ${open ? "translate-y-[7px] rotate-45" : ""}`}
             />
             <span
-              className={`h-px w-5 bg-[#3a332c] transition ${open ? "opacity-0" : ""}`}
+              className={`h-px w-5 bg-[#201512] transition ${open ? "opacity-0" : ""}`}
             />
             <span
-              className={`h-px w-5 bg-[#3a332c] transition ${open ? "-translate-y-[7px] -rotate-45" : ""}`}
+              className={`h-px w-5 bg-[#201512] transition ${open ? "-translate-y-[7px] -rotate-45" : ""}`}
             />
           </button>
         </div>
       </div>
       {open && (
-        <nav className="border-t border-[#e8d9d2] px-6 py-4 md:hidden">
-          <ul className="flex flex-col gap-4 text-[11px] tracking-[0.2em] text-[#6b5d54]">
+        <nav className="border-t border-[#e5d4c3] px-6 py-4 md:hidden">
+          <ul className="flex flex-col gap-4 text-[11px] tracking-[0.2em] text-[#7d6a5c]">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className={`block transition hover:text-[#9c5a56] ${
-                    pathname === link.href ? "text-[#9c5a56]" : ""
+                  className={`block transition hover:text-[#6b1220] ${
+                    pathname === link.href ? "text-[#6b1220]" : ""
                   }`}
                 >
                   {link.label}
@@ -92,7 +92,7 @@ export default function StandardHeader() {
             <li>
               <Link
                 href="/sample/standard/access"
-                className="block text-[#9c5a56]"
+                className="block text-[#6b1220]"
               >
                 ご予約
               </Link>

@@ -10,28 +10,28 @@ export default function StandardAccessPage() {
   return (
     <section className="px-6 py-20 sm:py-24">
       <div className="mx-auto max-w-2xl">
-        <p className="text-sm font-semibold tracking-wide text-[#3a332c]">
+        <p className="text-sm font-semibold tracking-wide text-[#201512]">
           Sunny Side Hair
         </p>
         <div className="mt-6 grid gap-6 sm:grid-cols-2">
-          <div className="flex h-40 items-center justify-center rounded-sm border border-[#9c5a56]/30 bg-white text-[11px] tracking-[0.2em] text-[#9c5a56]">
+          <div className="flex h-40 items-center justify-center rounded-sm border border-[#6b1220]/30 bg-white text-[11px] tracking-[0.2em] text-[#6b1220]">
             MAP
           </div>
-          <dl className="space-y-4 text-sm text-[#6b5d54]">
+          <dl className="space-y-4 text-sm text-[#7d6a5c]">
             <div>
-              <dt className="text-[11px] tracking-wide text-[#6b5d54]">
+              <dt className="text-[11px] tracking-wide text-[#7d6a5c]">
                 住所
               </dt>
               <dd className="mt-1">東京都〇〇区〇〇 2-3-4 サニービル2F</dd>
             </div>
             <div>
-              <dt className="text-[11px] tracking-wide text-[#6b5d54]">
+              <dt className="text-[11px] tracking-wide text-[#7d6a5c]">
                 営業時間
               </dt>
               <dd className="mt-1">10:00-20:00（火曜定休）</dd>
             </div>
             <div>
-              <dt className="text-[11px] tracking-wide text-[#6b5d54]">
+              <dt className="text-[11px] tracking-wide text-[#7d6a5c]">
                 アクセス
               </dt>
               <dd className="mt-1">最寄り駅から徒歩3分</dd>
@@ -42,7 +42,7 @@ export default function StandardAccessPage() {
           href="https://line.me/R/ti/p/@your-line-id"
           target="_blank"
           rel="noreferrer noopener"
-          className="mt-8 inline-block rounded-sm bg-[#9c5a56] px-7 py-3 text-xs tracking-[0.15em] text-white shadow-sm transition hover:bg-[#7c4844]"
+          className="mt-8 inline-block rounded-sm bg-[#6b1220] px-7 py-3 text-xs tracking-[0.15em] text-white shadow-sm transition hover:bg-[#4a0c15]"
         >
           LINEでご予約はこちら
         </a>
