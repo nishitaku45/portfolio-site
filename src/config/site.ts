@@ -151,7 +151,7 @@ export const siteConfig = {
   pricing: {
     title: "Pricing",
     heading: "制作プラン",
-    note: "初回のご相談・お見積りは無料です。価格をクリックすると、そのプランで制作した場合のサンプルHPをご覧いただけます。",
+    note: "初回のご相談・お見積りは無料です。価格をクリックすると、そのプランで制作した場合のサンプルHPをご覧いただけます。制作実績（3件）からも過去の制作例をご覧いただけます。",
     monitorNote:
       "各プラン先着3名様限定で「モニター価格」もご用意しています。条件は、完成後のサイトをポートフォリオに掲載できることへのご同意のみです。",
     plans: [
@@ -161,6 +161,11 @@ export const siteConfig = {
         monitorPrice: "50,000円〜",
         description: "1ページ構成のシンプルなホームページ（LP・名刺代わりに）",
         sampleHref: "/sample/light",
+        samples: [
+          { label: "○○美容クリニック", href: "/sample/light" },
+          { label: "ネイルサロン", href: "/sample/light-nail" },
+          { label: "個人カフェ", href: "/sample/light-cafe" },
+        ],
         pages: "1ページ（LP形式）",
         includes: [
           "トップの見出し・キャッチコピー、強みの紹介、メニュー（商品）一覧、アクセス",
@@ -174,6 +179,11 @@ export const siteConfig = {
         monitorPrice: "100,000円〜",
         description: "複数セクション構成の本格的なコーポレートサイト",
         sampleHref: "/sample/standard",
+        samples: [
+          { label: "ヘアサロン", href: "/sample/standard" },
+          { label: "焼肉店", href: "/sample/standard-yakiniku" },
+          { label: "和食居酒屋", href: "/sample/standard-izakaya" },
+        ],
         pages: "5ページ（ホーム／メニュー／スタッフ紹介／お客様の声／アクセス）",
         includes: [
           "ページ間の画面遷移演出、お客様の声の自動切り替え表示",
@@ -186,8 +196,13 @@ export const siteConfig = {
         price: "300,000円〜",
         monitorPrice: "150,000円〜",
         description: "デザイン性・ページ規模ともにこだわった上位プラン",
-        sampleHref: "/sample/high",
-        pages: "6ページ以上（ホーム／コンセプト／実績一覧／実績詳細ページ×2／お問い合わせ）",
+        sampleHref: "/sample/premium-clinic",
+        samples: [
+          { label: "医療美容クリニック", href: "/sample/premium-clinic" },
+          { label: "割烹・寿司店", href: "/sample/premium-sushi" },
+          { label: "フレンチ・イタリアンレストラン", href: "/sample/premium-bistro" },
+        ],
+        pages: "6ページ以上（ホーム／メニュー・コース一覧／詳細ページ×2／スタッフ紹介／ご予約）",
         includes: [
           "実績詳細ページ（ケーススタディ形式）を含む拡張性の高い構成",
           "公開前の修正 5回まで",

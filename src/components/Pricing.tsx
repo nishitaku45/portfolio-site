@@ -91,6 +91,38 @@ export default function Pricing() {
                 ))}
               </ul>
             </div>
+
+            {plan.samples && (
+              <div
+                className={`mt-5 border-t pt-5 ${
+                  plan.featured ? "border-background/20" : "border-brand-100"
+                }`}
+              >
+                <p
+                  className={`text-xs font-semibold tracking-wide ${
+                    plan.featured ? "text-background/90" : "text-brand-700"
+                  }`}
+                >
+                  制作実績（{plan.samples.length}件）
+                </p>
+                <ul className="mt-3 flex flex-wrap gap-x-4 gap-y-1.5">
+                  {plan.samples.map((sample) => (
+                    <li key={sample.href}>
+                      <Link
+                        href={sample.href}
+                        className={`text-xs underline underline-offset-4 ${
+                          plan.featured
+                            ? "text-gold hover:text-background"
+                            : "text-gold-dark hover:text-brand-900"
+                        }`}
+                      >
+                        {sample.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
         ))}
       </div>
