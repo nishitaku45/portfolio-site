@@ -5,9 +5,9 @@
 
 export const siteConfig = {
   // 屋号・ニックネーム（仮）。決まったら書き換えてください。
-  brandName: "Web&LINE工房",
+  brandName: "Web制作工房",
   // ブラウザのタブに表示されるタイトルと説明文（SEO用）
-  metaTitle: "Web&LINE工房｜ホームページ制作・公式LINE構築",
+  metaTitle: "Web制作工房｜ホームページ制作・公式LINE構築",
   metaDescription:
     "ホームページ制作と公式LINEアカウント構築を、ヒアリングから公開・運用まで丁寧にサポートします。",
 
@@ -364,7 +364,7 @@ export const siteConfig = {
 
   // フッター
   footer: {
-    copyright: `© ${new Date().getFullYear()} Web&LINE工房`,
+    copyright: `© ${new Date().getFullYear()} Web制作工房`,
   },
 };
 

@@ -19,7 +19,7 @@ npm run dev
 
 編集しておきたい主な項目：
 
-- `brandName` … 屋号・ニックネーム（今は仮で「Web&LINE工房」になっています）
+- `brandName` … 屋号・ニックネーム（現在は「Web制作工房」）
 - `hero.primaryCta.href` / `contact.lineUrl` … 公式LINEのURL（`https://line.me/R/ti/p/@your-line-id` の部分を実際のURLに差し替え）
 - `about.paragraphs` … 自己紹介文
 - `pricing.plans` … 料金プラン・金額（仮の金額を入れています）

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { grain } from "./theme";
 
 export const metadata: Metadata = {
-  title: "サンプル：スタンダードプランの制作イメージ｜Web&LINE工房",
+  title: "サンプル：スタンダードプランの制作イメージ｜Web制作工房",
   description: "スタンダードプランで制作した場合のサンプルホームページです。",
 };
 

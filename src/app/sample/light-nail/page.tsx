@@ -3,7 +3,7 @@ import SampleBanner from "@/components/SampleBanner";
 import AutoHeightIframe from "@/components/AutoHeightIframe";
 
 export const metadata: Metadata = {
-  title: "サンプル：ライトプランの制作実績②｜Web&LINE工房",
+  title: "サンプル：ライトプランの制作実績②｜Web制作工房",
   description: "ライトプランで制作した場合のサンプルホームページ（ネイルサロン）です。",
 };
 

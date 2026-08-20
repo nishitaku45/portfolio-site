@@ -3,7 +3,7 @@ import SampleBanner from "@/components/SampleBanner";
 import AutoHeightIframe from "@/components/AutoHeightIframe";
 
 export const metadata: Metadata = {
-  title: "サンプル：スタンダードプランの制作実績③｜Web&LINE工房",
+  title: "サンプル：スタンダードプランの制作実績③｜Web制作工房",
   description: "スタンダードプランで制作した場合のサンプルホームページ（和食居酒屋）です。",
 };
 

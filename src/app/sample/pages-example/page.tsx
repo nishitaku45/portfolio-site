@@ -3,7 +3,7 @@ import SampleBanner from "@/components/SampleBanner";
 import AutoHeightIframe from "@/components/AutoHeightIframe";
 
 export const metadata: Metadata = {
-  title: "サンプル：「ページ追加」オプションの制作例（9ページ構成）｜Web&LINE工房",
+  title: "サンプル：「ページ追加」オプションの制作例（9ページ構成）｜Web制作工房",
   description:
     "「ページ追加」オプションを使って9ページ構成にした場合の制作例です。架空の美容クリニックを題材にしたサンプルサイトです。",
 };
