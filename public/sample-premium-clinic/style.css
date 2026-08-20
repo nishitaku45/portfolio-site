@@ -228,10 +228,12 @@ button { font: inherit; cursor: pointer; }
 .benefit-rail-icon svg { width: 22px; height: 22px; }
 .benefit-rail-item h3 { font-size: 0.95rem; margin-bottom: 4px; }
 .benefit-rail-item p { font-size: 0.82rem; color: var(--color-text-light); }
-.reserve-alt { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-.reserve-alt-card { background: var(--color-surface); border-radius: 6px; padding: 28px; text-align: center; }
-.reserve-alt-card h3 { font-size: 1rem; margin-bottom: 10px; }
-.reserve-alt-card p { font-size: 0.85rem; color: var(--color-text-light); }
+/* お電話・LINE のご案内（カードではなく、罫線で仕切っただけの帯） */
+.reserve-contact { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); }
+.reserve-contact-item { padding: 30px 26px; text-align: center; }
+.reserve-contact-item:first-child { border-right: 1px solid var(--color-border); }
+.reserve-contact-item h3 { font-size: 1rem; margin-bottom: 10px; }
+.reserve-contact-item p { font-size: 0.85rem; color: var(--color-text-light); }
 
 /* CTA */
 .cta-band { position: relative; background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary)); color: #fff; text-align: center; padding: 64px 0; }
@@ -271,7 +273,8 @@ button { font: inherit; cursor: pointer; }
   .nav.nav-open { max-height: 320px; }
   .nav a { display: block; padding: 16px 24px; border-bottom: 1px solid rgba(0, 0, 0, 0.04); }
   .nav a::after { display: none; }
-  .before-after-grid, .reserve-alt { grid-template-columns: 1fr; }
+  .before-after-grid, .reserve-contact { grid-template-columns: 1fr; }
+  .reserve-contact-item:first-child { border-right: none; border-bottom: 1px solid var(--color-border); }
 
   .hero-editorial { padding: 40px 0 64px; }
   .hero-editorial-grid { grid-template-columns: 1fr; gap: 40px; }

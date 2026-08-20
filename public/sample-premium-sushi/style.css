@@ -141,7 +141,9 @@ a.menu-board-row:hover { background: rgba(255, 255, 255, 0.04); }
 .price-tag-value { font-family: var(--font-base); font-size: 1.35rem; }
 .price-tag-monitor { display: block; margin-top: 8px; font-size: 0.8rem; color: var(--color-accent); }
 
-.before-after-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.before-after-grid { display: flex; gap: 16px; }
+.before-after-grid .before-after-item { flex: 1.6; min-width: 0; }
+.before-after-grid .before-after-item + .before-after-item { flex: 1; }
 .before-after-item { aspect-ratio: 4 / 3; border-radius: 4px; background: radial-gradient(120% 100% at 25% 15%, rgba(255, 255, 255, 0.6), transparent 60%), #e4e6e2; box-shadow: inset 0 0 0 1px rgba(28, 26, 23, 0.06); display: flex; align-items: center; justify-content: center; color: var(--color-text-light); font-size: 0.85rem; text-align: center; padding: 16px; }
 .before-after-note { margin-top: 10px; font-size: 0.75rem; color: var(--color-text-light); }
 .flow-list { position: relative; display: flex; flex-direction: column; gap: 22px; }
@@ -181,10 +183,11 @@ a.menu-board-row:hover { background: rgba(255, 255, 255, 0.04); }
 .benefit-seal-icon svg { width: 20px; height: 20px; }
 .benefit-seal h3 { font-size: 0.9rem; margin-bottom: 6px; }
 .benefit-seal p { font-size: 0.78rem; color: var(--color-text-light); }
-.reserve-alt { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-.reserve-alt-card { background: var(--color-surface); border-radius: 6px; padding: 28px; text-align: center; }
-.reserve-alt-card h3 { font-size: 1rem; margin-bottom: 10px; }
-.reserve-alt-card p { font-size: 0.85rem; color: var(--color-text-light); }
+/* お電話・LINE のご案内（木札風の塗りつぶしカードを並べる） */
+.reserve-tags { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.reserve-tag { background: var(--color-primary-dark); color: #fff; border-radius: 2px; padding: 28px 24px; text-align: center; }
+.reserve-tag h3 { font-size: 1rem; margin-bottom: 10px; }
+.reserve-tag p { font-size: 0.85rem; color: rgba(255, 255, 255, 0.75); }
 
 .cta-band { position: relative; background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary)); color: #fff; text-align: center; padding: 64px 0; }
 .cta-band::before { content: ""; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 44px; height: 1px; background: rgba(255, 255, 255, 0.45); }
@@ -213,7 +216,8 @@ a.menu-board-row:hover { background: rgba(255, 255, 255, 0.04); }
   .nav.nav-open { max-height: 320px; }
   .nav a { display: block; padding: 16px 24px; border-bottom: 1px solid rgba(0, 0, 0, 0.04); }
   .nav a::after { display: none; }
-  .before-after-grid, .reserve-alt, .benefit-seals { grid-template-columns: 1fr; }
+  .before-after-grid { flex-direction: column; }
+  .reserve-tags, .benefit-seals { grid-template-columns: 1fr; }
 
   .hero-noren { padding: 64px 0; }
   .hero-noren-vertical { display: none; }

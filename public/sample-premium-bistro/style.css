@@ -158,7 +158,8 @@ a.carte-course:hover { background: rgba(168, 83, 47, 0.04); }
 .detail-carte-regular { font-size: 0.76rem; color: var(--color-text-light); }
 .detail-carte-monitor { font-family: var(--font-base); font-size: 1.05rem; color: var(--color-primary-dark); }
 
-.before-after-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.before-after-grid { display: flex; flex-direction: column; gap: 16px; }
+.before-after-grid .before-after-item { aspect-ratio: 16 / 9; }
 .before-after-item { aspect-ratio: 4 / 3; border-radius: 4px; background: radial-gradient(120% 100% at 25% 15%, rgba(255, 255, 255, 0.6), transparent 60%), #ece0d3; box-shadow: inset 0 0 0 1px rgba(28, 26, 23, 0.06); display: flex; align-items: center; justify-content: center; color: var(--color-text-light); font-size: 0.85rem; text-align: center; padding: 16px; }
 .before-after-note { margin-top: 10px; font-size: 0.75rem; color: var(--color-text-light); }
 
@@ -200,10 +201,14 @@ a.carte-course:hover { background: rgba(168, 83, 47, 0.04); }
 .benefit-ticket-icon svg { width: 21px; height: 21px; }
 .benefit-ticket h3 { font-size: 0.9rem; margin-bottom: 6px; }
 .benefit-ticket p { font-size: 0.78rem; color: var(--color-text-light); }
-.reserve-alt { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-.reserve-alt-card { background: var(--color-surface); border-radius: 6px; padding: 28px; text-align: center; }
-.reserve-alt-card h3 { font-size: 1rem; margin-bottom: 10px; }
-.reserve-alt-card p { font-size: 0.85rem; color: var(--color-text-light); }
+/* お電話・LINE のご案内（メニューカードと同じ二重罫線の額装ボックス） */
+.reserve-carte { position: relative; padding: 8px; border: 1px solid var(--color-primary); }
+.reserve-carte::before { content: ""; position: absolute; inset: 8px; border: 1px solid var(--color-border); pointer-events: none; }
+.reserve-carte-grid { position: relative; display: grid; grid-template-columns: 1fr 1fr; }
+.reserve-carte-item { padding: 26px 24px; text-align: center; }
+.reserve-carte-item:first-child { border-right: 1px dashed var(--color-border); }
+.reserve-carte-item h3 { font-family: var(--font-base); font-size: 1rem; margin-bottom: 10px; }
+.reserve-carte-item p { font-size: 0.85rem; color: var(--color-text-light); }
 
 .cta-band { position: relative; background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary)); color: #fff; text-align: center; padding: 64px 0; }
 .cta-band::before { content: ""; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 44px; height: 1px; background: rgba(255, 255, 255, 0.45); }
@@ -233,7 +238,9 @@ a.carte-course:hover { background: rgba(168, 83, 47, 0.04); }
   .nav.nav-open { max-height: 320px; }
   .nav a { display: block; padding: 16px 24px; border-bottom: 1px solid rgba(0, 0, 0, 0.04); }
   .nav a::after { display: none; }
-  .before-after-grid, .reserve-alt, .benefit-tickets { grid-template-columns: 1fr; }
+  .benefit-tickets { grid-template-columns: 1fr; }
+  .reserve-carte-grid { grid-template-columns: 1fr; }
+  .reserve-carte-item:first-child { border-right: none; border-bottom: 1px dashed var(--color-border); }
 
   .hero-chalk-photo { height: 220px; }
   .hero-chalk-board { margin-top: -70px; padding: 32px 26px; }
