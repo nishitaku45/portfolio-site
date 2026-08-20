@@ -54,6 +54,7 @@ button { font: inherit; cursor: pointer; }
 .breadcrumb { padding: 13px 0; font-size: 0.76rem; color: var(--color-text-light); border-bottom: 1px solid var(--color-border); }
 .breadcrumb a { color: var(--color-primary-dark); }
 .floating-reserve { position: fixed; right: 20px; bottom: 20px; z-index: 90; box-shadow: 0 10px 30px rgba(122, 58, 31, 0.35); }
+.floating-reserve-icon { display: none; }
 
 .btn { display: inline-block; padding: 15px 34px; border-radius: 2px; font-size: 0.86rem; font-weight: 600; letter-spacing: 0.08em; transition: transform 0.25s, box-shadow 0.25s, background 0.25s; }
 .btn:active { transform: scale(0.97); }
@@ -77,7 +78,7 @@ button { font: inherit; cursor: pointer; }
 
 /* ヒーロー（黒板の看板風：写真の上に黒板カードを斜めに重ねる） */
 .hero-chalk { position: relative; padding-bottom: 100px; }
-.hero-chalk-photo { height: 340px; background: radial-gradient(120% 100% at 15% 10%, rgba(255, 255, 255, 0.14), transparent 55%), linear-gradient(150deg, var(--color-ink), var(--color-primary)); }
+.hero-chalk-photo { height: 340px; background: radial-gradient(120% 100% at 15% 10%, rgba(255, 255, 255, 0.14), transparent 55%), linear-gradient(150deg, var(--color-ink), var(--color-primary)); display: flex; align-items: center; justify-content: center; color: rgba(255, 255, 255, 0.65); font-size: 0.82rem; letter-spacing: 0.04em; text-align: center; padding: 24px; }
 .hero-chalk-board { position: relative; margin: -110px auto 0; max-width: 620px; background: #2b2420; color: #f4ede1; border-radius: 6px; padding: 44px 46px; box-shadow: 0 32px 74px rgba(28, 26, 23, 0.26); }
 .hero-chalk-board.reveal { transform: translateY(26px) rotate(-1deg); }
 .hero-chalk-board.reveal.is-visible { transform: rotate(-1deg); }
@@ -90,7 +91,7 @@ button { font: inherit; cursor: pointer; }
 /* 生産者へのこだわり（写真＋数字を組み合わせた帯） */
 .grower-band { background: var(--color-surface); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); padding: 64px 0; }
 .grower-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 48px; align-items: center; }
-.grower-photo { height: 300px; border-radius: 4px; background: radial-gradient(120% 100% at 80% 15%, rgba(255, 255, 255, 0.18), transparent 55%), linear-gradient(150deg, var(--color-accent), var(--color-primary)); }
+.grower-photo { height: 300px; border-radius: 4px; background: radial-gradient(120% 100% at 80% 15%, rgba(255, 255, 255, 0.18), transparent 55%), linear-gradient(150deg, var(--color-accent), var(--color-primary)); display: flex; align-items: center; justify-content: center; color: rgba(255, 255, 255, 0.75); font-size: 0.82rem; letter-spacing: 0.04em; text-align: center; padding: 20px; }
 .grower-copy h2 { font-family: var(--font-base); font-size: 1.5rem; margin-bottom: 16px; }
 .grower-copy > p { color: var(--color-text-light); margin-bottom: 26px; }
 .grower-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px 28px; }
@@ -161,7 +162,7 @@ a.carte-course:hover { background: rgba(168, 83, 47, 0.04); }
 
 /* シェフ紹介（黒板の署名風スポットライト＋千鳥配置のチームプレート） */
 .chef-spotlight { display: grid; grid-template-columns: 1fr 1.3fr; gap: 48px; align-items: center; padding: 8px 0 64px; }
-.chef-spotlight-photo { height: 320px; border-radius: 4px; background: linear-gradient(160deg, #ecd9c8, #4a5c3f33); }
+.chef-spotlight-photo { height: 320px; border-radius: 4px; background: linear-gradient(160deg, #ecd9c8, #4a5c3f33); display: flex; align-items: center; justify-content: center; color: var(--color-text-light); font-size: 0.8rem; text-align: center; padding: 16px; }
 .chef-spotlight-copy { background: #2b2420; color: #f4ede1; border-radius: 6px; padding: 34px 36px; }
 .chef-spotlight-role { font-size: 0.78rem; color: rgba(244, 237, 225, 0.6); margin-bottom: 12px; letter-spacing: 0.05em; }
 .chef-spotlight blockquote { font-family: var(--font-base); font-size: 1.15rem; line-height: 2; }
@@ -171,7 +172,7 @@ a.carte-course:hover { background: rgba(168, 83, 47, 0.04); }
 .team-plate:nth-child(even) { margin-top: 34px; }
 .team-plate:nth-child(2) { transition-delay: 0.08s; }
 .team-plate:nth-child(3) { transition-delay: 0.16s; }
-.team-plate-photo { height: 150px; border-radius: 4px; margin-bottom: 14px; overflow: hidden; background: linear-gradient(160deg, #ecd9c8, #4a5c3f33); transition: transform 0.3s ease, filter 0.3s ease; }
+.team-plate-photo { height: 150px; border-radius: 4px; margin-bottom: 14px; overflow: hidden; background: linear-gradient(160deg, #ecd9c8, #4a5c3f33); display: flex; align-items: center; justify-content: center; color: var(--color-text-light); font-size: 0.7rem; text-align: center; padding: 10px; transition: transform 0.3s ease, filter 0.3s ease; }
 .team-plate:hover .team-plate-photo { transform: scale(1.04); filter: brightness(1.05); }
 .team-plate-board { background: #2b2420; color: #f4ede1; border-radius: 4px; padding: 12px 10px; }
 .team-plate-role { display: block; font-size: 0.68rem; color: rgba(244, 237, 225, 0.6); margin-bottom: 4px; letter-spacing: 0.05em; }
@@ -187,6 +188,7 @@ a.carte-course:hover { background: rgba(168, 83, 47, 0.04); }
 .benefit-ticket { position: relative; display: flex; align-items: center; gap: 18px; padding: 22px 24px 22px 30px; background: var(--color-surface); border-radius: 4px; box-shadow: 0 10px 28px rgba(28, 26, 23, 0.08); overflow: hidden; }
 .benefit-ticket::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: repeating-linear-gradient(to bottom, var(--color-accent) 0 6px, transparent 6px 13px); }
 .benefit-ticket-icon { width: 48px; height: 48px; flex-shrink: 0; border-radius: 50%; background: rgba(168, 83, 47, 0.1); color: var(--color-primary-dark); display: flex; align-items: center; justify-content: center; font-family: var(--font-base); font-size: 1.05rem; }
+.benefit-ticket-icon svg { width: 21px; height: 21px; }
 .benefit-ticket h3 { font-size: 0.9rem; margin-bottom: 6px; }
 .benefit-ticket p { font-size: 0.78rem; color: var(--color-text-light); }
 .reserve-alt { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
@@ -245,6 +247,7 @@ a.carte-course:hover { background: rgba(168, 83, 47, 0.04); }
 
   .team-plate:nth-child(even) { margin-top: 0; }
 
-  .floating-reserve { right: 16px; bottom: 16px; display: flex; align-items: center; justify-content: center; width: 56px; height: 56px; padding: 0; border-radius: 50%; font-size: 0; }
-  .floating-reserve::before { content: "📅"; font-size: 22px; }
+  .floating-reserve { right: 16px; bottom: 16px; display: flex; align-items: center; justify-content: center; width: 56px; height: 56px; padding: 0; border-radius: 50%; }
+  .floating-reserve-label { display: none; }
+  .floating-reserve-icon { display: block; width: 22px; height: 22px; }
 }

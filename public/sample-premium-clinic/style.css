@@ -56,6 +56,7 @@ button { font: inherit; cursor: pointer; }
 .breadcrumb { padding: 13px 0; font-size: 0.76rem; color: var(--color-text-light); border-bottom: 1px solid var(--color-border); }
 .breadcrumb a { color: var(--color-primary-dark); }
 .floating-reserve { position: fixed; right: 20px; bottom: 20px; z-index: 90; box-shadow: 0 10px 30px rgba(111, 74, 52, 0.35); }
+.floating-reserve-icon { display: none; }
 
 /* ボタン */
 .btn { display: inline-block; padding: 15px 34px; border-radius: 2px; font-size: 0.86rem; font-weight: 600; letter-spacing: 0.08em; transition: transform 0.25s, box-shadow 0.25s, background 0.25s; }
@@ -215,6 +216,7 @@ button { font: inherit; cursor: pointer; }
 .benefit-rail-item:nth-child(3) { transition-delay: 0.12s; }
 .benefit-rail-item:nth-child(4) { transition-delay: 0.18s; }
 .benefit-rail-icon { width: 52px; height: 52px; flex-shrink: 0; border-radius: 50%; background: rgba(156, 107, 79, 0.12); color: var(--color-primary-dark); display: flex; align-items: center; justify-content: center; font-family: var(--font-base); font-size: 1.1rem; }
+.benefit-rail-icon svg { width: 22px; height: 22px; }
 .benefit-rail-item h3 { font-size: 0.95rem; margin-bottom: 4px; }
 .benefit-rail-item p { font-size: 0.82rem; color: var(--color-text-light); }
 .reserve-alt { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
@@ -294,6 +296,7 @@ button { font: inherit; cursor: pointer; }
 
   /* フローティング予約ボタン: スマホでは丸いアイコンボタンに縮小し、
      カード下部のリンクを覆い隠さないようにする（他プランのサンプルと同じ修正） */
-  .floating-reserve { right: 16px; bottom: 16px; display: flex; align-items: center; justify-content: center; width: 56px; height: 56px; padding: 0; border-radius: 50%; font-size: 0; }
-  .floating-reserve::before { content: "📅"; font-size: 22px; }
+  .floating-reserve { right: 16px; bottom: 16px; display: flex; align-items: center; justify-content: center; width: 56px; height: 56px; padding: 0; border-radius: 50%; }
+  .floating-reserve-label { display: none; }
+  .floating-reserve-icon { display: block; width: 22px; height: 22px; }
 }
